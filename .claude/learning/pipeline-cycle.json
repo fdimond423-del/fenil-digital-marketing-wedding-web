@@ -1,0 +1,17 @@
+{
+  "collectedAt": "2026-11-24T16:39:10.519Z",
+  "attributionMtime": 1795538350513.4182,
+  "circuitOpen": false,
+  "runsLastMinute": 1,
+  "indexedAt": "2026-11-24T16:14:23.816Z",
+  "runsFileMtime": 0,
+  "runsFileSize": 0,
+  "analyzedAt": "2026-11-24T16:14:23.871Z",
+  "trace": {
+    "errors": [],
+    "indexMs": 23,
+    "analyzeMs": 57,
+    "totalMs": 80,
+    "lastCompletedAt": "2026-11-24T16:14:23.878Z"
+  }
+}

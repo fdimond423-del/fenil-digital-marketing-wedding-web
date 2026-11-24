@@ -1,0 +1,36 @@
+/* Pichola theme: sunrise apricot, marigold, lake teal and plum */
+:root{--fh:"Bodoni",Georgia,serif;--fs:"BodoniI",Georgia,serif;--fq:"BodoniI",Georgia,serif;--fb:"Figtree",system-ui,sans-serif;--fsym:"Bodoni",serif;--flocal:"BodoniI",serif;
+  --h2w:500;--nw:500;--evw:500;--btn-bg:#5B2340;--btn-ink:#FFF6EC;--music-bg:#2F6B70;
+  --tex:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='32'%3E%3Cpath d='M0 20q8-6 16 0t16 0t16 0t16 0' fill='none' stroke='%232F6B70' stroke-opacity='.09' stroke-width='1.2'/%3E%3C/svg%3E");
+  --frame-r:50% 50% 16px 16px / 28% 28% 16px 16px;--cd-veil:linear-gradient(rgba(70,30,40,.25),rgba(50,20,36,.72));--cd-acc:#FFD08A;--foot-bg:#3B1A2C;--foot-ink:#FBEFE6;--foot-head:#F7B85A;--foot-muted:#D8BFC6}
+.tex{background-size:64px 32px}
+.op{--op-h:230vh;background:#F2B98A}
+.pc-bg{position:absolute;inset:0}
+.pc-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;transform:scale(1.12);transform-origin:60% 45%}
+.pc-sun{position:absolute;left:68%;top:43%;width:120vw;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(255,236,190,.75),rgba(255,200,140,.25) 35%,transparent 62%);opacity:.45;pointer-events:none;mix-blend-mode:screen;animation:pcSun 5s ease-in-out infinite alternate}
+@keyframes pcSun{to{filter:brightness(1.15)}}
+.pc-title{position:absolute;left:0;right:0;top:7svh;z-index:4;text-align:center}
+.pc-std{font:italic 500 clamp(40px,12vw,72px)/1 var(--fs);color:#5B2340;letter-spacing:.01em;text-shadow:0 2px 20px rgba(255,236,214,.8);animation:pcIn 1.4s ease .4s both}
+.pc-std::after{content:"";display:block;width:64px;height:1.5px;margin:16px auto 0;background:#B5562A}
+@keyframes pcIn{from{opacity:0;transform:translateY(12px)}}
+.pc-names{position:absolute;left:0;right:0;top:19svh;z-index:4;text-align:center;padding:0 20px;opacity:0}
+.pc-h1{display:flex;align-items:baseline;justify-content:center;gap:.25em;flex-wrap:wrap;font:500 clamp(40px,11.5vw,72px)/1.1 var(--fh);color:#3B1A2C;text-shadow:0 2px 22px rgba(255,236,214,.85)}
+.pc-h1 em{font:italic 400 .7em/1 var(--fq);color:#B5562A}
+.pc-date{margin-top:10px;font:600 15px/1.4 var(--fb);letter-spacing:.24em;text-transform:uppercase;color:#3B1A2C}
+.pc-city{margin-top:4px;font:italic 400 20px/1.4 var(--fq);color:#6B2E3E}
+.pc-boat{position:absolute;left:4vw;top:67svh;z-index:5;width:min(84vw,520px);animation:pcGlide 3.4s cubic-bezier(.2,.7,.25,1) .2s both}
+@keyframes pcGlide{from{translate:-100vw 0}}
+.pc-bob{position:relative;animation:pcBob 3.6s ease-in-out infinite alternate}
+@keyframes pcBob{from{transform:translateY(-2px) rotate(-.8deg)}to{transform:translateY(3px) rotate(.8deg)}}
+.pc-bob img{display:block;width:100%;height:auto}
+.pc-b{filter:drop-shadow(0 6px 6px rgba(60,20,10,.25))}
+.pc-r{position:absolute;left:0;top:96%;transform:scaleY(-.55);transform-origin:50% 0;opacity:.32;filter:blur(1.5px) saturate(.8);-webkit-mask:linear-gradient(#000,transparent 80%);mask:linear-gradient(#000,transparent 80%)}
+.pc-wake{position:absolute;right:88%;top:86%;width:70%;height:30px;pointer-events:none}
+.pc-wake i{position:absolute;right:0;top:0;width:100%;height:100%;border-radius:50%;border:1.5px solid rgba(255,244,226,.55);border-left:0;border-right:0;opacity:0;animation:pcWake 2.6s ease-out infinite}
+.pc-wake i:nth-child(2){animation-delay:.85s}.pc-wake i:nth-child(3){animation-delay:1.7s}
+@keyframes pcWake{0%{opacity:.8;transform:scale(.2,.4);transform-origin:100% 50%}100%{opacity:0;transform:scale(1,1.1);transform-origin:100% 50%}}
+.op .op-hint{--hint:#FFF6EC}.op .op-hint span{background:rgba(59,26,44,.6);padding:9px 14px;border-radius:999px;backdrop-filter:blur(4px)}
+.b-line{font:italic 500 clamp(30px,8.4vw,46px)/1.2 var(--fs);color:var(--head)}
+.cp-frame{border:6px solid #FFF8F0;box-shadow:0 0 0 1.5px #E3A24A,0 30px 60px -30px rgba(70,20,40,.55)}
+.ev{border:1px solid rgba(227,162,74,.45)}
+.rm .pc-names{opacity:1;transform:none}.rm .pc-bg img{transform:none}.rm .pc-boat{transform:translateX(30vw) scale(.7)}

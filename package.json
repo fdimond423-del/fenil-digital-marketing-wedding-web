@@ -1,0 +1,21 @@
+{
+  "name": "knotlink-wedding-platform",
+  "version": "1.0.0",
+  "description": "Knotlink: Painted Wedding Invitation Websites Platform - 1:1 Complete Full-Stack Clone",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "server": "node server.js"
+  },
+  "keywords": [
+    "wedding",
+    "invitation",
+    "knotlink",
+    "digital-marketing",
+    "nfc-cards",
+    "wedding-websites"
+  ],
+  "author": "Fenil Limbachiya",
+  "license": "ISC"
+}
