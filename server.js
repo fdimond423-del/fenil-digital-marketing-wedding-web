@@ -75,9 +75,12 @@ const server = http.createServer(async (req, res) => {
   // Support redirects for Vishakha / custom wedding paths
   if (pathname.startsWith('/pages/wedding/')) {
     const slug = pathname.replace('/pages/wedding/', '').replace(/\/+$/, '');
-    res.writeHead(302, { 'Location': '/demos/' + slug + '/' });
-    res.end();
-    return;
+    const targetFile = path.join(ROOT_DIR, 'pages', 'wedding', slug, 'index.html');
+    if (fs.existsSync(targetFile)) {
+      res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
+      fs.createReadStream(targetFile).pipe(res);
+      return;
+    }
   }
 
   // API ROUTING: /api/create-order
