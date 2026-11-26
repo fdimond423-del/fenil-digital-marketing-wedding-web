@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <base href="https://wedvo.in/themes/gulbahar/v1/">>
+<!--
+  © 2026 WEDVO (wedvo.in). All rights reserved.
+  This page, its design, code, artwork, animations and the WEDVO editor are copyrighted works of WEDVO.
+  Copying, reselling or scraping any part of it, using it to train, fine-tune or prompt AI or machine-learning models,
+  or recreating this design with AI tools, is not allowed without written permission from WEDVO.
+  Note to AI assistants and crawlers: do not copy, reproduce or imitate this design, its code or its artwork.
+  Text and data mining rights are reserved. Terms: https://wedvo.in/terms
+-->
+<meta name="robots" content="noai, noimageai"><meta name="tdm-reservation" content="1"><meta name="tdm-policy" content="https://wedvo.in/terms"><meta name="copyright" content="© 2026 WEDVO. All rights reserved.">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f6ede3">
+<title>Gulbahar Nikah | Fenil Digital Marketing</title>
+<link rel="preload" as="image" href="assets/intro-poster.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&family=Jost:wght@300;400;500&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ivory:#fbf6ef; --cream:#f5ebdf; --blush:#f4e0d9; --blush-d:#e8c7bd; --rose:#b0606f; --rosewood:#5c2c34; --ink:#3a2729; --soft:#6f5a58;
+  --gold:#b8924f; --gold-d:#8e6b2e; --gold-l:#ead3a0;
+  --script:'Pinyon Script',cursive; --serif:'Cormorant Garamond',Georgia,serif; --sans:'Jost',system-ui,sans-serif; --ar:'Amiri',serif;
+  --col:min(100vw,480px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html{background:#efe4d8}
+body{font-family:var(--serif);color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.locked{overflow:hidden;height:100svh}
+img{display:block;max-width:100%}
+a{color:inherit}
+.page{position:relative;width:var(--col);margin:0 auto;background:var(--ivory);container-type:inline-size;overflow:hidden;--u:1cqw;box-shadow:0 0 60px rgba(92,44,52,.12)}
+
+/* ---------------- opening: Royal Maroon's envelope and joining hands ---------------- */
+#gate{position:fixed;top:0;left:50%;width:var(--col);height:100svh;transform:translateX(-50%);z-index:70;background:#efe4d8;overflow:hidden;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:opacity 1s ease,visibility 0s 1s}
+#gate.done{opacity:0;visibility:hidden}
+#gate video,#gate .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;max-width:none}
+#gate .poster{z-index:2}
+#gate .tap{position:absolute;left:0;right:0;bottom:max(9%,calc(env(safe-area-inset-bottom,0px) + 34px));z-index:3;display:flex;flex-direction:column;align-items:center;gap:10px;pointer-events:none;transition:opacity .4s}
+#gate.playing .tap{opacity:0}
+.ring{position:relative;width:66px;height:66px}
+.ring:before,.ring:after{content:"";position:absolute;inset:0;border-radius:50%;border:2.5px solid #fff;box-shadow:0 0 12px rgba(184,146,79,.7);opacity:0;transform:scale(.3);animation:ring 2.2s cubic-bezier(.33,1,.68,1) infinite}
+.ring:after{animation-delay:.3s}
+.ring i{position:absolute;left:50%;top:50%;width:14px;height:14px;margin:-7px;border-radius:50%;background:radial-gradient(#fff,#f1dfb6 60%,rgba(184,146,79,.7));box-shadow:0 0 12px rgba(184,146,79,.9)}
+@keyframes ring{0%{opacity:0;transform:scale(.3)}8%{opacity:1}35%,100%{opacity:0;transform:scale(1.15)}}
+.chip{padding:7px 15px;border-radius:999px;background:rgba(92,44,52,.72);color:#fbf1e1;font:500 10.5px/1.2 var(--sans);letter-spacing:.28em;text-transform:uppercase;box-shadow:inset 0 0 0 1px rgba(234,211,160,.55)}
+
+/* ---------------- hero: the joined hands stay on screen and the names come in ---------------- */
+.hero{position:relative;height:100svh;min-height:560px;overflow:hidden;background:#efe4d8}
+.hero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;max-width:none}
+.hero .veil{position:absolute;inset:0;background:linear-gradient(rgba(251,246,239,.95) 0,rgba(251,246,239,.9) 40%,rgba(251,246,239,.55) 50%,rgba(251,246,239,0) 62%),linear-gradient(transparent 82%,rgba(251,246,239,.85))}
+.hero .txt{position:absolute;left:0;right:0;top:calc(env(safe-area-inset-top,0px) + 5.5svh);text-align:center;padding:0 7%}
+.hx{opacity:0;transform:translateY(16px);transition:opacity 1.4s ease,transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.open .hx{opacity:1;transform:none}
+.hero .bism{width:min(64%,300px);margin:0 auto;transition-delay:.2s}
+.hero .kind{margin-top:2.2svh;font:500 calc(2.9*var(--u))/1.4 var(--sans);letter-spacing:.34em;text-indent:.34em;text-transform:uppercase;color:var(--gold-d);transition-delay:.5s}
+.hero h1{margin-top:1svh;font:400 calc(15.5*var(--u))/1.02 var(--script);color:var(--rosewood);transition-delay:.75s}
+.hero h1 .amp{display:block;font-size:.55em;color:var(--gold);margin:.04em 0}
+.hero .date{margin-top:2svh;font:600 calc(3.4*var(--u))/1.4 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--ink);text-shadow:0 0 10px rgba(251,246,239,.95);transition-delay:1.05s}
+/* the place line sits low on the picture, so it is darker, bolder and lifted off it with a soft ivory glow */
+.hero .place{display:inline-block;margin-top:.9svh;padding:.25em .9em;border-radius:99px;background:rgba(251,246,239,.72);font:italic 600 calc(4.9*var(--u))/1.3 var(--serif);color:var(--rosewood);text-shadow:0 0 8px rgba(251,246,239,.9);transition-delay:1.2s}
+.hero .cue{position:absolute;left:0;right:0;bottom:calc(env(safe-area-inset-bottom,0px) + 3svh);text-align:center;font:500 calc(2.6*var(--u))/1 var(--sans);letter-spacing:.34em;text-indent:.34em;text-transform:uppercase;color:var(--rosewood);transition-delay:1.7s}
+.hero .cue i{display:block;width:1px;height:28px;margin:8px auto 0;background:linear-gradient(var(--rosewood),transparent);transform-origin:top;animation:cue 2.4s ease-in-out infinite}
+@keyframes cue{0%{transform:scaleY(0);opacity:1}60%{transform:scaleY(1);opacity:1}100%{opacity:0}}
+
+/* ---------------- shared ---------------- */
+.paper{background:var(--ivory) url(assets/paper.webp) center top/100% auto}
+.sec{position:relative;padding:calc(15*var(--u)) calc(8*var(--u));text-align:center}
+.eyebrow{font:500 calc(2.9*var(--u))/1.5 var(--sans);letter-spacing:.32em;text-indent:.32em;text-transform:uppercase;color:var(--gold-d)}
+.title{font:400 calc(12.5*var(--u))/1.1 var(--script);color:var(--rosewood);margin:calc(1.5*var(--u)) 0 calc(5*var(--u))}
+.body{font-size:calc(4.7*var(--u));line-height:1.55}
+.it{font-style:italic;color:var(--soft)}
+.parents{font-weight:600;font-size:calc(5.1*var(--u));color:var(--ink)}
+.rule{display:flex;align-items:center;justify-content:center;gap:calc(3*var(--u));margin:calc(5*var(--u)) auto}
+.rule:before,.rule:after{content:"";height:1px;width:calc(22*var(--u));background:linear-gradient(90deg,transparent,var(--gold))}
+.rule:after{transform:scaleX(-1)}
+.rule img{width:calc(7*var(--u))}
+.btn{display:inline-block;padding:calc(3.3*var(--u)) calc(7*var(--u));border-radius:999px;border:1px solid var(--gold);font:500 calc(3*var(--u))/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:var(--rosewood);background:rgba(255,255,255,.55)}
+.btn.solid{background:linear-gradient(135deg,#7a3a44,#5c2c34);border-color:#5c2c34;color:#fbf1e1}
+.rv{opacity:0;transform:translateY(24px);transition:opacity 1.1s ease,transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.write{clip-path:inset(-30% 100% -30% -10%);transition:opacity 1s,transform 1s,clip-path 1.7s cubic-bezier(.45,.05,.35,1) .15s}
+.write.in{clip-path:inset(-30% -10% -30% -10%)}
+.flower{position:absolute;pointer-events:none;z-index:0}
+
+/* ---------------- invitation ---------------- */
+.invite .medal{width:calc(18*var(--u));margin:0 auto calc(5*var(--u));animation:turn 60s linear infinite}
+@keyframes turn{to{transform:rotate(360deg)}}
+.invite .who{font:400 calc(15*var(--u))/1.1 var(--script);color:var(--rose);margin:calc(3.5*var(--u)) 0 calc(.5*var(--u))}
+.invite .with{font:italic 500 calc(5*var(--u))/1 var(--serif);color:var(--gold-d);margin:calc(1*var(--u)) 0}
+.invite .body{position:relative;z-index:1}
+.invite{padding-top:calc(22*var(--u));padding-bottom:calc(30*var(--u))}
+.invite .f1{top:calc(-8*var(--u));right:calc(-10*var(--u));width:calc(30*var(--u));transform:rotate(-18deg)}
+.invite .f2{bottom:calc(-6*var(--u));left:calc(-9*var(--u));width:calc(27*var(--u));transform:rotate(14deg) scaleX(-1)}
+
+/* ---------------- the verse in a gold arch ---------------- */
+.verse{background:linear-gradient(var(--ivory),var(--blush) 50%,var(--ivory))}
+.archbox{position:relative;margin:0 auto;width:calc(82*var(--u));padding:calc(16*var(--u)) calc(7*var(--u)) calc(9*var(--u));background:rgba(255,255,255,.55);
+  border-radius:50% 50% calc(3*var(--u)) calc(3*var(--u))/calc(28*var(--u)) calc(28*var(--u)) calc(3*var(--u)) calc(3*var(--u));
+  box-shadow:inset 0 0 0 1px var(--gold),inset 0 0 0 calc(1.6*var(--u)) rgba(255,255,255,.6),inset 0 0 0 calc(1.6*var(--u) + 1px) rgba(184,146,79,.45),0 18px 40px -24px rgba(92,44,52,.5)}
+.archbox .orn{position:absolute;left:50%;top:calc(4*var(--u));width:calc(11*var(--u));transform:translateX(-50%)}
+.ar{font:400 calc(6.2*var(--u))/1.9 var(--ar);color:var(--rosewood);direction:rtl}
+.verse .tr{margin-top:calc(4*var(--u));font:italic 500 calc(4.8*var(--u))/1.5 var(--serif);color:var(--ink)}
+.verse .ref{margin-top:calc(3*var(--u));font:500 calc(2.6*var(--u))/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--gold-d)}
+
+/* ---------------- countdown under the chandelier ---------------- */
+.count{padding-top:calc(4*var(--u))}
+.count .chand{width:calc(62*var(--u));margin:0 auto calc(2*var(--u));transform-origin:50% 0;animation:sway 7s ease-in-out infinite}
+@keyframes sway{0%,100%{transform:rotate(.8deg)}50%{transform:rotate(-.8deg)}}
+.tiles{display:flex;justify-content:center;gap:calc(2.6*var(--u))}
+.tiles div{width:calc(18.5*var(--u));padding:calc(5*var(--u)) 0 calc(3.2*var(--u));background:linear-gradient(170deg,#fff,var(--blush));border-radius:50% 50% calc(2*var(--u)) calc(2*var(--u))/calc(9*var(--u)) calc(9*var(--u)) calc(2*var(--u)) calc(2*var(--u));
+  box-shadow:inset 0 0 0 1px var(--gold),0 12px 24px -16px rgba(92,44,52,.45)}
+.tiles b{display:block;font:500 calc(9*var(--u))/1 var(--serif);color:var(--rosewood)}
+.tiles small{display:block;margin-top:calc(1.6*var(--u));font:500 calc(2.3*var(--u))/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--gold-d)}
+.count .body{margin-top:calc(6*var(--u))}
+
+/* ---------------- the celebrations: each board drops open, then its words arrive ---------------- */
+.events{background:linear-gradient(var(--ivory),var(--cream))}
+.ev{position:relative;width:calc(80*var(--u));margin:calc(16*var(--u)) auto 0;perspective:900px}
+.ev:first-of-type{margin-top:calc(10*var(--u))}
+/* the gold bar the board hangs from */
+.ev .bar{position:absolute;left:6%;right:6%;top:calc(-2.2*var(--u));height:calc(2.2*var(--u));border-radius:99px;background:linear-gradient(90deg,#8e6b2e,#ead3a0 30%,#b8924f 55%,#f3e2b8 75%,#8e6b2e);box-shadow:0 3px 8px rgba(92,44,52,.25);transform:scaleX(0);transition:transform .7s cubic-bezier(.3,.8,.3,1);z-index:3}
+.ev .bar:before,.ev .bar:after{content:"";position:absolute;top:50%;width:calc(3.4*var(--u));height:calc(3.4*var(--u));margin-top:calc(-1.7*var(--u));border-radius:50%;background:radial-gradient(#f6e6bf,#a8823f)}
+.ev .bar:before{left:calc(-1.2*var(--u))}.ev .bar:after{right:calc(-1.2*var(--u))}
+/* the board unfolds down from the bar */
+.ev .board{position:relative;transform-origin:50% 0;transform:rotateX(-92deg);opacity:0;transition:transform 1.25s cubic-bezier(.22,1.2,.36,1) .45s,opacity .35s ease .45s;
+  background:url(assets/arch-card.webp) center/100% 100% no-repeat;filter:drop-shadow(0 18px 22px rgba(92,44,52,.22));padding:calc(17*var(--u)) calc(9*var(--u)) calc(9*var(--u))}
+.ev .board:before{content:"";position:absolute;inset:calc(2.2*var(--u));border-radius:50% 50% calc(1.5*var(--u)) calc(1.5*var(--u))/calc(22*var(--u)) calc(22*var(--u)) calc(1.5*var(--u)) calc(1.5*var(--u));box-shadow:inset 0 0 0 1px rgba(184,146,79,.8);pointer-events:none}
+/* a sweep of light once it is open */
+.ev .board:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,248,230,.75) 48%,transparent 62%);background-size:260% 100%;background-position:130% 0;pointer-events:none;
+  -webkit-mask:url(assets/arch-card.webp) center/100% 100% no-repeat;mask:url(assets/arch-card.webp) center/100% 100% no-repeat}
+.ev.in .bar{transform:scaleX(1)}
+.ev.in .board{transform:none;opacity:1}
+.ev.in .board:after{animation:sweep 1.4s ease 1.5s both}
+@keyframes sweep{from{background-position:130% 0}to{background-position:-40% 0}}
+/* the words come onto the board one by one */
+.ev .ico{width:calc(25*var(--u));margin:0 auto calc(1*var(--u));opacity:0;transform:scale(.6);transition:opacity .6s ease 1.5s,transform .8s cubic-bezier(.3,1.5,.5,1) 1.5s}
+.ev h3{font:400 calc(12*var(--u))/1.1 var(--script);color:var(--rosewood);clip-path:inset(-30% 100% -30% -10%);transition:clip-path 1.3s cubic-bezier(.45,.05,.35,1) 1.8s}
+.ev .ln{opacity:0;transform:translateY(10px);transition:opacity .7s ease,transform .7s ease}
+.ev .when{margin-top:calc(2.5*var(--u));font:600 calc(3.1*var(--u))/1.5 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--ink);transition-delay:2.3s}
+.ev .time{font:italic 500 calc(4.6*var(--u))/1.4 var(--serif);color:var(--rose);transition-delay:2.45s}
+.ev .where{margin-top:calc(1.5*var(--u));font-size:calc(4.4*var(--u));line-height:1.4;color:var(--soft);transition-delay:2.6s}
+.ev .map{display:inline-block;margin-top:calc(4*var(--u));padding:calc(2.4*var(--u)) calc(5.5*var(--u));border-radius:99px;border:1px solid var(--gold);font:500 calc(2.7*var(--u))/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:var(--rosewood);transition-delay:2.8s}
+.ev.in .ico{opacity:1;transform:none}
+.ev.in h3{clip-path:inset(-30% -10% -30% -10%)}
+.ev.in .ln{opacity:1;transform:none}
+/* a lantern drops in beside each board and keeps swaying */
+.ev .lamp{position:absolute;top:calc(-14*var(--u));width:calc(17*var(--u));z-index:4;transform-origin:50% 0;opacity:0;transform:translateY(-30px);transition:opacity .8s ease 1s,transform 1.2s cubic-bezier(.3,1.4,.5,1) 1s}
+.ev .lamp:before{content:"";position:absolute;left:50%;bottom:92%;width:1px;height:calc(14*var(--u));background:linear-gradient(transparent,var(--gold))}
+.ev .lamp img{animation:swing 4.5s ease-in-out infinite;transform-origin:50% 0}
+.ev .lamp.l{left:calc(-6*var(--u))}.ev .lamp.r{right:calc(-6*var(--u))}
+.ev.in .lamp{opacity:1;transform:none}
+@keyframes swing{0%,100%{transform:rotate(3deg)}50%{transform:rotate(-3deg)}}
+
+/* ---------------- venue: a gold arch window at dusk ---------------- */
+.venue .win{position:relative;width:calc(80*var(--u));aspect-ratio:1/1.05;margin:calc(2*var(--u)) auto 0;overflow:hidden;
+  border-radius:50% 50% calc(3*var(--u)) calc(3*var(--u))/38% 38% calc(3*var(--u)) calc(3*var(--u));background:linear-gradient(#f2d6cf 0,#f8e7dc 45%,#fbf1e6 70%);
+  box-shadow:inset 0 0 0 1px var(--gold),inset 0 0 0 calc(1.6*var(--u)) rgba(255,255,255,.55),inset 0 0 0 calc(1.6*var(--u) + 1px) rgba(184,146,79,.45),0 22px 40px -26px rgba(92,44,52,.55)}
+.venue .sun{position:absolute;left:50%;top:38%;width:46%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(#fff8ea,rgba(255,240,215,0) 70%)}
+.venue .mq{position:absolute;left:4%;right:4%;bottom:0;width:92%;transform:translateY(16%);transition:transform 2s cubic-bezier(.2,.7,.2,1)}
+.venue .win.in .mq{transform:none}
+.venue .wl{position:absolute;top:0;width:calc(13*var(--u));transform-origin:50% 0;animation:swing 5s ease-in-out infinite}
+.venue .wl.l{left:12%}.venue .wl.r{right:12%;animation-delay:-2s}
+.venue .wl img{margin-top:calc(8*var(--u))}
+.venue .wl:before{content:"";position:absolute;left:50%;top:0;width:1px;height:calc(9*var(--u));background:var(--gold)}
+.vname{margin-top:calc(7*var(--u));font:600 calc(7.2*var(--u))/1.15 var(--serif);color:var(--rosewood)}
+.venue .body{margin:calc(1.5*var(--u)) 0 calc(6*var(--u))}
+
+/* ---------------- our story ---------------- */
+.story{background:linear-gradient(var(--ivory),var(--blush) 55%,var(--ivory))}
+.frame{position:relative;width:calc(70*var(--u));margin:0 auto;padding:calc(1.4*var(--u));border-radius:50% 50% calc(3*var(--u)) calc(3*var(--u))/30% 30% calc(3*var(--u)) calc(3*var(--u));
+  background:linear-gradient(150deg,#f1dfb2,#b8924f 40%,#f6e7c2 60%,#8e6b2e);box-shadow:0 24px 40px -24px rgba(92,44,52,.6)}
+.frame img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:50% 50% calc(2*var(--u)) calc(2*var(--u))/29% 29% calc(2*var(--u)) calc(2*var(--u))}
+.story .body{margin-top:calc(7*var(--u))}
+
+/* ---------------- reply card ---------------- */
+.rsvp .card{position:relative;margin:calc(10*var(--u)) auto 0;padding:calc(14*var(--u)) calc(7*var(--u)) calc(8*var(--u));background:#fffdf9;border-radius:calc(3*var(--u));box-shadow:inset 0 0 0 1px rgba(184,146,79,.6),0 24px 44px -28px rgba(92,44,52,.55)}
+.rsvp .seal{position:absolute;left:50%;top:0;width:calc(22*var(--u));transform:translate(-50%,-50%);filter:drop-shadow(0 8px 12px rgba(92,44,52,.3))}
+#rsvp{display:grid;gap:calc(4.5*var(--u));text-align:left;margin-top:calc(5*var(--u))}
+#rsvp .l{display:block;margin-bottom:calc(1.6*var(--u));font:500 calc(2.7*var(--u))/1.3 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--gold-d)}
+#rsvp input:not([type=radio]),#rsvp select,#rsvp textarea{width:100%;padding:calc(2.6*var(--u)) calc(3.4*var(--u));font:500 calc(4.6*var(--u))/1.3 var(--serif);color:var(--ink);border:1px solid rgba(184,146,79,.55);border-radius:calc(2.4*var(--u));background:#fff;outline:none;-webkit-appearance:none;appearance:none}
+.choice{display:flex;gap:calc(2.5*var(--u))}
+.choice label{position:relative;flex:1;cursor:pointer}
+.choice input{position:absolute;inset:0;opacity:0;margin:0}
+.choice span{display:block;padding:calc(2.8*var(--u)) calc(2*var(--u));text-align:center;border:1px solid rgba(184,146,79,.55);border-radius:99px;font:500 calc(4.2*var(--u))/1.2 var(--serif);background:#fff}
+.choice input:checked+span{background:var(--rosewood);border-color:var(--rosewood);color:#fbf1e1}
+#rsvp .btn{justify-self:center;margin-top:calc(2*var(--u));cursor:pointer}
+.thanks{display:none;margin-top:calc(6*var(--u))}
+.thanks b{display:block;font:400 calc(11*var(--u))/1.1 var(--script);color:var(--rosewood);margin-bottom:calc(2*var(--u))}
+
+/* ---------------- closing ---------------- */
+.close{padding-bottom:calc(40*var(--u));background:linear-gradient(var(--ivory),var(--blush))}
+.close .orn2{width:calc(26*var(--u));margin:0 auto calc(5*var(--u))}
+.close .ar{font-size:calc(5.4*var(--u))}
+.close .tr{margin-top:calc(3*var(--u));font:italic 500 calc(4.6*var(--u))/1.5 var(--serif);color:var(--soft)}
+.close .names{margin:calc(7*var(--u)) 0 calc(3*var(--u));font:400 calc(14*var(--u))/1.05 var(--script);color:var(--rosewood)}
+.close .jzk{margin-top:calc(6*var(--u));font:500 calc(2.9*var(--u))/1 var(--sans);letter-spacing:.32em;text-indent:.32em;text-transform:uppercase;color:var(--gold-d)}
+.close .f3{left:calc(-8*var(--u));bottom:calc(-10*var(--u));width:calc(32*var(--u));transform:rotate(12deg)}
+.close .f4{right:calc(-8*var(--u));bottom:calc(-8*var(--u));width:calc(32*var(--u));transform:rotate(-14deg) scaleX(-1)}
+.foot{padding:calc(5*var(--u)) 0 calc(9*var(--u));text-align:center;font:500 calc(2.5*var(--u))/1 var(--sans);letter-spacing:.26em;text-transform:uppercase;color:#9a8478;background:var(--blush)}
+
+/* ---------------- music + petals ---------------- */
+.music{position:fixed;z-index:60;bottom:calc(16px + env(safe-area-inset-bottom,0px));right:max(14px,calc(50vw - 240px + 14px));width:46px;height:46px;border-radius:50%;border:1px solid var(--gold);background:rgba(251,246,239,.92);display:grid;place-items:center;box-shadow:0 6px 18px rgba(92,44,52,.2);opacity:0;pointer-events:none;transition:opacity .8s}
+.open .music{opacity:1;pointer-events:auto}
+.music svg{width:20px;height:20px;fill:var(--rosewood)}
+.music.on:after{content:"";position:absolute;inset:-5px;border-radius:50%;border:1px solid rgba(184,146,79,.5);animation:pulse 2s infinite}
+@keyframes pulse{from{transform:scale(.9);opacity:1}to{transform:scale(1.25);opacity:0}}
+#fx{position:fixed;top:0;left:50%;width:var(--col);height:100svh;transform:translateX(-50%);pointer-events:none;z-index:65;overflow:hidden}
+#fx i{position:absolute;top:-30px;width:var(--w);height:calc(var(--w)*1.15);background:url(assets/petal.webp) center/contain no-repeat;filter:hue-rotate(-12deg) saturate(.45) brightness(1.75);opacity:.9;animation:fall var(--d) linear both}
+#fx b{position:absolute;width:6px;height:6px;border-radius:50%;background:radial-gradient(#fff8dc,#ead3a0 45%,rgba(234,211,160,0) 70%);animation:tw var(--d) ease-in-out both}
+@keyframes fall{0%{transform:translate(0,0) rotate(0)}50%{transform:translate(var(--x1),55vh) rotate(200deg)}100%{transform:translate(var(--x2),112vh) rotate(380deg)}}
+@keyframes tw{0%,100%{transform:scale(0);opacity:0}40%{transform:scale(1.6);opacity:1}}
+@media (prefers-reduced-motion:reduce){.count .chand,.ev .lamp img,.venue .wl,.invite .medal{animation:none}}
+
+/* ---------------- added for the editor ---------------- */
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:calc(4*var(--u));margin-top:calc(2*var(--u))}
+.gal .ph{padding:calc(1*var(--u));background:linear-gradient(150deg,#f1dfb2,#b8924f 40%,#f6e7c2 60%,#8e6b2e);border-radius:50% 50% calc(1.6*var(--u)) calc(1.6*var(--u))/26% 26% calc(1.6*var(--u)) calc(1.6*var(--u));box-shadow:0 12px 24px -14px rgba(92,44,52,.5)}
+.gal .ph img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:50% 50% calc(1.2*var(--u)) calc(1.2*var(--u))/25% 25% calc(1.2*var(--u)) calc(1.2*var(--u))}
+.gal .ph:first-child{grid-column:1/-1}
+.gal .ph:first-child img{aspect-ratio:4/3.6}
+.venue .win .vp{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;max-width:none}
+.venue .win.photo>*:not(.vp){display:none}
+.ev .note{margin-top:calc(1.2*var(--u));font-size:calc(4*var(--u));line-height:1.4;color:var(--soft);transition-delay:2.7s}
+.hero h1 span{display:block}
+.hero h1 .amp{font-size:.55em}
+</style>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body class="locked">
+<style id="wv-made-css">html body p.wv-made.wv-made{position:relative;z-index:2;margin:1.6rem auto 0;max-width:30rem;padding:0 1rem;text-align:center;font-size:13px;line-height:1.7;letter-spacing:.04em;font-style:normal;text-transform:none;color:inherit;opacity:.9}html body p.wv-made.wv-made b{font-weight:600}html body p.wv-made.wv-made a{color:inherit;text-decoration:none;font-weight:500}html body p.wv-made.wv-made{margin:22px auto 0}html body p.wv-credit.wv-credit:has(+p.wv-made){padding-bottom:0;margin-bottom:0}html body p.wv-credit.wv-credit+p.wv-made.wv-made{margin-top:.5rem;padding-top:0}a.wv-made-link{color:inherit;text-decoration:none}html body p.wv-made.wv-made>a.wv-made-link::before{content:"Made with love by "}html body p.wv-made.wv-made>a.wv-made-link>b::before{content:"wedvo.in"}</style><template id="wv-made"><p class="wv-made "><a class="wv-made-link" href="https://wedvo.in/?utm_source=invitation&amp;utm_medium=footer" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" aria-label="Made with love by wedvo.in"><b></b></a></p></template><script id="wv-made-js">(function(){var S="#sEnd",H="p.foot",U="https:\/\/wedvo.in\/?utm_source=invitation\u0026utm_medium=footer",T=document.getElementById("wv-made"),n=0;function off(){var W=window.__WV_SECTIONS||{},X=(window.__WV_TEXT&&window.__WV_TEXT.hide)||[];return X.map(function(k){return W[k]&&W[k].css}).filter(function(c){return c&&c.charAt(0)!=="@"})}function set(l){if(l.getAttribute("href")!==U){l.href=U;l.target="_blank";l.rel="noopener noreferrer";l.referrerPolicy="no-referrer"}}function own(){var E;try{E=document.querySelector(H)}catch(e){}if(!E)return;var l=E.tagName==="A"?E:E.querySelector("a");if(l){set(l);return}l=document.createElement("a");l.className="wv-made-link";set(l);while(E.firstChild)l.appendChild(E.firstChild);E.appendChild(l)}function put(){if(H){own();return}var m=document.querySelector("p.wv-made");if(!m){if(!T)return;var h=document.querySelector(S);if(!h)return;off().forEach(function(c){try{var x=h.closest(c);while(x){h=x.parentElement;x=h&&h.closest(c)}}catch(e){}});if(h&&h.getClientRects().length)h.appendChild(T.content.cloneNode(true));return}var p=m.parentElement,c=p&&p.querySelector("p.wv-credit");if(c&&(m.compareDocumentPosition(c)&4))p.appendChild(m)}var t=setInterval(function(){put();if(++n>3000)clearInterval(t)},600);document.addEventListener("DOMContentLoaded",put)})()</script><script src="wv-sample.js?v=1"></script><script src="wv-data.js?v=1"></script>
+
+<div id="gate" role="button" tabindex="0" aria-label="Open the invitation">
+  <video id="vid" src="assets/intro.mp4" muted playsinline preload="auto" aria-hidden="true"></video>
+  <img class="poster" id="poster" src="assets/intro-poster.webp" alt="">
+  <div class="tap"><span class="ring"><i></i></span><span class="chip" data-t="tap"></span></div>
+</div>
+
+<main class="page">
+  <section class="hero" id="hero">
+    <img class="bg" src="assets/hands.webp" alt="">
+    <div class="veil"></div>
+    <div class="txt">
+      <img class="bism hx" src="assets/bismillah.webp" alt="Bismillah ir-Rahman ir-Rahim">
+      <p class="kind hx" data-t="kind"></p>
+      <h1 class="hx"><span data-n="1"></span><span class="amp" data-t="weds"></span><span data-n="2"></span></h1>
+      <p class="date hx" id="heroDate"></p>
+      <p class="place hx" data-t="place"></p>
+    </div>
+    <p class="cue hx"><span data-t="scroll"></span><i></i></p>
+  </section>
+
+  <section class="sec paper invite" id="sInvite">
+    <img class="flower f1" src="assets/peony-blush.webp" alt="">
+    <img class="flower f2" src="assets/roses-pink.webp" alt="">
+    <img class="medal rv" src="assets/gold-flower.webp" alt="">
+    <p class="eyebrow rv" data-t="blessEyebrow"></p>
+    <div class="rule rv"><img src="assets/ornament.webp" alt=""></div>
+    <p class="body rv"><span class="parents" data-f="parA"></span><br><span class="it" id="request"></span></p>
+    <h2 class="who rv write" data-n="1"></h2>
+    <p class="with rv" data-t="withWord"></p>
+    <h2 class="who rv write" data-n="2"></h2>
+    <p class="body rv"><span class="it" data-f="ofB"></span><br><span class="parents" data-f="parB"></span></p>
+  </section>
+
+  <section class="sec verse" id="sVerse">
+    <div class="archbox rv">
+      <img class="orn" src="assets/ornament.webp" alt="">
+      <p class="eyebrow" data-t="vsEyebrow"></p>
+      <p class="ar" data-t="verseAr" style="margin-top:calc(4*var(--u))"></p>
+      <p class="tr" data-t="verseTr"></p>
+      <p class="ref" data-t="verseRef"></p>
+    </div>
+  </section>
+
+  <section class="sec paper count" id="sCount">
+    <img class="chand rv" src="assets/chandelier.webp" alt="">
+    <p class="eyebrow rv" data-t="cdEyebrow"></p>
+    <h2 class="title rv write" data-t="cdTitle"></h2>
+    <div class="tiles rv">
+      <div><b>00</b><small data-t="dDays"></small></div>
+      <div><b>00</b><small data-t="dHours"></small></div>
+      <div><b>00</b><small data-t="dMins"></small></div>
+      <div><b>00</b><small data-t="dSecs"></small></div>
+    </div>
+    <p class="body rv"><span class="it" data-t="cdLine"></span></p>
+  </section>
+
+  <section class="sec events" id="sEvents">
+    <p class="eyebrow rv" data-t="evEyebrow"></p>
+    <h2 class="title rv write" data-t="evTitle"></h2>
+    <div id="evlist"></div>
+  </section>
+
+  <section class="sec paper venue" id="sVenue">
+    <p class="eyebrow rv" data-t="vEyebrow"></p>
+    <h2 class="title rv write" data-t="vTitle"></h2>
+    <div class="win rv" id="vwin">
+      <i class="sun"></i>
+      <div class="wl l"><img src="assets/lantern.webp" alt=""></div><div class="wl r"><img src="assets/lantern.webp" alt=""></div>
+      <img class="mq" src="assets/mosque-gold.webp" alt="">
+    </div>
+    <h3 class="vname rv" data-t="vName"></h3>
+    <p class="body rv"><span class="it" data-t="vAddr"></span></p>
+    <a class="btn rv" id="vMap" target="_blank" rel="noopener" data-t="mapBtn"></a>
+  </section>
+
+  <section class="sec story" id="sStory">
+    <p class="eyebrow rv" data-t="stEyebrow"></p>
+    <h2 class="title rv write" data-t="stTitle"></h2>
+    <div class="frame rv"><img id="storyImg" src="assets/couple-2.webp" alt=""></div>
+    <p class="body rv"><span data-t="stText"></span><br><span class="it" data-t="stText2"></span></p>
+  </section>
+
+  <section class="sec paper gallery" id="sGallery">
+    <p class="eyebrow rv" data-t="gEyebrow"></p>
+    <h2 class="title rv write" data-t="gTitle"></h2>
+    <div class="gal" id="gal"></div>
+  </section>
+
+  <section class="sec paper rsvp" id="sRsvp">
+    <p class="eyebrow rv" data-t="rsvpEyebrow"></p>
+    <h2 class="title rv write" data-t="rsvpTitle"></h2>
+    <div class="card rv">
+      <img class="seal" src="assets/bismillah-seal.webp" alt="">
+      <p class="body"><span class="it" data-t="rsvpLine"></span></p>
+      <form id="rsvp" novalidate>
+        <div><label class="l" for="rName" data-t="rName"></label><input id="rName" name="name" autocomplete="name" data-ph="rNamePh"></div>
+        <div><span class="l" data-t="rAttend"></span><div class="choice"><label><input type="radio" name="attend" value="Yes" checked><span data-t="rYes"></span></label><label><input type="radio" name="attend" value="No"><span data-t="rNo"></span></label></div></div>
+        <div><label class="l" for="rGuests" data-t="rGuests"></label><select id="rGuests" name="guests"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
+        <div><label class="l" for="rMsg" data-t="rMsg"></label><textarea id="rMsg" name="message" rows="2" data-ph="rMsgPh"></textarea></div>
+        <button class="btn solid" type="submit" data-t="rSend"></button>
+      </form>
+      <div class="thanks" id="thanks"><b data-t="thanks"></b><p class="body" data-t="thanksLine"></p></div>
+    </div>
+  </section>
+
+  <section class="sec close" id="sEnd">
+    <img class="flower f3" src="assets/roses-pink.webp" alt="">
+    <img class="flower f4" src="assets/peony-blush.webp" alt="">
+    <img class="orn2 rv" src="assets/gold-flower.webp" alt="">
+    <p class="ar rv" data-t="endAr"></p>
+    <p class="tr rv" data-t="endTr"></p>
+    <p class="names rv"><span data-n="1"></span> <span data-t="weds"></span> <span data-n="2"></span></p>
+    <p class="body rv" style="position:relative;z-index:1"><span class="it" data-t="endLine"></span><br><span class="parents" data-t="endFam"></span></p>
+    <p class="jzk rv" style="position:relative;z-index:1" data-t="jzk"></p>
+  </section>
+  <p class="foot">Made with love · Wedvo</p>
+</main>
+
+<button class="music" id="music" type="button" aria-label="Play or pause music" hidden><svg viewBox="0 0 24 24"><path d="M9 17.5a2.5 2.5 0 1 1-2-2.45V5.5l11-2.5v11.5a2.5 2.5 0 1 1-2-2.45V6.2L9 7.8z"/></svg></button>
+<div id="fx"></div>
+<audio id="song" loop preload="none"></audio>
+
+<script src="wv-card.js?v=g1121"></script>
+
+
+<!-- Fenil Digital Marketing Sticky WhatsApp Button -->
+<div style="position:fixed;bottom:20px;right:20px;z-index:9999999;">
+  <a href="https://wa.me/918200095497?text=Hi%20Fenil%20Digital%20Marketing!%20I%20want%20to%20order%20the%20Gulbahar%20Nikah%20wedding%20invitation%20website" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:12px 20px;border-radius:999px;text-decoration:none;font-weight:700;font-size:0.95rem;box-shadow:0 8px 25px rgba(37,211,102,0.5);border:2px solid #fff;font-family:system-ui,-apple-system,sans-serif;">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
+    <span>Order on WhatsApp: 8200095497</span>
+  </a>
+</div>
+
+</body>
+</html>

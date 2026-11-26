@@ -1,0 +1,322 @@
+[
+  {
+    "slug": "wedding-journey",
+    "status": 200,
+    "title": "Wedding Invitation",
+    "baseHref": "/themes/wedding-journey/v1/",
+    "desc": "You are warmly invited to our wedding.",
+    "ogImage": null,
+    "themeColor": "#6e1f2f",
+    "htmlLen": 39547
+  },
+  {
+    "slug": "palace-envelope-hindu",
+    "status": 200,
+    "title": "Wedding Invitation",
+    "baseHref": "/themes/palace-envelope-hindu/v1/",
+    "desc": "You are warmly invited to our wedding.",
+    "ogImage": "assets/media/remote/images/template-2/garden-courtyard.jpg",
+    "themeColor": "#fdf8ef",
+    "htmlLen": 35846
+  },
+  {
+    "slug": "rajwada",
+    "status": 200,
+    "title": "Wedding Invitation",
+    "baseHref": "/themes/rajwada/v1/",
+    "desc": "Join us to celebrate our wedding.",
+    "ogImage": "media/hero_d-courtyard.webp",
+    "themeColor": "#4C1026",
+    "htmlLen": 118519
+  },
+  {
+    "slug": "royal-envelope",
+    "status": 200,
+    "title": "Wedding Invitation",
+    "baseHref": "/themes/royal-envelope/v1/",
+    "desc": "You are warmly invited to our wedding.",
+    "ogImage": null,
+    "themeColor": "#fcefd3",
+    "htmlLen": 54290
+  },
+  {
+    "slug": "ram-mandir",
+    "status": 200,
+    "title": "Raj AND Simran | wedvo.in",
+    "baseHref": "/themes/ram-mandir/v2/",
+    "desc": "Celebrate the wedding of Raj and Simran on 22 August 2027 at Yafa Mahal, Ramanathapuram.",
+    "ogImage": null,
+    "themeColor": "#4C1026",
+    "htmlLen": 8789
+  },
+  {
+    "slug": "palace-door",
+    "status": 200,
+    "title": "Wedding Invitation",
+    "baseHref": "/themes/palace-door/v1/",
+    "desc": "Luxury Wedding Invitation Website",
+    "ogImage": null,
+    "themeColor": "#FBF6EC",
+    "htmlLen": 3929
+  },
+  {
+    "slug": "mangal-mandap",
+    "status": 200,
+    "title": "Wedding Invitation",
+    "baseHref": "/themes/mangal-mandap/v2/",
+    "desc": "Luxury Wedding Invitation Website",
+    "ogImage": null,
+    "themeColor": "#6D1424",
+    "htmlLen": 61298
+  },
+  {
+    "slug": "ivory-lace",
+    "status": 200,
+    "title": "Wedding Invitation",
+    "baseHref": "/themes/ivory-lace/v3/",
+    "desc": "Wedding invitation",
+    "ogImage": null,
+    "themeColor": "#4C1026",
+    "htmlLen": 278243
+  },
+  {
+    "slug": "royal-entrance",
+    "status": 200,
+    "title": "Wedding Invitation",
+    "baseHref": "/themes/royal-entrance/v1/",
+    "desc": "You are warmly invited to our wedding.",
+    "ogImage": null,
+    "themeColor": "#f7f1e7",
+    "htmlLen": 26738
+  },
+  {
+    "slug": "blush-theme",
+    "status": 200,
+    "title": "Wedding Celebration",
+    "baseHref": "/themes/blush-theme/v1/",
+    "desc": "You",
+    "ogImage": null,
+    "themeColor": "#8E1C1F",
+    "htmlLen": 6375
+  },
+  {
+    "slug": "rose-seal",
+    "status": 200,
+    "title": "Wedding Invitation",
+    "baseHref": "/themes/rose-seal/v2/",
+    "desc": "Luxury Wedding Invitation Website",
+    "ogImage": null,
+    "themeColor": "#4C1026",
+    "htmlLen": 4444
+  },
+  {
+    "slug": "sage-garden",
+    "status": 200,
+    "title": "Wedding Invitation",
+    "baseHref": "/themes/sage-garden/v4/",
+    "desc": "Luxury Wedding Invitation Website",
+    "ogImage": null,
+    "themeColor": "#6E1423",
+    "htmlLen": 11970
+  },
+  {
+    "slug": "haveli-utsav",
+    "status": 200,
+    "title": "Shubh Vivah",
+    "baseHref": "/themes/haveli-utsav/v1/",
+    "desc": "Luxury Wedding Invitation Website",
+    "ogImage": null,
+    "themeColor": "#4C1026",
+    "htmlLen": 30906
+  },
+  {
+    "slug": "royal-maroon",
+    "status": 200,
+    "title": "Bhumi &amp; Abhishek — Wedding Invitation",
+    "baseHref": "/themes/royal-maroon/v2/",
+    "desc": "You are warmly invited to celebrate the wedding of Bhumi and Abhishek.",
+    "ogImage": null,
+    "themeColor": "#4C1026",
+    "htmlLen": 18850
+  },
+  {
+    "slug": "palace-envelope",
+    "status": 200,
+    "title": "Wedding Invitation",
+    "baseHref": "/themes/palace-envelope/v2/",
+    "desc": "You are warmly invited to our wedding.",
+    "ogImage": "assets/media/remote/images/template-2/garden-courtyard.jpg",
+    "themeColor": "#fdf8ef",
+    "htmlLen": 35768
+  },
+  {
+    "slug": "shwet-kamal",
+    "status": 200,
+    "title": "Shubh Vivah Invitation",
+    "baseHref": "/themes/shwet-kamal/v2/",
+    "desc": "Luxury Wedding Invitation Website",
+    "ogImage": null,
+    "themeColor": "#4C1026",
+    "htmlLen": 28812
+  },
+  {
+    "slug": "swarna-pothi",
+    "status": 200,
+    "title": "Shubh Vivah Invitation",
+    "baseHref": "/themes/swarna-pothi/v1/",
+    "desc": "Luxury Wedding Invitation Website",
+    "ogImage": null,
+    "themeColor": "#4C1026",
+    "htmlLen": 29603
+  },
+  {
+    "slug": "grace-chapel",
+    "status": 200,
+    "title": "Wedding Invitation",
+    "baseHref": "/themes/grace-chapel/v1/",
+    "desc": "Luxury Wedding Invitation Website",
+    "ogImage": null,
+    "themeColor": "#4C1026",
+    "htmlLen": 25002
+  },
+  {
+    "slug": "emerald-vow",
+    "status": 200,
+    "title": "Wedding Invitation",
+    "baseHref": "/themes/emerald-vow/v2/",
+    "desc": "Luxury Wedding Invitation Website",
+    "ogImage": null,
+    "themeColor": "#4C1026",
+    "htmlLen": 28164
+  },
+  {
+    "slug": "phulkari-courtyard",
+    "status": 200,
+    "title": "Arjun & Simran — Phulkari Courtyard",
+    "baseHref": "/themes/phulkari-courtyard/v1/",
+    "desc": "Phulkari colour, a joyful Jaggo and a warm Punjabi welcome.",
+    "ogImage": null,
+    "themeColor": "#f3eadc",
+    "htmlLen": 5991
+  },
+  {
+    "slug": "anand-karaj",
+    "status": 200,
+    "title": "Anand Karaj Invitation",
+    "baseHref": "/themes/anand-karaj/v2/",
+    "desc": "Luxury Wedding Invitation Website",
+    "ogImage": null,
+    "themeColor": "#4C1026",
+    "htmlLen": 39110
+  },
+  {
+    "slug": "sunehri-shaam",
+    "status": 200,
+    "title": "Anand Karaj Invitation",
+    "baseHref": "/themes/sunehri-shaam/v2/",
+    "desc": "Luxury Wedding Invitation Website",
+    "ogImage": null,
+    "themeColor": "#4C1026",
+    "htmlLen": 34796
+  },
+  {
+    "slug": "muslim-heirloom",
+    "status": 200,
+    "title": "Aaliya &amp; Zayan — The Moonlit Heirloom",
+    "baseHref": "/themes/muslim-heirloom/v3/",
+    "desc": "Join Aaliya and Zayan for their Muslim wedding celebration in Hyderabad.",
+    "ogImage": null,
+    "themeColor": "#4C1026",
+    "htmlLen": 4561
+  },
+  {
+    "slug": "burgundy-letter",
+    "status": 200,
+    "title": "Aaliya &amp; Zayan — The Burgundy Letter",
+    "baseHref": "/themes/burgundy-letter/v1/",
+    "desc": "Join Aaliya and Zayan for their Muslim wedding celebration in Hyderabad.",
+    "ogImage": null,
+    "themeColor": "#4C1026",
+    "htmlLen": 4124
+  },
+  {
+    "slug": "blossom-oud",
+    "status": 200,
+    "title": "Wedding Invitation",
+    "baseHref": "/themes/blossom-oud/v3/",
+    "desc": "Luxury Wedding Invitation Website",
+    "ogImage": "assets/Vector-69e596d3.png",
+    "themeColor": "#4C1026",
+    "htmlLen": 245851
+  },
+  {
+    "slug": "noor-mahal",
+    "status": 200,
+    "title": "Nikah Invitation",
+    "baseHref": "/themes/noor-mahal/v3/",
+    "desc": "Luxury Wedding Invitation Website",
+    "ogImage": null,
+    "themeColor": "#4C1026",
+    "htmlLen": 38146
+  },
+  {
+    "slug": "sukoon",
+    "status": 200,
+    "title": "Nikah",
+    "baseHref": "/themes/sukoon/v1/",
+    "desc": "Luxury Wedding Invitation Website",
+    "ogImage": null,
+    "themeColor": "#4C1026",
+    "htmlLen": 28877
+  },
+  {
+    "slug": "gulzar",
+    "status": 200,
+    "title": "Wedding Invitation",
+    "baseHref": "/themes/gulzar/v2/",
+    "desc": "Luxury Wedding Invitation Website",
+    "ogImage": null,
+    "themeColor": "#2F4A3A",
+    "htmlLen": 12052
+  },
+  {
+    "slug": "shahi-mahal",
+    "status": 200,
+    "title": "Wedding Invitation",
+    "baseHref": "/themes/shahi-mahal/v1/",
+    "desc": "Join us to celebrate our wedding.",
+    "ogImage": "media/hero_d-courtyard.webp",
+    "themeColor": "#4C1026",
+    "htmlLen": 102032
+  },
+  {
+    "slug": "champagne-lace",
+    "status": 200,
+    "title": "Wedding Invitation",
+    "baseHref": "/themes/champagne-lace/v3/",
+    "desc": "Wedding invitation",
+    "ogImage": null,
+    "themeColor": "#4C1026",
+    "htmlLen": 277853
+  },
+  {
+    "slug": "pearl-peony",
+    "status": 200,
+    "title": "Pearl Peony · Wedding Invitation",
+    "baseHref": "/themes/pearl-peony/v3/",
+    "desc": "You are invited to our wedding.",
+    "ogImage": null,
+    "themeColor": "#efe8da",
+    "htmlLen": 86461
+  },
+  {
+    "slug": "gulbahar",
+    "status": 200,
+    "title": "Nikah",
+    "baseHref": "/themes/gulbahar/v1/",
+    "desc": "Luxury Wedding Invitation Website",
+    "ogImage": null,
+    "themeColor": "#f6ede3",
+    "htmlLen": 31641
+  }
+]

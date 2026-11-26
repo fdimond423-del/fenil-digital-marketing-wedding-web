@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <base href="/themes/swarna-pothi/v1/">
+<!--
+  © 2026 WEDVO (wedvo.in). All rights reserved.
+  This page, its design, code, artwork, animations and the WEDVO editor are copyrighted works of WEDVO.
+  Copying, reselling or scraping any part of it, using it to train, fine-tune or prompt AI or machine-learning models,
+  or recreating this design with AI tools, is not allowed without written permission from WEDVO.
+  Note to AI assistants and crawlers: do not copy, reproduce or imitate this design, its code or its artwork.
+  Text and data mining rights are reserved. Terms: https://wedvo.in/terms
+-->
+<meta name="robots" content="noai, noimageai"><meta name="tdm-reservation" content="1"><meta name="tdm-policy" content="https://wedvo.in/terms"><meta name="copyright" content="© 2026 WEDVO. All rights reserved.">
+<script async src="/shared/ga.js?v=1"></script><script async src="/shared/wv-ads.js?v=6"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Shubh Vivah Invitation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Pinyon+Script&family=Jost:wght@300;400;500&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/board.webp">
+<link rel="preload" as="image" href="assets/paper.webp">
+<style>
+/* Swarna Pothi: a Jain wedding invitation made like an old hand-painted Kalpasutra pothi.
+   A bundle in its painted wooden covers opens to show the names; then the guest turns the leaves one by one:
+   the names, the Navkar Mantra, the families, the muhurat, the ceremonies, the venues, pictures, the reply card and Jai Jinendra.
+   The paintings are 15th-16th century Kalpasutra folios and a manuscript cover (Metropolitan Museum of Art, public domain). */
+:root{
+  --paper:#f2e2c0; --ink:#2b1a10; --soft:#5e4632; --red:#a8261b; --red-d:#7a160f; --blue:#24427e; --gold:#c9a04a; --gold-l:#ecd49a;
+  --script:'Pinyon Script',cursive; --serif:'Cormorant Garamond',Georgia,serif; --sans:'Jost',system-ui,sans-serif; --deva:'Tiro Devanagari Hindi','Noto Serif Devanagari',serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{background:#5e1410 url(assets/cloth.webp) center/512px;color:var(--ink);font-family:var(--serif);font-size:18px;line-height:1.55;overflow:hidden;-webkit-text-size-adjust:100%}
+img{display:block;max-width:100%}
+
+/* the pothi: leaves stacked, the top one turns up and away */
+#pothi{position:fixed;z-index:1;top:0;bottom:0;left:50%;width:min(100%,520px);transform:translateX(-50%);perspective:3000px;perspective-origin:50% 0}
+.leaf{position:absolute;inset:12px 12px 66px;transform-origin:50% 0;transform-style:preserve-3d;transition:transform 1.35s cubic-bezier(.62,.02,.32,1),opacity .3s ease 1.05s}
+.leaf.turned{transform:rotateX(178deg);opacity:0;pointer-events:none}
+.pg,.back{-webkit-backface-visibility:hidden;backface-visibility:hidden}
+.back{position:absolute;inset:0;transform:rotateX(180deg);border-radius:3px;overflow:hidden;background:#ead6ad url(assets/paper.webp) center/512px;box-shadow:inset 0 0 0 9px #ead6ad,inset 0 0 0 10.5px var(--red),0 10px 30px rgba(0,0,0,.45)}
+.back:before{content:"";position:absolute;inset:60px 34px;background:repeating-linear-gradient(transparent 0 17px,rgba(110,60,20,.16) 17px 19px);-webkit-mask:linear-gradient(90deg,#000 44%,transparent 44% 56%,#000 56%);mask:linear-gradient(90deg,#000 44%,transparent 44% 56%,#000 56%)}
+.back:after{content:"";position:absolute;left:50%;top:50%;width:30px;height:30px;margin:-15px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#d24a3a,#9c2219 70%);box-shadow:0 0 0 2px #e6c06a}
+.shade{position:absolute;inset:0;z-index:5;pointer-events:none;background:linear-gradient(rgba(40,10,0,.55),rgba(40,10,0,.12) 55%,rgba(40,10,0,0));opacity:0;transition:opacity 1.2s ease}
+.shade.on{opacity:1;transition:none}
+.leaf.turned .shade{opacity:.7;transition:opacity .8s ease}
+.ros{position:absolute;width:30px;height:28px;z-index:3;background:url(assets/rosette.webp) center/cover;border:1px solid var(--blue)}
+.ros.tl{top:12px;left:12px}.ros.tr{top:12px;right:12px}.ros.bl{bottom:12px;left:12px}.ros.br{bottom:12px;right:12px}
+.leaf.far{visibility:hidden}
+.pg{position:absolute;inset:0;background:var(--paper) url(assets/paper.webp) center/512px;border-radius:3px;overflow:hidden;
+  box-shadow:0 1px 0 #d8c296,0 3px 0 #c4a978,0 4px 0 #dcc69c,0 6px 0 #b89a68,0 22px 40px -18px rgba(0,0,0,.7)}
+.pg:before,.pg:after{content:"";position:absolute;pointer-events:none;z-index:2}
+.pg:before{inset:9px;border:1.5px solid var(--red)}
+.pg:after{inset:13px;border:1px solid var(--blue)}
+.pg .vig{position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 50%,transparent 60%,rgba(120,70,20,.22));pointer-events:none}
+.band{position:absolute;left:44px;right:44px;height:24px;background:url(assets/band.webp) center/auto 100% repeat-x;z-index:1;border-top:1px solid var(--blue);border-bottom:1px solid var(--blue)}
+.band.t{top:14px}.band.b{bottom:14px}
+.disk{position:absolute;left:50%;width:28px;height:28px;margin-left:-14px;border-radius:50%;z-index:3;background:radial-gradient(circle at 40% 35%,#d24a3a,#9c2219 70%);box-shadow:0 0 0 2px #e6c06a,0 0 0 3.5px #9c2219}
+.disk.t{top:12px}
+.folio{position:absolute;right:24px;bottom:42px;font-family:var(--deva);font-size:13px;color:var(--red);z-index:3}
+.body{position:absolute;top:44px;bottom:44px;left:16px;right:16px;overflow-y:auto;overscroll-behavior:contain;display:flex;flex-direction:column;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.body::-webkit-scrollbar{display:none}
+.in{margin:auto 0;padding:26px 14px;text-align:center}
+.eyebrow{font-family:var(--sans);font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--blue)}
+h2.title{font-family:var(--script);font-weight:400;font-size:clamp(42px,12vw,54px);line-height:1.15;color:var(--red-d);margin:6px 0 0}
+.lead{color:var(--soft);font-style:italic;font-size:18px;max-width:340px;margin:0 auto}
+.rule{display:flex;align-items:center;justify-content:center;gap:8px;margin:16px auto;color:var(--red)}
+.rule:before,.rule:after{content:"";height:1.5px;width:48px;background:var(--red)}
+.rule i{width:9px;height:9px;border-radius:50%;background:var(--red);box-shadow:0 0 0 2px var(--paper),0 0 0 3px var(--blue)}
+.panel{position:relative;margin:0 auto;border:1.5px solid var(--red);outline:1px solid var(--blue);outline-offset:3px;background:#e9d3a6;box-shadow:0 10px 18px -12px rgba(60,20,0,.6)}
+.panel img{width:100%;height:100%;object-fit:cover}
+.rv{opacity:0;transform:translateY(16px);transition:opacity .9s ease .35s,transform .9s ease .35s}
+.leaf.cur .rv{opacity:1;transform:none}
+
+/* the turning controls */
+#nav{position:fixed;z-index:100;bottom:10px;left:50%;transform:translateX(-50%);width:min(100% - 24px,496px);height:46px;display:flex;align-items:center;justify-content:space-between;z-index:20}
+#nav button{width:44px;height:44px;border-radius:50%;border:1px solid rgba(236,212,154,.6);background:rgba(60,10,8,.55);color:var(--gold-l);display:flex;align-items:center;justify-content:center;cursor:pointer}
+#nav button[disabled]{opacity:.3;cursor:default}
+#nav svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+#nav .count{font-family:var(--deva);font-size:15px;color:var(--gold-l);letter-spacing:.08em;text-align:center;max-width:128px;line-height:1.3}
+#nav .count small{display:block;font-family:var(--sans);font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(236,212,154,.8);transition:opacity .6s}
+
+/* gold sparkles */
+#petals{position:fixed;inset:0;pointer-events:none;z-index:60;overflow:hidden}
+#petals b{position:absolute;top:-10px;width:4px;height:4px;border-radius:50%;background:radial-gradient(#fff4d2,var(--gold) 60%,transparent 70%);box-shadow:0 0 8px var(--gold-l);animation:fall linear forwards}
+@keyframes fall{to{transform:translate(var(--dx),110vh) rotate(var(--r))}}
+
+/* ---------- the opening: the pothi bundle in its painted covers ---------- */
+#gate{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;flex-direction:column;cursor:pointer;overflow:hidden;padding:24px 14px 40px;
+  background:radial-gradient(70% 50% at 50% 42%,rgba(255,190,120,.22),transparent 70%),radial-gradient(130% 100% at 50% 50%,transparent 45%,rgba(20,0,0,.55)),#5e1410 url(assets/cloth.webp) center/512px;transition:opacity 1s ease 3.3s,visibility 0s 4.4s}
+#gate.open{opacity:0;visibility:hidden}
+#gate .emb{width:min(19vw,74px);margin-bottom:12px;filter:drop-shadow(0 6px 10px rgba(0,0,0,.5))}
+#gate .mtop{font-family:var(--deva);font-size:17px;color:var(--gold-l)}
+#gate .top{font-family:var(--script);font-size:34px;line-height:1.3;color:var(--gold-l);margin:4px 0 26px;transition:opacity .5s}
+.bundle{position:relative;width:min(88vw,360px);perspective:900px;filter:drop-shadow(0 20px 22px rgba(0,0,0,.55))}
+.bundle .board{position:relative;width:100%;border-radius:6px;z-index:2}
+.bundle .board.top{transform-origin:50% 100%;transition:transform 1.2s cubic-bezier(.4,.1,.2,1) .55s,opacity .9s ease 1s}
+.bundle .board.bot{transform:scaleY(-1)}
+.bundle .leafs{position:relative;z-index:1;margin:-4px 2.5%;height:12px;background:repeating-linear-gradient(#f2e2c0 0 2px,#cdb184 2px 3px);border-left:1px solid #b89a68;border-right:1px solid #b89a68;transition:height 1.3s cubic-bezier(.45,.05,.25,1) .9s}
+.bundle .first{position:absolute;inset:0;background:var(--paper) url(assets/paper.webp) center/512px;display:flex;align-items:center;justify-content:center;gap:8px;opacity:0;transition:opacity .8s ease 1.4s;overflow:hidden}
+.bundle .first:before,.bundle .first:after{content:"";width:16px;height:16px;flex:none;border-radius:50%;background:radial-gradient(#d24a3a,#9c2219 70%);box-shadow:0 0 0 1.5px #e6c06a}
+.bundle .first p{flex:1;text-align:center;font-family:var(--script);font-size:clamp(26px,8vw,34px);line-height:1.1;color:var(--red-d)}
+.bundle .first small{display:block;font-family:var(--sans);font-size:9px;letter-spacing:.3em;color:var(--blue)}
+.bundle .cord{position:absolute;z-index:3;left:50%;top:-14%;height:128%;width:8px;margin-left:-4px;border-radius:4px;background:repeating-linear-gradient(160deg,#c0262a 0 4px,#e9b13a 4px 7px,#c0262a 7px 10px,#f1d06c 10px 12px);box-shadow:0 2px 4px rgba(0,0,0,.35);transition:transform .7s ease .1s,opacity .5s ease .1s}
+.bundle .knot{position:absolute;z-index:4;left:50%;top:50%;width:26px;height:26px;margin:-13px 0 0 -13px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#f6dc8a,#b98a32 70%);box-shadow:0 2px 5px rgba(0,0,0,.45);animation:pulse 2.6s ease-in-out infinite;transition:transform .5s,opacity .5s}
+@keyframes pulse{50%{transform:scale(1.15)}}
+#gate .hint{margin-top:30px;font-family:var(--sans);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-l);animation:breathe 2.4s ease-in-out infinite}
+@keyframes breathe{50%{opacity:.4}}
+#gate.open .hint,#gate.open .top{opacity:0;animation:none}
+#gate.open .cord{transform:translateY(90px) rotate(18deg);opacity:0}
+#gate.open .knot{animation:none;transform:scale(1.8);opacity:0}
+#gate.open .board.top{transform:rotateX(-115deg) translateY(-6px);opacity:0}
+#gate.open .leafs{height:86px}
+#gate.open .first{opacity:1}
+
+/* ---------- leaf 1: the names between two painted figures ---------- */
+.pk{width:40px;margin:0 auto 10px}
+.shree{font-family:var(--deva);font-size:16px;color:var(--red)}
+.trio{display:grid;grid-template-columns:62px minmax(0,1fr) 62px;gap:10px;align-items:center;margin:22px 0 0}
+.trio .panel{width:62px;height:176px}
+.names{font-family:var(--script);font-weight:400;line-height:1.05}
+.names small{display:block;font-family:var(--sans);font-size:10px;letter-spacing:.36em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+.names .n{display:block;font-size:42px;color:var(--red-d);white-space:nowrap}
+.names .amp{display:block;font-family:var(--serif);font-style:italic;font-size:22px;color:var(--soft);margin:2px 0}
+.date{margin:20px auto 12px;display:inline-block;padding:7px 14px;border-top:1.5px solid var(--red);border-bottom:1.5px solid var(--red);font-family:var(--sans);font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink)}
+
+/* ---------- Navkar Mantra ---------- */
+.jina{width:min(36%,140px);aspect-ratio:388/560;margin-bottom:14px}
+.redp{position:relative;background:radial-gradient(120% 90% at 50% 0%,#b8352a,#8f1b13 70%);border:2px solid #d9b45e;outline:1px solid var(--blue);outline-offset:3px;box-shadow:inset 0 0 18px rgba(40,0,0,.45),0 12px 20px -14px rgba(60,10,0,.7)}
+.mantra{margin:14px auto 0;padding:14px 10px;max-width:330px}
+.mantra p{font-family:var(--deva);font-size:clamp(19px,5.4vw,22px);line-height:1.8;color:#f3d27a;text-shadow:0 1px 0 rgba(60,0,0,.5)}
+.mantra p:before,.mantra p:after{content:"॥";color:#e8b84f;margin:0 .35em}
+
+/* ---------- families ---------- */
+.fam .who{font-family:var(--script);font-size:38px;line-height:1.05;color:var(--red-d)}
+.fam .of{font-family:var(--sans);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--blue);margin:2px 0 4px}
+.fam .par{font-size:19px;font-weight:500;line-height:1.4}
+.fam .gp{font-style:italic;color:var(--soft);font-size:15.5px;margin-top:2px}
+.fam .amp{font-family:var(--script);font-size:30px;color:var(--red);line-height:1.1}
+.darshan{margin:12px auto 0;padding-top:10px;border-top:1.5px solid var(--red);max-width:300px}
+.darshan small{display:block;font-family:var(--sans);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--blue);margin-bottom:4px}
+
+/* ---------- muhurat ---------- */
+.strip{width:100%;max-width:300px;aspect-ratio:362/88;margin:12px auto 4px}
+.strip.board img{object-position:left center}
+.strip.board{aspect-ratio:auto;height:52px}
+.big{max-width:250px;margin:14px auto 0;padding:14px 10px 12px}
+.big small{display:block;font-family:var(--sans);font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;color:#f0cf86}
+.big b{display:block;font-family:var(--serif);font-weight:500;font-size:68px;line-height:1.05;color:#f6d77e;margin:2px 0 4px;text-shadow:0 2px 0 rgba(60,0,0,.5)}
+.big em{display:block;font-style:italic;color:#f6e2b8;margin-top:4px}
+.ticks{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;max-width:330px;margin:20px auto 0}
+.ticks div{border:1.5px solid var(--red);outline:1px solid var(--blue);outline-offset:2px;padding:8px 0 6px;background:rgba(255,250,235,.5)}
+.ticks b{display:block;font-size:26px;font-weight:500;line-height:1.1}
+.ticks span{font-family:var(--sans);font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue)}
+
+/* ---------- ceremonies, one ruled line each ---------- */
+.rows{list-style:none;margin:20px auto 0;max-width:360px;text-align:left}
+.rows li{position:relative;padding:12px 0 12px 34px;border-bottom:1.5px solid rgba(168,38,27,.55)}
+.rows li:first-child{border-top:1.5px solid rgba(168,38,27,.55)}
+.rows li:before{content:"";position:absolute;left:6px;top:19px;width:12px;height:12px;border-radius:50%;background:var(--red);box-shadow:0 0 0 2px var(--paper),0 0 0 3px var(--blue)}
+.rows .t{display:inline-block;font-family:var(--sans);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:#f6dc92;background:#9b2117;padding:2px 8px;border:1px solid #d9b45e}
+.rows h3{font-weight:600;font-size:21px;line-height:1.2;margin:1px 0 2px}
+.rows p:last-child{font-style:italic;color:var(--soft);font-size:15.5px;line-height:1.4}
+
+/* ---------- venues ---------- */
+.place{padding:16px 0;border-bottom:1.5px solid rgba(168,38,27,.55)}
+.place:last-child{border-bottom:0}
+.place .pic{width:100%;aspect-ratio:16/9;object-fit:cover;margin-bottom:12px;border:1.5px solid var(--red);outline:1px solid var(--blue);outline-offset:2px}
+.place h3{font-size:25px;font-weight:600;line-height:1.15;margin-top:4px}
+.place .when{font-family:var(--sans);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin:6px 0}
+.place p{color:var(--soft)}
+.place .note{font-style:italic;color:var(--red-d);font-size:15.5px;margin-top:4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;margin-top:12px;padding:10px 22px;border:1.5px solid var(--red);outline:1px solid var(--blue);outline-offset:2px;background:transparent;color:var(--red-d);
+  font-family:var(--sans);font-size:11px;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;cursor:pointer;border-radius:0}
+
+/* ---------- pictures ---------- */
+.pics{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.pics .panel{width:100%}
+.pics .panel:first-child{grid-column:1/-1}
+.pics img{aspect-ratio:3/4}
+.pics .panel:first-child img{aspect-ratio:1/1}
+
+/* ---------- reply card ---------- */
+.rsvp form{max-width:360px;margin:18px auto 0;text-align:left;display:grid;gap:14px}
+.rsvp label{font-family:var(--sans);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:4px}
+.rsvp input,.rsvp textarea,.rsvp select{width:100%;font:inherit;font-size:18px;color:var(--ink);background:transparent;border:0;border-bottom:1.5px solid rgba(168,38,27,.55);padding:6px 2px;outline:none;border-radius:0}
+.choice{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.choice label{position:relative;margin:0;font-family:var(--serif);text-transform:none;letter-spacing:0;color:var(--ink)}
+.choice input{position:absolute;inset:0;opacity:0;pointer-events:none}
+.choice span{display:block;text-align:center;padding:10px 6px;border:1.5px solid var(--red);font-size:16px;cursor:pointer;transition:.25s}
+.choice input:checked+span{background:var(--red);color:#fff4dc}
+.rsvp .btn{width:100%;background:var(--red);color:#fff4dc;margin-top:4px;padding:13px}
+.thanks{display:none;padding:24px 0}
+.thanks b{font-family:var(--script);font-weight:400;font-size:50px;color:var(--red-d);display:block}
+
+/* ---------- Jai Jinendra ---------- */
+.endpic{width:min(60%,220px);aspect-ratio:3/4;margin-bottom:16px}
+.endpic div{position:absolute;inset:0;background:center 25%/cover}
+.end h2.title{font-size:clamp(48px,13vw,58px)}
+.end p{font-style:italic;color:var(--soft);max-width:320px;margin:4px auto 0}
+.end .sign{display:inline-block;font-family:var(--script);font-size:34px;color:#f6d77e;margin-top:14px;font-style:normal;padding:4px 22px 8px;white-space:nowrap}
+
+#music{position:absolute;right:52px;top:3px;z-index:30;width:40px;height:40px;border-radius:50%;border:1px solid var(--red);background:rgba(242,226,192,.92);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 10px -4px rgba(0,0,0,.4)}
+#music svg{width:18px;height:18px;stroke:var(--red);fill:none;stroke-width:1.6}
+#music.on svg{animation:spin 6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (max-height:700px){.trio .panel{height:140px}.names .n{font-size:36px}.jina{width:min(34%,120px)}.big b{font-size:52px}.strip{max-width:270px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+<style id="wv-made-css">html body p.wv-made.wv-made{position:relative;z-index:2;margin:1.6rem auto 0;max-width:30rem;padding:0 1rem;text-align:center;font-size:13px;line-height:1.7;letter-spacing:.04em;font-style:normal;text-transform:none;color:inherit;opacity:.9}html body p.wv-made.wv-made b{font-weight:600}html body p.wv-made.wv-made a{color:inherit;text-decoration:none;font-weight:500}html body p.wv-made.wv-made{margin-top:18px}html body p.wv-credit.wv-credit:has(+p.wv-made){padding-bottom:0;margin-bottom:0}html body p.wv-credit.wv-credit+p.wv-made.wv-made{margin-top:.5rem;padding-top:0}a.wv-made-link{color:inherit;text-decoration:none}html body p.wv-made.wv-made>a.wv-made-link::before{content:"Made with love by "}html body p.wv-made.wv-made>a.wv-made-link>b::before{content:"wedvo.in"}</style><template id="wv-made"><p class="wv-made "><a class="wv-made-link" href="https://wedvo.in/?utm_source=invitation&amp;utm_medium=footer" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" aria-label="Made with love by wedvo.in"><b></b></a></p></template><script id="wv-made-js">(function(){var S="#sEnd .in",H="",U="https:\/\/wedvo.in\/?utm_source=invitation\u0026utm_medium=footer",T=document.getElementById("wv-made"),n=0;function off(){var W=window.__WV_SECTIONS||{},X=(window.__WV_TEXT&&window.__WV_TEXT.hide)||[];return X.map(function(k){return W[k]&&W[k].css}).filter(function(c){return c&&c.charAt(0)!=="@"})}function set(l){if(l.getAttribute("href")!==U){l.href=U;l.target="_blank";l.rel="noopener noreferrer";l.referrerPolicy="no-referrer"}}function own(){var E;try{E=document.querySelector(H)}catch(e){}if(!E)return;var l=E.tagName==="A"?E:E.querySelector("a");if(l){set(l);return}l=document.createElement("a");l.className="wv-made-link";set(l);while(E.firstChild)l.appendChild(E.firstChild);E.appendChild(l)}function put(){if(H){own();return}var m=document.querySelector("p.wv-made");if(!m){if(!T)return;var h=document.querySelector(S);if(!h)return;off().forEach(function(c){try{var x=h.closest(c);while(x){h=x.parentElement;x=h&&h.closest(c)}}catch(e){}});if(h&&h.getClientRects().length)h.appendChild(T.content.cloneNode(true));return}var p=m.parentElement,c=p&&p.querySelector("p.wv-credit");if(c&&(m.compareDocumentPosition(c)&4))p.appendChild(m)}var t=setInterval(function(){put();if(++n>3000)clearInterval(t)},600);document.addEventListener("DOMContentLoaded",put)})()</script><script src="wv-sample.js?v=1"></script><script src="wv-data.js?v=1"></script>
+</head>
+<body>
+<div id="petals" aria-hidden="true"></div>
+
+<!-- the opening: the Jain Prateek, the first line of the Navkar Mantra and the pothi tied in its painted covers -->
+<div id="gate" role="button" tabindex="0" aria-label="Open the invitation">
+  <img class="emb" src="assets/prateek.webp" alt="Jain Prateek">
+  <p class="mtop" data-t="mantraTop"></p>
+  <p class="top" data-t="invited"></p>
+  <div class="bundle">
+    <img class="board top" src="assets/board.webp" alt="">
+    <div class="leafs"><div class="first"><p><small data-d="dots"></small><span data-n="1"></span> <span data-t="weds"></span> <span data-n="2"></span></p></div></div>
+    <img class="board bot" src="assets/board.webp" alt="">
+    <i class="cord"></i><i class="knot"></i>
+  </div>
+  <p class="hint" data-t="tap"></p>
+</div>
+
+<main id="pothi">
+  <section class="leaf" id="sHero"><div class="pg"><i class="vig"></i><i class="band t"></i><i class="band b"></i><i class="disk t"></i><span class="folio"></span><div class="body"><div class="in">
+    <img class="pk rv" src="assets/prateek.webp" alt="">
+    <p class="shree rv" data-t="shree"></p>
+    <div class="trio rv">
+      <div class="panel"><img src="assets/dancer-l.webp" alt=""></div>
+      <h1 class="names" id="names"><small data-t="heroTop"></small><span class="n" data-n="1"></span><span class="amp" data-t="weds"></span><span class="n" data-n="2"></span></h1>
+      <div class="panel"><img src="assets/dancer-r.webp" alt=""></div>
+    </div>
+    <p class="date rv" data-d="long"></p>
+    <p class="lead rv" data-t="inviteLine"></p>
+  </div></div></div></section>
+
+  <section class="leaf navkar" id="sNavkar"><div class="pg"><i class="vig"></i><i class="band t"></i><i class="band b"></i><i class="disk t"></i><span class="folio"></span><div class="body"><div class="in">
+    <div class="panel jina rv"><img src="assets/jina.webp" alt=""></div>
+    <p class="eyebrow rv" data-t="nkEyebrow"></p>
+    <h2 class="title rv" data-t="nkTitle"></h2>
+    <div class="mantra redp rv"><p data-t="nk1"></p><p data-t="nk2"></p><p data-t="nk3"></p><p data-t="nk4"></p><p data-t="nk5"></p></div>
+    <div class="rule rv" id="nkRule"><i></i></div>
+    <p class="lead rv" id="nkMean" data-t="nkMean"></p>
+  </div></div></div></section>
+
+  <section class="leaf family" id="sFamily"><div class="pg"><i class="vig"></i><i class="band t"></i><i class="band b"></i><i class="disk t"></i><span class="folio"></span><div class="body"><div class="in">
+    <p class="eyebrow rv" data-t="famEyebrow"></p>
+    <h2 class="title rv" data-t="famTitle"></h2>
+    <div class="panel strip rv"><img src="assets/dreams-1.webp" alt=""></div>
+    <div class="fam rv">
+      <div><p class="who" data-n="1"></p><p class="of" data-f="ofA"></p><p class="par" data-f="parA"></p><p class="gp" data-f="gpA"></p></div>
+      <p class="amp">&amp;</p>
+      <div><p class="who" data-n="2"></p><p class="of" data-f="ofB"></p><p class="par" data-f="parB"></p><p class="gp" data-f="gpB"></p></div>
+    </div>
+    <p class="lead rv" data-t="famInvite" style="margin-top:12px"></p>
+    <div class="darshan rv" id="darshan"><small data-t="darshanT"></small><p data-t="darshan"></p></div>
+  </div></div></div></section>
+
+  <section class="leaf count" id="sCount"><div class="pg"><i class="vig"></i><i class="band t"></i><i class="band b"></i><i class="disk t"></i><span class="folio"></span><div class="body"><div class="in">
+    <p class="eyebrow rv" data-t="cdEyebrow"></p>
+    <h2 class="title rv" data-t="cdTitle"></h2>
+    <div class="panel strip rv"><img src="assets/dreams-2.webp" alt=""></div>
+    <div class="big redp rv"><small data-d="weekday"></small><b data-d="day"></b><small data-d="monYear"></small><em id="mTime" data-t="muhuratTime"></em></div>
+    <div class="ticks rv" id="ticks"><div><b>0</b><span data-t="dDays"></span></div><div><b>0</b><span data-t="dHours"></span></div><div><b>0</b><span data-t="dMins"></span></div><div><b>0</b><span data-t="dSecs"></span></div></div>
+  </div></div></div></section>
+
+  <section class="leaf events" id="sEvents"><div class="pg"><i class="vig"></i><i class="band t"></i><i class="band b"></i><i class="disk t"></i><span class="folio"></span><div class="body"><div class="in">
+    <p class="eyebrow rv" data-t="evEyebrow"></p>
+    <h2 class="title rv" data-t="evTitle"></h2>
+    <ol class="rows rv" id="steps"></ol>
+  </div></div></div></section>
+
+  <section class="leaf venues" id="sVenues"><div class="pg"><i class="vig"></i><i class="band t"></i><i class="band b"></i><i class="disk t"></i><span class="folio"></span><div class="body"><div class="in">
+    <p class="eyebrow rv" data-t="vEyebrow"></p>
+    <h2 class="title rv" data-t="vTitle"></h2>
+    <div class="panel strip board rv"><img src="assets/board.webp" alt=""></div>
+    <div class="places rv" id="places"></div>
+  </div></div></div></section>
+
+  <section class="leaf story" id="sStory"><div class="pg"><i class="vig"></i><i class="band t"></i><i class="band b"></i><i class="disk t"></i><span class="folio"></span><div class="body"><div class="in">
+    <p class="eyebrow rv" data-t="gEyebrow"></p>
+    <h2 class="title rv" data-t="gTitle"></h2>
+    <div class="pics rv" id="gallery"></div>
+  </div></div></div></section>
+
+  <section class="leaf rsvp" id="sRsvp"><div class="pg"><i class="vig"></i><i class="band t"></i><i class="band b"></i><i class="disk t"></i><span class="folio"></span><div class="body"><div class="in">
+    <p class="eyebrow rv" data-t="rsvpEyebrow"></p>
+    <h2 class="title rv" data-t="rsvpTitle"></h2>
+    <form id="rsvp" class="rv" novalidate>
+      <div><label for="rName" data-t="rName"></label><input id="rName" name="name" autocomplete="name" data-ph="rNamePh"></div>
+      <div><label data-t="rAttend"></label><div class="choice"><label><input type="radio" name="attend" value="Yes" checked><span data-t="rYes"></span></label><label><input type="radio" name="attend" value="No"><span data-t="rNo"></span></label></div></div>
+      <div><label for="rGuests" data-t="rGuests"></label><select id="rGuests" name="guests"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+      <div><label for="rMsg" data-t="rMsg"></label><textarea id="rMsg" name="message" rows="2" data-ph="rMsgPh"></textarea></div>
+      <button class="btn" type="submit" data-t="rSend"></button>
+    </form>
+    <div class="thanks" id="thanks"><b data-t="thanks"></b><p class="lead" data-t="thanksLine"></p></div>
+  </div></div></div></section>
+
+  <section class="leaf end" id="sEnd"><div class="pg"><i class="vig"></i><i class="band t"></i><i class="band b"></i><i class="disk t"></i><span class="folio"></span><div class="body"><div class="in">
+    <div class="panel endpic rv" id="endPic"><div id="endPhoto"></div></div>
+    <img class="pk rv" src="assets/prateek.webp" alt="">
+    <h2 class="title rv" data-t="endTitle"></h2>
+    <p class="rv" data-t="endLine"></p>
+    <p class="sign redp rv"><span data-n="1"></span> &amp; <span data-n="2"></span></p>
+  </div></div></div></section>
+</main>
+
+<nav id="nav" aria-label="Turn the pages">
+  <button type="button" id="prev" aria-label="Previous page"><svg viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"/></svg></button>
+  <p class="count"><span id="cnt"></span><small id="swipe" data-t="swipe"></small></p>
+  <button id="music" type="button" aria-label="Play or pause music" hidden><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/></svg></button>
+  <button type="button" id="next" aria-label="Next page"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+</nav>
+
+<audio id="song" loop preload="none"></audio>
+
+<script src="wv-card.js?v=g1121"></script>
+
+</body>
+</html>

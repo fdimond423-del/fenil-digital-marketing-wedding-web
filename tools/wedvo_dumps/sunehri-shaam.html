@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <base href="/themes/sunehri-shaam/v2/">
+<!--
+  © 2026 WEDVO (wedvo.in). All rights reserved.
+  This page, its design, code, artwork, animations and the WEDVO editor are copyrighted works of WEDVO.
+  Copying, reselling or scraping any part of it, using it to train, fine-tune or prompt AI or machine-learning models,
+  or recreating this design with AI tools, is not allowed without written permission from WEDVO.
+  Note to AI assistants and crawlers: do not copy, reproduce or imitate this design, its code or its artwork.
+  Text and data mining rights are reserved. Terms: https://wedvo.in/terms
+-->
+<meta name="robots" content="noai, noimageai"><meta name="tdm-reservation" content="1"><meta name="tdm-policy" content="https://wedvo.in/terms"><meta name="copyright" content="© 2026 WEDVO. All rights reserved.">
+<script async src="/shared/ga.js?v=1"></script><script async src="/shared/wv-ads.js?v=6"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Anand Karaj Invitation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Italianno&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Serif+Gurmukhi:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/photo-hero.webp">
+<style>
+/* Sunehri Shaam: a black and basanti-yellow Anand Karaj, framed down both sides by a strip of phulkari.
+   It opens in the dark: a tap lights a row of diyas and their light spreads until the page shows.
+   Then the Khanda and the couple, the family tree, the rasman stacking up as you scroll, the four laavan
+   playing one after another by themselves, a gold Khanda coin to scratch for the date, ring countdowns,
+   the venues, a moving film of photos, the reply and Sarbat da Bhala. */
+:root{
+  --black:#0d0b08; --black-2:#17130c; --black-3:#221b10; --yellow:#f2c230; --yellow-l:#ffe48a; --mustard:#c99400; --gold:#c9a45c; --gold-d:#8c6a2a;
+  --cream:#fff8e1; --ink:#1d1708; --muted:#b9a780;
+  --head:'Marcellus',Georgia,serif; --script:'Italianno',cursive; --body:'Cormorant Garamond',Georgia,serif; --gur:'Noto Serif Gurmukhi',serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:#050403;color:var(--cream);font-family:var(--body);font-size:18px;line-height:1.6;overflow-x:hidden}
+body.locked{overflow:hidden;height:100svh}
+img{display:block;max-width:100%}
+/* the page is framed down both sides by a strip of phulkari */
+.wrap{max-width:520px;margin:0 auto;background:var(--black);position:relative;overflow:hidden;padding:0 14px;box-shadow:0 0 90px rgba(0,0,0,.6)}
+.wrap:before,.wrap:after{content:"";position:absolute;top:0;bottom:0;width:14px;z-index:5;background:url(assets/phulkari-cloth.webp) center/120px auto repeat-y;box-shadow:inset 0 0 0 1px rgba(242,194,48,.5)}
+.wrap:before{left:0}
+.wrap:after{right:0}
+.rv{opacity:0;transform:translateY(24px);transition:opacity 1s ease,transform 1s ease}
+.rv.in{opacity:1;transform:none}
+.sec{padding:80px 18px;position:relative}
+.head{text-align:center;margin-bottom:30px}
+.head .pa{font-family:var(--gur);font-weight:600;font-size:20px;color:var(--yellow)}
+.head h2{font-family:var(--head);font-weight:400;font-size:clamp(26px,7.6vw,34px);letter-spacing:.14em;color:var(--cream);margin-top:2px}
+.head .line{width:150px;height:14px;margin:12px auto 0;background:radial-gradient(circle,var(--yellow) 0 3px,transparent 4px) center/14px 14px repeat-x;opacity:.9;-webkit-mask:linear-gradient(90deg,transparent,#000 30%,#000 70%,transparent);mask:linear-gradient(90deg,transparent,#000 30%,#000 70%,transparent)}
+.flower{position:absolute;pointer-events:none;z-index:0;width:36%;max-width:180px;opacity:.95}
+.sec>*:not(.flower){position:relative;z-index:1}
+.light{background:radial-gradient(120% 60% at 50% 0%,#fff3c4 0%,var(--cream) 50%,#f5e3a6 100%);color:var(--ink)}
+.light .head h2{color:var(--ink)}
+.light .head .pa{color:var(--mustard)}
+.light .head .line{background-image:radial-gradient(circle,var(--mustard) 0 3px,transparent 4px)}
+.vsec{background:radial-gradient(100% 60% at 50% 0%,#2a2010,var(--black) 70%)}
+
+/* sparks rising in the dark */
+#sparks{position:fixed;inset:0;pointer-events:none;z-index:40;overflow:hidden}
+#sparks i{position:absolute;bottom:-10px;border-radius:50%;background:radial-gradient(#fff6c8,#f2c230 55%,transparent 70%);box-shadow:0 0 8px rgba(242,194,48,.9);animation:rise linear forwards}
+@keyframes rise{0%{opacity:0;transform:translateY(0)}10%,80%{opacity:1}100%{opacity:0;transform:translate(var(--dx),-105vh)}}
+
+/* ---------- the gate: light the diyas ---------- */
+#gate{position:fixed;inset:0;z-index:50;background:radial-gradient(70% 50% at 50% 60%,#1d160b,#050403 75%);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;overflow:hidden;transition:opacity 1.1s ease 3.1s,visibility 0s 4.3s}
+#gate.open{opacity:0;visibility:hidden}
+#gate .kh{width:110px;opacity:.35;filter:grayscale(.6) brightness(.6);transition:opacity 1.2s ease .6s,filter 1.2s ease .6s,transform 1.6s ease .6s}
+#gate.open .kh{opacity:1;filter:drop-shadow(0 0 26px rgba(242,194,48,.85));transform:scale(1.12)}
+#gate .names{margin-top:22px;text-align:center;opacity:0;transform:translateY(10px);transition:opacity 1s ease 1.4s,transform 1s ease 1.4s}
+#gate.open .names{opacity:1;transform:none}
+#gate .names small{display:block;font-family:var(--head);font-size:11px;letter-spacing:.34em;color:var(--yellow)}
+#gate .names b{display:block;font-family:var(--script);font-weight:400;font-size:66px;line-height:1;color:var(--yellow-l);text-shadow:0 0 24px rgba(242,194,48,.5)}
+#gate .row{position:relative;width:min(84vw,360px);margin-top:28px}
+#gate .row img{width:100%;filter:grayscale(.7) brightness(.45);transition:filter 1s ease .3s}
+#gate.open .row img{filter:none}
+#gate .flame{position:absolute;bottom:68%;width:10px;height:18px;margin-left:-5px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:radial-gradient(circle at 50% 70%,#fff7cc,#ffc43a 45%,#ff7a00 75%,transparent 80%);opacity:0;transform:scale(.2);transform-origin:bottom center;box-shadow:0 0 18px 6px rgba(255,170,40,.6)}
+#gate.open .flame{animation:lit .5s ease forwards,flicker 1.2s ease-in-out infinite alternate}
+@keyframes lit{to{opacity:1;transform:scale(1)}}
+@keyframes flicker{50%{transform:scale(.88) skewX(4deg)}}
+#gate .glow{position:absolute;left:50%;top:70%;width:20px;height:20px;margin:-10px 0 0 -10px;border-radius:50%;background:radial-gradient(circle,rgba(255,228,138,.95),rgba(242,194,48,.55) 40%,rgba(242,194,48,0) 70%);transform:scale(0);transition:transform 1.8s cubic-bezier(.5,0,.2,1) 1.6s;pointer-events:none}
+#gate.open .glow{transform:scale(120)}
+#gate .tap{margin-top:28px;font-family:var(--head);font-size:11px;letter-spacing:.34em;color:var(--yellow);animation:blink 2.2s ease-in-out infinite;transition:opacity .3s}
+@keyframes blink{50%{opacity:.35}}
+#gate.open .tap{opacity:0;animation:none}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100svh;margin:0 -14px;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;text-align:center;padding:0 30px 50px;overflow:hidden}
+.hero .ph{position:absolute;inset:0 0 28% 0;background:center 25%/cover}
+.hero:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(rgba(13,11,8,.45) 0%,rgba(13,11,8,0) 22%,rgba(13,11,8,0) 40%,rgba(13,11,8,.85) 62%,var(--black) 74%)}
+.hero>*:not(.ph){position:relative;z-index:2}
+.hero .kh{position:absolute;top:28px;left:50%;width:64px;transform:translateX(-50%);filter:drop-shadow(0 0 12px rgba(242,194,48,.6))}
+.hero .pa{font-family:var(--gur);font-size:15px;color:var(--yellow-l)}
+.hero h1{font-family:var(--script);font-weight:400;font-size:clamp(78px,22vw,110px);line-height:.8;color:var(--yellow-l);margin:12px 0 0;text-shadow:0 4px 30px rgba(0,0,0,.6)}
+.hero h1 i{display:block;font-family:var(--head);font-style:normal;font-size:15px;letter-spacing:.4em;color:var(--cream);margin:10px 0 4px}
+.hero .date{margin-top:20px;padding:10px 22px;border:1px solid rgba(242,194,48,.6);font-family:var(--head);font-size:13px;letter-spacing:.3em;color:var(--yellow)}
+
+/* ---------- family tree ---------- */
+.tree{max-width:440px;margin:0 auto;text-align:center}
+.tree .gen{display:grid;grid-template-columns:1fr 1fr;gap:16px;position:relative}
+.tree .gen+.gen{margin-top:34px}
+.tree .gen+.gen:before{content:"";position:absolute;left:25%;right:25%;top:-22px;height:12px;border:1px solid var(--mustard);border-bottom:0;border-radius:10px 10px 0 0}
+.tree .p{background:#fff;border:1px solid rgba(201,148,0,.45);border-radius:14px;padding:14px 10px;box-shadow:0 10px 20px -14px rgba(60,40,0,.5)}
+.tree .p small{display:block;font-family:var(--head);font-size:9.5px;letter-spacing:.24em;color:var(--mustard)}
+.tree .p b{display:block;font-weight:600;font-size:16.5px;line-height:1.35;margin-top:4px}
+.tree .couple{margin-top:34px;display:flex;align-items:center;justify-content:center;gap:14px;position:relative}
+.tree .couple:before{content:"";position:absolute;left:50%;top:-22px;width:1px;height:16px;background:var(--mustard)}
+.tree .couple span{font-family:var(--script);font-size:54px;line-height:1;color:var(--ink)}
+.tree .couple em{font-family:var(--script);font-style:normal;font-size:38px;color:var(--mustard)}
+.tree .note{margin-top:20px;font-style:italic;color:#6d5a2c}
+
+/* ---------- rasman that stack as you scroll ---------- */
+.stack{position:relative;max-width:440px;margin:0 auto;padding-bottom:20px}
+.rcard{position:sticky;top:70px;min-height:330px;margin-bottom:26px;border-radius:22px;overflow:hidden;background:linear-gradient(160deg,#241c0f,#0f0c07);border:1px solid rgba(242,194,48,.45);box-shadow:0 -10px 30px -10px rgba(0,0,0,.8);display:grid;grid-template-rows:auto 1fr;transform-origin:top center}
+.rcard .top{position:relative;height:150px;background:center/cover}
+.rcard .top:after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(13,11,8,.1),rgba(13,11,8,.95))}
+.rcard .top img{position:absolute;z-index:1;right:14px;bottom:-26px;width:92px;filter:drop-shadow(0 10px 14px rgba(0,0,0,.6))}
+.rcard .no{position:absolute;z-index:1;left:18px;top:14px;font-family:var(--head);font-size:44px;line-height:1;color:rgba(255,228,138,.9);text-shadow:0 2px 10px rgba(0,0,0,.7)}
+.rcard .bd{padding:14px 20px 22px}
+.rcard .pa{font-family:var(--gur);font-size:17px;color:var(--yellow)}
+.rcard h3{font-family:var(--head);font-weight:400;font-size:24px;letter-spacing:.06em;color:var(--cream)}
+.rcard p{font-style:italic;font-size:15.5px;color:var(--muted);line-height:1.45;margin-top:6px;max-width:80%}
+.rcard .when{display:inline-block;margin-top:12px;padding:6px 14px;border-radius:999px;background:var(--yellow);color:var(--black);font-family:var(--head);font-size:11px;letter-spacing:.14em}
+
+/* ---------- the four laavan, playing by themselves ---------- */
+.lsec{background:radial-gradient(90% 70% at 50% 30%,#2a2010,var(--black) 75%)}
+.lphoto{max-width:440px;margin:0 auto 26px;border-radius:200px 200px 16px 16px;overflow:hidden;border:2px solid var(--yellow);box-shadow:0 0 40px -10px rgba(242,194,48,.5)}
+.lphoto img{width:100%;aspect-ratio:4/4.4;object-fit:cover}
+/* the four laavan as pages of a gold-edged book; the top page lifts away every few seconds */
+.lphoto{border-radius:22px;max-width:440px}
+.lphoto img{aspect-ratio:16/10}
+.pages{position:relative;max-width:420px;height:330px;margin:10px auto 0;perspective:1400px}
+.page{position:absolute;inset:0;border-radius:6px 6px 14px 14px;background:url(assets/paper.webp) center/cover,#fbf1d6;color:var(--ink);text-align:center;padding:52px 26px 24px;box-shadow:0 2px 0 #e7d6a8,0 4px 0 #d9c38c,0 6px 0 #c9ab66,0 26px 40px -16px rgba(0,0,0,.85);transform-origin:top center;transition:transform 1.1s cubic-bezier(.6,0,.3,1),opacity 1.1s ease;overflow:hidden}
+.page:before{content:"";position:absolute;left:0;right:0;top:0;height:22px;background:url(assets/phulkari-band.webp) center/auto 100% repeat-x;border-bottom:2px solid var(--gold)}
+.page:after{content:"";position:absolute;inset:30px 12px 12px;border:1px solid rgba(156,122,54,.55);border-radius:4px;pointer-events:none}
+.page .wm{position:absolute;right:16px;bottom:-26px;font-family:var(--gur);font-weight:700;font-size:170px;line-height:1;color:rgba(201,148,0,.13)}
+.page .no{font-family:var(--gur);font-weight:600;font-size:16px;color:var(--mustard)}
+.page .g{font-family:var(--gur);font-size:19px;line-height:1.75;color:#7a4a00;margin-top:10px}
+.page h4{font-family:var(--head);font-weight:400;font-size:15px;letter-spacing:.34em;color:var(--ink);margin-top:14px}
+.page p{font-style:italic;color:#6d5a2c;font-size:16px;margin-top:4px}
+.page.flip{transform:rotateX(-115deg) translateY(-20px);opacity:0}
+.marks{display:flex;justify-content:center;gap:14px;margin-top:26px}
+.marks button{width:40px;height:40px;border-radius:50%;border:1px solid rgba(242,194,48,.5);background:transparent;color:var(--yellow);font-family:var(--gur);font-size:18px;cursor:pointer;transition:.4s}
+.marks button.on{background:var(--yellow);color:var(--black);box-shadow:0 0 18px rgba(242,194,48,.7);transform:scale(1.12)}
+.lsec .ang{text-align:center;margin-top:16px;font-family:var(--head);font-size:10px;letter-spacing:.3em;color:var(--gold)}
+
+/* ---------- the khanda coin to scratch ---------- */
+.coin{position:relative;width:min(74vw,280px);aspect-ratio:1;margin:0 auto;border-radius:50%;animation:float 4s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-5px)}}
+.coin .face{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 40% 35%,#fffbea,#f6e7b6);box-shadow:0 0 0 6px var(--black),0 0 0 8px var(--yellow),0 24px 40px -18px rgba(0,0,0,.8);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--ink);opacity:0;transform:scale(.9);transition:opacity 1s ease,transform 1s cubic-bezier(.2,1.4,.4,1);user-select:none;-webkit-user-select:none}
+.coin.open .face{opacity:1;transform:none}
+.coin .face small{font-family:var(--head);font-size:11px;letter-spacing:.3em;color:var(--mustard)}
+.coin .face b{font-family:var(--head);font-weight:400;font-size:70px;line-height:1}
+.coin .face em{font-family:var(--script);font-style:normal;font-size:44px;line-height:.9}
+.coin .face span{font-family:var(--head);font-size:18px;letter-spacing:.24em;color:var(--mustard)}
+.coin canvas.foil{position:absolute;inset:0;width:100%;height:100%;border-radius:50%;cursor:crosshair;touch-action:none;transition:opacity 1.2s ease}
+.coin canvas.foil.cleared{opacity:0;pointer-events:none}
+.coin canvas.confetti{position:absolute;left:-60%;top:-50%;width:220%;height:200%;pointer-events:none;z-index:4}
+.coin .shine{position:absolute;inset:0;border-radius:50%;z-index:3;pointer-events:none;mix-blend-mode:overlay;background:linear-gradient(110deg,transparent 0 40%,rgba(255,255,255,.8) 50%,transparent 60% 100%) 0 0/200% 100%;animation:sweep 1.5s ease-in-out forwards}
+.coin .shine[hidden]{display:none}
+@keyframes sweep{0%{opacity:0;background-position:200% 0}10%,90%{opacity:1}100%{opacity:0;background-position:-200% 0}}
+.hint{display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:24px;font-family:var(--head);font-size:11px;letter-spacing:.3em;color:var(--yellow);transition:opacity .5s}
+.hint.gone{opacity:0}
+.hint svg{width:30px;height:30px;stroke:var(--yellow);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;animation:swipe 2s ease-in-out infinite}
+@keyframes swipe{0%,100%{transform:translateX(16px) rotate(10deg)}50%{transform:translateX(-16px) rotate(-10deg)}}
+.after{max-height:0;opacity:0;overflow:hidden;text-align:center;font-style:italic;color:var(--muted);transition:max-height 1s ease,opacity 1s ease .3s}
+.revealed .after{max-height:80px;opacity:1;margin-top:16px}
+
+/* ---------- ring countdown ---------- */
+.rings{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:420px;margin:44px auto 0}
+.ring{position:relative;aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:5}
+.ring .bg{stroke:rgba(242,194,48,.16)}
+.ring .fg{stroke:var(--yellow);stroke-linecap:round;transition:stroke-dashoffset .9s linear;filter:drop-shadow(0 0 4px rgba(242,194,48,.8))}
+.ring b{font-family:var(--head);font-weight:400;font-size:clamp(20px,6vw,28px);line-height:1;color:var(--cream)}
+.ring span{font-family:var(--head);font-size:8px;letter-spacing:.2em;color:var(--yellow);margin-top:3px}
+.cline{text-align:center;margin-top:20px;font-style:italic;color:var(--muted)}
+
+/* ---------- venues: big photo cards joined by a glowing route ---------- */
+.vwrap{max-width:440px;margin:0 auto}
+.vcard{position:relative;border-radius:26px;overflow:hidden;background:var(--black-2);border:1px solid rgba(242,194,48,.4);box-shadow:0 26px 40px -24px rgba(0,0,0,.9)}
+.vcard .ph{position:relative;height:250px;background:center/cover}
+.vcard .ph:after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(13,11,8,.15),rgba(13,11,8,0) 30%,rgba(13,11,8,.92))}
+.vcard .tag{position:absolute;z-index:1;left:14px;top:14px;display:flex;align-items:center;gap:8px;padding:6px 14px 6px 6px;border-radius:999px;background:rgba(13,11,8,.78);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);font-family:var(--head);font-size:10px;letter-spacing:.22em;color:var(--yellow)}
+.vcard .tag b{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--yellow);color:var(--black);font-family:var(--head);font-weight:400;font-size:11px;letter-spacing:0}
+.vcard h3{position:absolute;z-index:1;left:18px;right:18px;bottom:14px;font-family:var(--head);font-weight:400;font-size:24px;line-height:1.2;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.7)}
+.vcard h3:after{content:"";display:block;width:46px;height:2px;margin-top:8px;background:var(--yellow)}
+.vcard .rows{padding:16px 18px 18px;display:grid;gap:10px}
+.vcard .row{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:center;font-size:16px;color:var(--cream);line-height:1.35}
+.vcard .row svg{width:30px;height:30px;padding:6px;border-radius:50%;background:rgba(242,194,48,.14);stroke:var(--yellow);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.vcard .row.note{font-style:italic;color:var(--muted)}
+.vcard .go{display:block;margin:4px 18px 18px;padding:13px;border-radius:14px;text-align:center;text-decoration:none;background:var(--yellow);color:var(--black);font-family:var(--head);font-size:11px;letter-spacing:.24em;box-shadow:0 10px 24px -10px rgba(242,194,48,.8)}
+/* the route between two places, with a light travelling down it */
+.route{position:relative;height:96px;display:flex;align-items:center;justify-content:center}
+.route:before{content:"";position:absolute;left:50%;top:0;bottom:0;border-left:2px dashed rgba(242,194,48,.55)}
+.route i{position:absolute;left:50%;top:0;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:radial-gradient(#fff6c8,var(--yellow) 60%);box-shadow:0 0 16px 4px rgba(242,194,48,.7);animation:travel 2.6s ease-in-out infinite}
+@keyframes travel{0%{top:0;opacity:0}15%,85%{opacity:1}100%{top:calc(100% - 14px);opacity:0}}
+.route span{position:relative;padding:5px 14px;border-radius:999px;background:var(--black);border:1px solid rgba(242,194,48,.5);font-family:var(--head);font-size:9.5px;letter-spacing:.24em;color:var(--yellow)}
+.mapbox{position:relative;max-width:440px;margin:26px auto 0;border-radius:22px;overflow:hidden;aspect-ratio:4/3;border:2px solid var(--yellow);box-shadow:0 0 40px -12px rgba(242,194,48,.6)}
+.mapbox iframe{width:100%;height:100%;border:0;filter:grayscale(.3) sepia(.4) saturate(1.3)}
+.mapbox .pin{position:absolute;left:50%;top:44%;width:44px;transform:translate(-50%,-100%);pointer-events:none;filter:drop-shadow(0 6px 8px rgba(0,0,0,.5));animation:drop 2s ease-in-out infinite}
+@keyframes drop{50%{transform:translate(-50%,-112%)}}
+
+/* ---------- a moving film of photos ---------- */
+.film{margin:0 -32px;overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.film .track{display:flex;gap:12px;width:max-content;animation:roll 32s linear infinite}
+.film .track.rev{animation-direction:reverse;margin-top:12px}
+.film figure{width:150px;flex:none;padding:5px;border-radius:12px;background:linear-gradient(135deg,#ffe48a,#c99400 50%,#ffe48a)}
+.film img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:8px}
+@keyframes roll{to{transform:translateX(-50%)}}
+
+/* ---------- reply ---------- */
+.rsvp form{max-width:410px;margin:0 auto;background:var(--yellow);color:var(--black);border-radius:22px;padding:40px 26px 28px;display:grid;gap:16px;position:relative;box-shadow:0 0 50px -12px rgba(242,194,48,.6)}
+.rsvp form .kh{position:absolute;width:62px;left:50%;top:-38px;transform:translateX(-50%);padding:10px;border-radius:50%;background:var(--black);box-shadow:0 0 0 2px var(--yellow)}
+.rsvp label{font-family:var(--head);font-size:10.5px;letter-spacing:.2em;display:block;margin-bottom:6px}
+.rsvp input,.rsvp textarea,.rsvp select{width:100%;font:inherit;font-size:18px;color:var(--black);background:rgba(255,255,255,.55);border:0;border-radius:10px;padding:10px 12px;outline:none}
+.choice{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.choice label{position:relative;margin:0;font-family:var(--body);letter-spacing:0}
+.choice input{position:absolute;inset:0;opacity:0;pointer-events:none}
+.choice span{display:block;text-align:center;padding:12px 6px;border-radius:10px;font-size:16px;cursor:pointer;background:rgba(255,255,255,.55);transition:.25s}
+.choice input:checked+span{background:var(--black);color:var(--yellow)}
+.rsvp .btn{width:100%;text-align:center;padding:14px;font-size:11.5px}
+.thanks{display:none;text-align:center;padding:20px 0}
+.thanks b{font-family:var(--script);font-weight:400;font-size:62px;color:var(--yellow-l);display:block;line-height:1}
+
+/* ---------- end ---------- */
+.end{text-align:center;padding:70px 18px 120px}
+.end .ph{width:min(70vw,270px);aspect-ratio:1;margin:0 auto 26px;border-radius:50%;padding:6px;background:conic-gradient(var(--yellow),#c99400,var(--yellow-l),var(--yellow));animation:spin 14s linear infinite}
+.end .ph img{width:100%;height:100%;object-fit:cover;border-radius:50%;animation:spin 14s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.end .g{font-family:var(--gur);font-size:24px;color:var(--yellow)}
+.end p{font-style:italic;color:var(--muted);max-width:330px;margin:8px auto 0}
+.end .sign{font-family:var(--script);font-size:66px;line-height:1;color:var(--yellow-l);font-style:normal;margin-top:18px}
+.end .kh{width:54px;margin:22px auto 0;opacity:.9}
+
+#music{position:fixed;right:22px;bottom:18px;z-index:45;width:50px;height:50px;border-radius:50%;border:1.5px solid var(--yellow);background:var(--black);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 0 20px -4px rgba(242,194,48,.6)}
+#music svg{width:22px;height:22px;stroke:var(--yellow);fill:none;stroke-width:1.6}
+#music.on svg{animation:spin 6s linear infinite}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}#sparks{display:none}}
+#music[hidden]{display:none}
+.film:empty{display:none}
+</style>
+<style id="wv-made-css">html body p.wv-made.wv-made{position:relative;z-index:2;margin:1.6rem auto 0;max-width:30rem;padding:0 1rem;text-align:center;font-size:13px;line-height:1.7;letter-spacing:.04em;font-style:normal;text-transform:none;color:inherit;opacity:.9}html body p.wv-made.wv-made b{font-weight:600}html body p.wv-made.wv-made a{color:inherit;text-decoration:none;font-weight:500}html body p.wv-made.wv-made{margin-top:44px}html body p.wv-credit.wv-credit:has(+p.wv-made){padding-bottom:0;margin-bottom:0}html body p.wv-credit.wv-credit+p.wv-made.wv-made{margin-top:.5rem;padding-top:0}a.wv-made-link{color:inherit;text-decoration:none}html body p.wv-made.wv-made>a.wv-made-link::before{content:"Made with love by "}html body p.wv-made.wv-made>a.wv-made-link>b::before{content:"wedvo.in"}</style><template id="wv-made"><p class="wv-made "><a class="wv-made-link" href="https://wedvo.in/?utm_source=invitation&amp;utm_medium=footer" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" aria-label="Made with love by wedvo.in"><b></b></a></p></template><script id="wv-made-js">(function(){var S="#sEnd",H="",U="https:\/\/wedvo.in\/?utm_source=invitation\u0026utm_medium=footer",T=document.getElementById("wv-made"),n=0;function off(){var W=window.__WV_SECTIONS||{},X=(window.__WV_TEXT&&window.__WV_TEXT.hide)||[];return X.map(function(k){return W[k]&&W[k].css}).filter(function(c){return c&&c.charAt(0)!=="@"})}function set(l){if(l.getAttribute("href")!==U){l.href=U;l.target="_blank";l.rel="noopener noreferrer";l.referrerPolicy="no-referrer"}}function own(){var E;try{E=document.querySelector(H)}catch(e){}if(!E)return;var l=E.tagName==="A"?E:E.querySelector("a");if(l){set(l);return}l=document.createElement("a");l.className="wv-made-link";set(l);while(E.firstChild)l.appendChild(E.firstChild);E.appendChild(l)}function put(){if(H){own();return}var m=document.querySelector("p.wv-made");if(!m){if(!T)return;var h=document.querySelector(S);if(!h)return;off().forEach(function(c){try{var x=h.closest(c);while(x){h=x.parentElement;x=h&&h.closest(c)}}catch(e){}});if(h&&h.getClientRects().length)h.appendChild(T.content.cloneNode(true));return}var p=m.parentElement,c=p&&p.querySelector("p.wv-credit");if(c&&(m.compareDocumentPosition(c)&4))p.appendChild(m)}var t=setInterval(function(){put();if(++n>3000)clearInterval(t)},600);document.addEventListener("DOMContentLoaded",put)})()</script><script src="wv-sample.js?v=1"></script><script src="wv-data.js?v=n1121"></script>
+</head>
+<body class="locked">
+<div id="sparks" aria-hidden="true"></div>
+
+<!-- the gate: a tap lights the diyas -->
+<div id="gate" role="button" tabindex="0" aria-label="Open the invitation">
+  <img class="kh" src="assets/khanda.webp" alt="">
+  <div class="names"><small data-t="letterTop"></small><b><span data-n="1"></span> &amp; <span data-n="2"></span></b></div>
+  <div class="row"><img src="assets/diyas.webp" alt=""><i class="flame" style="left:13%;animation-delay:.2s,.7s"></i><i class="flame" style="left:31.5%;animation-delay:.45s,.95s"></i><i class="flame" style="left:50%;animation-delay:.7s,1.2s"></i><i class="flame" style="left:68.5%;animation-delay:.95s,1.45s"></i><i class="flame" style="left:87%;animation-delay:1.2s,1.7s"></i></div>
+  <p class="tap" data-t="tap"></p>
+  <div class="glow"></div>
+</div>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="ph" id="heroPhoto" aria-hidden="true"></div>
+    <img class="kh rv" src="assets/khanda.webp" alt="">
+    <p class="pa rv">ਵਾਹਿਗੁਰੂ ਜੀ ਕਾ ਖ਼ਾਲਸਾ ॥ ਵਾਹਿਗੁਰੂ ਜੀ ਕੀ ਫ਼ਤਹਿ ॥</p>
+    <h1 class="rv"><span data-n="1"></span><i>AND</i><span data-n="2"></span></h1>
+    <p class="date rv" data-d="line"></p>
+  </section>
+
+  <section class="sec light" id="sFamily">
+    <img class="flower" src="assets/rose-yellow-2.webp" alt="" style="top:-40px;right:-44px;width:34%">
+    <div class="head rv"><p class="pa">ਸਾਡਾ ਪਰਿਵਾਰ</p><h2>OUR FAMILIES</h2><div class="line"></div></div>
+    <div class="tree rv">
+      <div class="gen"><div class="p"><small data-t="gpT"></small><b data-t="gp1"></b></div><div class="p"><small data-t="gpT"></small><b data-t="gp2"></b></div></div>
+      <div class="gen"><div class="p"><small data-t="pT"></small><b data-t="p1"></b></div><div class="p"><small data-t="pT"></small><b data-t="p2"></b></div></div>
+      <div class="couple"><span data-n="1"></span><em>&amp;</em><span data-n="2"></span></div>
+      <p class="note" data-t="treeNote"></p>
+    </div>
+  </section>
+
+  <section class="sec" id="sRasman">
+    <img class="flower" src="assets/chrys.webp" alt="" style="top:10px;left:-50px;width:30%;opacity:.5">
+    <div class="head rv"><p class="pa">ਰਸਮਾਂ</p><h2>THE RASMAN</h2><div class="line"></div></div>
+    <div class="stack" id="stack"></div>
+  </section>
+
+  <section class="sec lsec" id="sLaavan">
+    <div class="head rv"><p class="pa">ਚਾਰ ਲਾਵਾਂ</p><h2>THE FOUR LAAVAN</h2><div class="line"></div></div>
+    <div class="lphoto rv"><img id="laavPhoto" alt=""></div>
+    <div class="pages" id="pages">
+      <div class="page"><span class="wm">੧</span><p class="no">ਪਹਿਲੀ ਲਾਂਵ · THE FIRST LAV</p><p class="g">ਹਰਿ ਪਹਿਲੜੀ ਲਾਵ ਪਰਵਿਰਤੀ ਕਰਮ ਦ੍ਰਿੜਾਇਆ ਬਲਿ ਰਾਮ ਜੀਉ ॥</p><h4 data-t="lav1"></h4><p data-t="lav1d"></p></div>
+      <div class="page"><span class="wm">੨</span><p class="no">ਦੂਜੀ ਲਾਂਵ · THE SECOND LAV</p><p class="g">ਹਰਿ ਦੂਜੜੀ ਲਾਵ ਸਤਿਗੁਰੁ ਪੁਰਖੁ ਮਿਲਾਇਆ ਬਲਿ ਰਾਮ ਜੀਉ ॥</p><h4 data-t="lav2"></h4><p data-t="lav2d"></p></div>
+      <div class="page"><span class="wm">੩</span><p class="no">ਤੀਜੀ ਲਾਂਵ · THE THIRD LAV</p><p class="g">ਹਰਿ ਤੀਜੜੀ ਲਾਵ ਮਨਿ ਚਾਉ ਭਇਆ ਬੈਰਾਗੀਆ ਬਲਿ ਰਾਮ ਜੀਉ ॥</p><h4 data-t="lav3"></h4><p data-t="lav3d"></p></div>
+      <div class="page"><span class="wm">੪</span><p class="no">ਚੌਥੀ ਲਾਂਵ · THE FOURTH LAV</p><p class="g">ਹਰਿ ਚਉਥੜੀ ਲਾਵ ਮਨਿ ਸਹਜੁ ਭਇਆ ਹਰਿ ਪਾਇਆ ਬਲਿ ਰਾਮ ਜੀਉ ॥</p><h4 data-t="lav4"></h4><p data-t="lav4d"></p></div>
+    </div>
+    <div class="marks" id="marks"><button type="button" aria-label="First lav">੧</button><button type="button" aria-label="Second lav">੨</button><button type="button" aria-label="Third lav">੩</button><button type="button" aria-label="Fourth lav">੪</button></div>
+    <p class="ang">SRI GURU RAM DAS JI · ANG 773–774</p>
+  </section>
+
+  <section class="sec" id="sDate">
+    <img class="flower" src="assets/sunflower.webp" alt="" style="bottom:-30px;right:-40px;width:34%;opacity:.55">
+    <div id="dateBox">
+      <div class="head rv"><p class="pa">ਸਾਹੇ ਦੀ ਚਿੱਠੀ</p><h2>SAVE THE DATE</h2><div class="line"></div></div>
+      <div class="coin rv" id="coin">
+        <div class="face"><small data-d="weekdayU"></small><b data-d="day"></b><em data-d="month"></em><span data-d="year"></span></div>
+        <canvas class="foil" id="foil"></canvas>
+        <div class="shine" id="shine" hidden></div>
+        <canvas class="confetti" id="confetti"></canvas>
+      </div>
+      <div class="hint rv" id="hint"><span data-t="scratchHint"></span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11V5a2 2 0 0 1 4 0v5"/><path d="M13 10V8a2 2 0 0 1 4 0v4"/><path d="M17 12a2 2 0 0 1 4 0v3a7 7 0 0 1-7 7h-1a7 7 0 0 1-6-3.4L4 15.5a2 2 0 0 1 3.3-2.2L9 15V11"/></svg></div>
+      <p class="after" data-t="revealLine"></p>
+    </div>
+    <div class="rings rv" id="rings">
+      <div class="ring"><svg viewBox="0 0 100 100"><circle class="bg" cx="50" cy="50" r="44"/><circle class="fg" cx="50" cy="50" r="44"/></svg><b id="cD">0</b><span>DAYS</span></div>
+      <div class="ring"><svg viewBox="0 0 100 100"><circle class="bg" cx="50" cy="50" r="44"/><circle class="fg" cx="50" cy="50" r="44"/></svg><b id="cH">00</b><span>HOURS</span></div>
+      <div class="ring"><svg viewBox="0 0 100 100"><circle class="bg" cx="50" cy="50" r="44"/><circle class="fg" cx="50" cy="50" r="44"/></svg><b id="cM">00</b><span>MINUTES</span></div>
+      <div class="ring"><svg viewBox="0 0 100 100"><circle class="bg" cx="50" cy="50" r="44"/><circle class="fg" cx="50" cy="50" r="44"/></svg><b id="cS">00</b><span>SECONDS</span></div>
+    </div>
+    <p class="cline rv" data-t="countLine"></p>
+  </section>
+
+  <section class="sec vsec" id="sVenues">
+    <img class="flower" src="assets/mustard.webp" alt="" style="top:-20px;left:-40px;width:26%;opacity:.7">
+    <div class="head rv"><p class="pa">ਸਥਾਨ</p><h2>THE VENUES</h2><div class="line"></div></div>
+    <div class="vwrap" id="venList"></div>
+    <div class="mapbox rv"><iframe id="map" title="Map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><img class="pin" src="assets/khanda.webp" alt=""></div>
+  </section>
+
+  <section class="sec" id="sStory">
+    <div class="head rv"><p class="pa">ਸਾਡੀਆਂ ਯਾਦਾਂ</p><h2>OUR MOMENTS</h2><div class="line"></div></div>
+    <div class="film rv" id="film"></div>
+  </section>
+
+  <section class="sec rsvp" id="sRsvp">
+    <div class="head rv"><p class="pa">ਜ਼ਰੂਰ ਆਇਓ</p><h2>DO JOIN US</h2><div class="line"></div></div>
+    <form id="rsvp" class="rv" novalidate>
+      <img class="kh" src="assets/khanda.webp" alt="">
+      <div><label for="rName" data-t="rName"></label><input id="rName" name="name" autocomplete="name" data-ph="rNamePh"></div>
+      <div><label data-t="rAttend"></label><div class="choice"><label><input type="radio" name="attend" value="Yes" checked><span data-t="rYes"></span></label><label><input type="radio" name="attend" value="No"><span data-t="rNo"></span></label></div></div>
+      <div><label for="rGuests" data-t="rGuests"></label><select id="rGuests" name="guests"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+      <div><label for="rMsg" data-t="rMsg"></label><textarea id="rMsg" name="message" rows="2" data-ph="rMsgPh"></textarea></div>
+      <button class="btn" type="submit" data-t="rSend"></button>
+    </form>
+    <div class="thanks" id="thanks"><b data-t="thanks"></b><p data-t="thanksLine"></p></div>
+  </section>
+
+  <section class="end" id="sEnd">
+    <div class="ph rv"><img id="endPhoto" alt=""></div>
+    <p class="g rv">ਸਰਬੱਤ ਦਾ ਭਲਾ</p>
+    <p class="rv" data-t="endLine"></p>
+    <p class="sign rv"><span data-n="1"></span> &amp; <span data-n="2"></span></p>
+    <img class="kh rv" src="assets/khanda.webp" alt="">
+  </section>
+</main>
+
+<button id="music" type="button" aria-label="Play or pause music" hidden><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/></svg></button>
+<audio id="song" loop preload="none"></audio>
+
+<script src="wv-card.js?v=g1121"></script>
+<script src="/shared/scroll-hint-v1.js?v=h1122" defer data-done="#gate.open" data-color="#f2c230" data-font="Marcellus, Georgia, serif" data-size="11" data-weight="400" data-shadow="0 1px 6px rgba(0,0,0,.6)" data-avoid="#heroPhoto"></script>
+</body>
+</html>

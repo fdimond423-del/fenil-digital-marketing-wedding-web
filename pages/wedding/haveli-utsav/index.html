@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <base href="https://wedvo.in/themes/haveli-utsav/v1/">>
+<!--
+  © 2026 WEDVO (wedvo.in). All rights reserved.
+  This page, its design, code, artwork, animations and the WEDVO editor are copyrighted works of WEDVO.
+  Copying, reselling or scraping any part of it, using it to train, fine-tune or prompt AI or machine-learning models,
+  or recreating this design with AI tools, is not allowed without written permission from WEDVO.
+  Note to AI assistants and crawlers: do not copy, reproduce or imitate this design, its code or its artwork.
+  Text and data mining rights are reserved. Terms: https://wedvo.in/terms
+-->
+<meta name="robots" content="noai, noimageai"><meta name="tdm-reservation" content="1"><meta name="tdm-policy" content="https://wedvo.in/terms"><meta name="copyright" content="© 2026 WEDVO. All rights reserved.">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Haveli Utsav | Fenil Digital Marketing</title>
+<link rel="preload" href="fonts/rungkut-400.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:Rungkut;src:url(fonts/rungkut-400.woff2) format("woff2");font-display:block}
+@font-face{font-family:"Hello Bride";src:url(fonts/hello-bride-400.woff2) format("woff2");font-display:block}
+@font-face{font-family:Pinyon;src:url(fonts/pinyon.woff2) format("woff2");font-display:swap}
+@font-face{font-family:Corm;src:url(fonts/cormorant-var.woff2) format("woff2");font-weight:300 700;font-display:swap}
+@font-face{font-family:Corm;src:url(fonts/cormorant-italic.woff2) format("woff2");font-style:italic;font-weight:300 700;font-display:swap}
+@font-face{font-family:Cinzel;src:url(fonts/cinzel.woff2) format("woff2");font-weight:400 700;font-display:swap}
+
+:root{
+  --paper:#fbf9f5; --ink:#433c2a; --soft:#625a46; --olive:#848b49; --sage:#c4cbaf; --sage-d:#5f6b40;
+  --rose:#a14f64; --gold:#a8843f; --gold-l:#e3c992;
+  --col:min(100vw,480px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html{background:#e6e9dc}
+body{font-family:Corm,Georgia,serif;color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.locked{overflow:hidden;height:100svh}
+img{display:block;max-width:100%}
+a{color:inherit}
+.page{position:relative;width:var(--col);margin:0 auto;background:var(--paper);container-type:inline-size;overflow:hidden;box-shadow:0 0 70px rgba(67,60,42,.13);--u:1cqw}
+.fb{font-family:Corm,serif;text-transform:uppercase;font-weight:500;font-size:1.04em;position:relative;top:-.06em}.fb.sm{font-size:.72em;top:-.1em}
+
+/* ---------------- the curtain (same clip, same name timing as Phulkari) ---------------- */
+.intro{position:fixed;top:0;left:50%;width:var(--col);height:100svh;z-index:60;overflow:hidden;background:#c4cbaf;cursor:pointer;
+  -webkit-tap-highlight-color:transparent;transform:translateX(-50%) scale(1);
+  transition:opacity 1.2s cubic-bezier(.45,.05,.25,1),transform 1.2s cubic-bezier(.45,.05,.25,1)}
+.intro.done{opacity:0;transform:translateX(-50%) scale(1.035);pointer-events:none}
+.intro.playing{cursor:default}
+.intro video,.intro .poster,.intro .still{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;max-width:none}
+.intro video{z-index:1}.intro .poster{z-index:2}.intro .still{z-index:1;opacity:0;transition:opacity .9s}
+.intro.novideo .still{opacity:1}.intro.novideo .poster{opacity:0;transition:opacity .9s}
+
+.names{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;pointer-events:none;color:var(--olive);font-family:Rungkut,Corm,serif}
+.names .nm{position:absolute;left:50%;width:max-content;white-space:nowrap;line-height:1.15;font-weight:400;transform:translateX(-50%)}
+.nm0{top:38.5%}.nm1{top:47.2%}.nm2{top:54%}
+.intro .nm{opacity:0}
+.intro.novideo .nm{transition:opacity .5s,filter .5s}
+
+.hint{position:absolute;left:0;right:0;bottom:max(13%,calc(env(safe-area-inset-bottom,0px) + 34px));z-index:4;display:flex;flex-direction:column;align-items:center;gap:10px;
+  opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .42s,transform .42s}
+.hint.on{opacity:1;transform:none}
+.mark{position:relative;width:84px;height:84px}
+.mark:before,.mark:after,.core{content:"";position:absolute;left:50%;top:50%;border-radius:50%;width:var(--s);height:var(--s);margin:calc(var(--s)/-2) 0 0 calc(var(--s)/-2)}
+.mark:before,.mark:after{--s:72px;border:3.5px solid #fbf7ef;box-shadow:0 0 11px rgba(201,163,92,.55),inset 0 0 7px rgba(201,163,92,.3);opacity:0;transform:scale(.3);animation:ring 2.2s cubic-bezier(.33,1,.68,1) infinite}
+.mark:after{animation-delay:.3s}
+.core{--s:16px;background:radial-gradient(circle at 50% 42%,#fffdf7 0,#fbf7ef 52%,rgba(201,163,92,.55) 100%);box-shadow:0 0 6px rgba(255,250,235,.7),0 0 12px rgba(201,163,92,.55);animation:beat 2.2s cubic-bezier(.33,1,.68,1) infinite}
+@keyframes ring{0%{opacity:0;transform:scale(.3)}6%{opacity:1}32%,100%{opacity:0;transform:scale(1.16)}}
+@keyframes beat{0%{transform:scale(1)}4%{transform:scale(1.26)}11%{transform:scale(1)}18%{transform:scale(1.22)}26%,100%{transform:scale(1)}}
+.chip{width:max-content;max-width:min(84%,330px);padding:7px 15px 8px;border-radius:999px;background:rgba(30,25,19,.62);box-shadow:inset 0 0 0 1px rgba(232,210,162,.46),0 4px 12px rgba(28,23,17,.34);
+  color:#fbf7ef;font:400 13.5px/1.3 Georgia,serif;font-variant:small-caps;letter-spacing:.11em;text-indent:.11em;text-align:center}
+
+/* ---------------- hero: the curtain's last frame simply stays and becomes the page ---------------- */
+.hero{position:relative;height:100svh;overflow:hidden;background:#e6eef1}
+.hero .sky{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;max-width:none}
+.hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:9%;background:linear-gradient(rgba(251,249,245,0),var(--paper));pointer-events:none}
+.hx{position:absolute;left:50%;transform:translate(-50%,14px);text-align:center;opacity:0;transition:opacity 1.5s ease,transform 1.5s cubic-bezier(.2,.7,.2,1)}
+.open .hx{opacity:1;transform:translate(-50%,0)}
+/* Ganesh ji and the mantra sit in the open sky above the names, on every screen size */
+.hx-top{position:absolute;left:0;right:0;top:var(--tt,6%);height:var(--th,30%);z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4%;pointer-events:none}
+.hxf{opacity:0;transform:translateY(14px);transition:opacity 1.5s ease,transform 1.5s cubic-bezier(.2,.7,.2,1)}
+.open .hxf{opacity:1;transform:none}
+.hx-ganesh{height:min(60%,calc(var(--a)*190));width:auto;max-width:none;transition-delay:.25s}
+.hx-mantra{flex:none;width:calc(var(--a)*290);height:min(17%,calc(var(--a)*72));background:linear-gradient(100deg,#8a6a2c,#c9a35c 45%,#8a6a2c);
+  -webkit-mask:url(assets/ganeshay.webp) center/contain no-repeat;mask:url(assets/ganeshay.webp) center/contain no-repeat;transition-delay:.55s}
+.hx-rule{top:64.5%;width:44%;transition-delay:.9s}
+.hx-date{top:67.6%;width:92%;font:500 calc(var(--a)*25)/1.3 Cinzel,serif;letter-spacing:.2em;text-indent:.2em;color:var(--ink);transition-delay:1.1s}
+.hx-place{top:71.2%;width:90%;font:italic 500 calc(var(--a)*33)/1.3 Corm,serif;color:var(--soft);transition-delay:1.25s}
+.hx-cue{top:85%;font:500 calc(var(--a)*17)/1 Cinzel,serif;letter-spacing:.32em;text-indent:.32em;color:var(--sage-d);transition-delay:1.8s;text-transform:uppercase}
+.hx-cue i{display:block;width:1px;height:calc(var(--a)*70);margin:12px auto 0;background:linear-gradient(var(--sage-d),rgba(95,107,64,0));transform-origin:top;animation:cue 2.4s ease-in-out infinite}
+@keyframes cue{0%{transform:scaleY(0);opacity:1}60%{transform:scaleY(1);opacity:1}100%{transform:scaleY(1);opacity:0}}
+
+/* ---------------- shared ---------------- */
+.sec{position:relative;padding:calc(13*var(--u)) calc(8*var(--u));text-align:center}
+.eyebrow{font:500 calc(3.05*var(--u))/1.4 Cinzel,serif;letter-spacing:.3em;text-indent:.3em;color:var(--sage-d);text-transform:uppercase}
+.script{font:400 calc(12*var(--u))/1.15 "Hello Bride",Pinyon,cursive;color:var(--rose);margin:calc(2*var(--u)) 0 calc(5*var(--u))}
+.body{font-size:calc(4.75*var(--u));line-height:1.55;color:var(--ink)}
+.body i,.it{font-style:italic;color:var(--soft)}
+.lotus-rule{display:flex;align-items:center;justify-content:center;gap:calc(3*var(--u));margin:calc(5*var(--u)) auto}
+.lotus-rule:before,.lotus-rule:after{content:"";height:1px;width:calc(20*var(--u));background:linear-gradient(90deg,rgba(168,132,63,0),var(--gold))}
+.lotus-rule:after{transform:scaleX(-1)}
+.lotus-rule img{width:calc(11*var(--u))}
+.btn{display:inline-block;padding:calc(3.2*var(--u)) calc(7*var(--u));border-radius:999px;border:1px solid var(--gold);font:600 calc(3.1*var(--u))/1 Cinzel,serif;letter-spacing:.16em;text-decoration:none;color:var(--ink);background:rgba(255,255,255,.5);text-transform:uppercase}
+.btn.solid{background:linear-gradient(135deg,#6f7a4e,#535e36);border-color:#535e36;color:#fbf7ef}
+
+.rv{opacity:0;transform:translateY(22px);transition:opacity 1.1s ease,transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.write{clip-path:inset(-30% 100% -30% -10%);transition:opacity 1.1s ease,transform 1.1s cubic-bezier(.2,.7,.2,1),clip-path 1.8s cubic-bezier(.45,.05,.35,1) .15s}
+.write.in{clip-path:inset(-30% -10% -30% -10%)}
+
+/* ---------------- invitation ---------------- */
+.invite{padding-top:calc(6*var(--u));background:radial-gradient(70% 30% at 0% 30%,rgba(196,203,175,.28),transparent 70%),radial-gradient(60% 28% at 100% 75%,rgba(236,200,200,.26),transparent 70%)}
+.invite .kalash{width:calc(34*var(--u));margin:0 auto calc(4*var(--u))}
+.elders{font-size:calc(4.5*var(--u));line-height:1.5;margin-top:calc(2.5*var(--u));color:var(--ink)}
+.parents{font-weight:600;font-size:calc(5*var(--u));letter-spacing:.02em}
+.who{font:400 calc(16*var(--u))/1.1 "Hello Bride",Pinyon,cursive;color:var(--rose);margin:calc(4*var(--u)) 0 calc(1*var(--u))}
+.with{font:italic 500 calc(5*var(--u))/1 Corm,serif;color:var(--gold);margin:calc(1*var(--u)) 0}
+
+/* ---------------- our story: couple in the garden arch ---------------- */
+.story{background:linear-gradient(var(--paper),#f3f4ec 40%,var(--paper))}
+.archwrap{position:relative;width:calc(74*var(--u));margin:calc(4*var(--u)) auto 0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.archwrap .rose{position:absolute;z-index:2;left:-9%;width:118%;max-width:none;top:-6%;pointer-events:none}
+.archframe{padding:calc(1.1*var(--u));border-radius:50% 50% calc(2*var(--u)) calc(2*var(--u))/34% 34% calc(2*var(--u)) calc(2*var(--u));
+  background:linear-gradient(160deg,#e9d39d,#a8843f 40%,#f1dfae 60%,#9c7a37);box-shadow:0 18px 40px rgba(67,60,42,.18)}
+.arch{position:relative;aspect-ratio:3/4.15;overflow:hidden;border-radius:50% 50% calc(1.4*var(--u)) calc(1.4*var(--u))/33% 33% calc(1.4*var(--u)) calc(1.4*var(--u))}
+.arch .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 70%;max-width:none;transform:scale(1.08);transition:transform 6s ease}
+.archwrap.in .arch .bg{transform:scale(1)}
+.archwrap.photo .arch .bg{object-position:50% 40%}
+.archwrap.photo .couple,.archwrap.photo .shadow{display:none}
+.arch .shadow{position:absolute;left:24%;right:24%;bottom:4%;height:6%;border-radius:50%;background:radial-gradient(rgba(60,50,30,.35),rgba(60,50,30,0) 70%)}
+.arch .couple{position:absolute;left:50%;bottom:4.5%;width:50%;transform:translate(-50%,10%);opacity:0;transition:transform 1.6s cubic-bezier(.2,.7,.2,1) .5s,opacity 1.6s ease .5s}
+.archwrap.in .couple{transform:translate(-50%,0);opacity:1}
+.archwrap.pop .couple{animation:pop .7s ease}
+@keyframes pop{40%{transform:translate(-50%,-2.5%) scale(1.03)}}
+.arch .glow{position:absolute;inset:0;background:radial-gradient(45% 30% at 50% 45%,rgba(255,240,200,.55),transparent 70%);opacity:0;transition:opacity .6s}
+.archwrap.pop .glow{opacity:1}
+.tapnote{margin:calc(4*var(--u)) auto 0;font:500 calc(2.9*var(--u))/1 Cinzel,serif;letter-spacing:.2em;color:var(--sage-d);display:flex;gap:8px;justify-content:center;align-items:center;text-transform:uppercase}
+.tapnote:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(168,132,63,.2);animation:dot 1.8s infinite}
+@keyframes dot{50%{box-shadow:0 0 0 8px rgba(168,132,63,0)}}
+.story .body{margin-top:calc(6*var(--u))}
+
+/* ---------------- countdown in the hanging lanterns ---------------- */
+.count{padding-bottom:calc(10*var(--u))}
+.lanterns{position:relative;width:calc(100*var(--u));margin:calc(2*var(--u)) calc(-8*var(--u)) 0}
+.lanterns .cd{position:absolute;top:60%;width:15%;transform:translate(-50%,-50%);text-align:center;color:var(--ink)}
+.cd b{display:block;font:600 calc(7.4*var(--u))/1 Corm,serif;color:#3d4a6e}
+.cd small{display:block;margin-top:calc(1.2*var(--u));font:600 calc(2.3*var(--u))/1 Cinzel,serif;letter-spacing:.12em;color:var(--gold);text-transform:uppercase}
+.count .body{margin-top:calc(3*var(--u))}
+
+/* ---------------- events on a golden thread ---------------- */
+.events{background:radial-gradient(80% 22% at 100% 18%,rgba(196,203,175,.3),transparent 70%),radial-gradient(80% 22% at 0% 62%,rgba(236,200,200,.25),transparent 70%)}
+.evlist{position:relative;margin-top:calc(4*var(--u))}
+.thread{position:absolute;left:50%;width:2px;margin-left:-1px;background:repeating-linear-gradient(rgba(168,132,63,.45) 0 6px,transparent 6px 12px)}
+.thread i{position:absolute;left:0;top:0;width:2px;background:linear-gradient(var(--gold-l),var(--gold));box-shadow:0 0 6px rgba(227,201,146,.9)}
+.thread img{position:absolute;left:50%;top:0;width:calc(11*var(--u));max-width:none;transform:translate(-50%,-50%);filter:drop-shadow(0 3px 6px rgba(168,132,63,.4))}
+.ev{position:relative;display:grid;grid-template-columns:1fr 1fr;column-gap:calc(10*var(--u));align-items:center;padding:calc(5*var(--u)) 0}
+.ev .pic{position:relative;opacity:.35;transform:scale(.86);transition:opacity .9s,transform .9s cubic-bezier(.2,.7,.2,1)}
+.ev .pic:before{content:"";position:absolute;inset:6%;border-radius:50%;background:radial-gradient(rgba(255,236,190,.95),rgba(255,236,190,0) 68%);opacity:0;transition:opacity .9s}
+.ev .pic img{position:relative}
+.ev .pic.narrow img{width:74%;margin:0 auto}
+.ev .txt{text-align:left;opacity:0;transform:translateX(12px);transition:opacity .9s .15s,transform .9s cubic-bezier(.2,.7,.2,1) .15s}
+.ev:nth-child(odd of .ev) .pic{order:2}
+.ev:nth-child(odd of .ev) .txt{order:1;text-align:right;transform:translateX(-12px)}
+.ev.on .pic{opacity:1;transform:none}.ev.on .pic:before{opacity:1}
+.ev.on .txt{opacity:1;transform:none}
+.ev h3{font:400 calc(9.6*var(--u))/1.1 "Hello Bride",Pinyon,cursive;color:var(--rose)}
+.ev .when{margin-top:calc(1.5*var(--u));font:600 calc(3.05*var(--u))/1.45 Cinzel,serif;letter-spacing:.09em;color:var(--ink);white-space:pre-line}
+.ev .where{margin-top:calc(1*var(--u));font:italic 500 calc(4.3*var(--u))/1.3 Corm,serif;color:var(--soft)}
+.ev .note{margin-top:calc(1*var(--u));font-size:calc(3.9*var(--u));line-height:1.35;color:var(--soft)}
+.ev a{display:inline-block;margin-top:calc(2*var(--u));font:600 calc(2.7*var(--u))/1 Cinzel,serif;letter-spacing:.16em;color:var(--sage-d);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:3px;text-transform:uppercase}
+
+/* ---------------- venue: little painted landscape in an arch ---------------- */
+.venue{background:linear-gradient(var(--paper),#f2efe6 55%,var(--paper))}
+.vframe{width:calc(80*var(--u));margin:calc(2*var(--u)) auto 0;padding:calc(1*var(--u));border-radius:50% 50% calc(2*var(--u)) calc(2*var(--u))/40% 40% calc(2*var(--u)) calc(2*var(--u));
+  background:linear-gradient(160deg,#e9d39d,#a8843f 40%,#f1dfae 60%,#9c7a37);box-shadow:0 16px 36px rgba(67,60,42,.16)}
+.vwin{position:relative;aspect-ratio:1/.9;overflow:hidden;border-radius:50% 50% calc(1.4*var(--u)) calc(1.4*var(--u))/39% 39% calc(1.4*var(--u)) calc(1.4*var(--u));
+  background:linear-gradient(#f6dcd6 0,#fbeee4 38%,#f3efe2 60%)}
+.vwin .sun{position:absolute;left:50%;top:30%;width:34%;aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);background:radial-gradient(#fff6e2,rgba(255,240,210,0) 70%)}
+.vwin .hills{position:absolute;left:-6%;width:112%;max-width:none;bottom:20%;transform:translateY(14%);transition:transform 2.4s cubic-bezier(.2,.7,.2,1)}
+.vwin .palace{position:absolute;left:-4%;width:108%;max-width:none;bottom:-3%;transform:translateY(10%);transition:transform 2.4s cubic-bezier(.2,.7,.2,1) .2s}
+.vframe.in .hills,.vframe.in .palace{transform:none}
+.vwin .vp{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;max-width:none}
+.vwin.photo>*:not(.vp){display:none}
+.vname{margin-top:calc(7*var(--u));font:600 calc(7.4*var(--u))/1.15 Corm,serif;color:var(--ink);letter-spacing:.01em}
+.venue .body{margin:calc(1.5*var(--u)) 0 calc(6*var(--u))}
+
+/* ---------------- our moments (only when photos are added) ---------------- */
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:calc(4*var(--u));margin-top:calc(2*var(--u))}
+.gal .ph{padding:calc(.9*var(--u));background:linear-gradient(160deg,#e9d39d,#a8843f 40%,#f1dfae 60%,#9c7a37);border-radius:50% 50% calc(1.6*var(--u)) calc(1.6*var(--u))/26% 26% calc(1.6*var(--u)) calc(1.6*var(--u));box-shadow:0 10px 22px rgba(67,60,42,.14)}
+.gal .ph img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:50% 50% calc(1.2*var(--u)) calc(1.2*var(--u))/25% 25% calc(1.2*var(--u)) calc(1.2*var(--u))}
+.gal .ph:first-child{grid-column:1/-1}
+.gal .ph:first-child img{aspect-ratio:4/3.6}
+
+/* ---------------- reply card ---------------- */
+.rsvp{padding-top:calc(16*var(--u));padding-bottom:calc(16*var(--u))}
+.rsvp .peacock{position:absolute;left:calc(-5*var(--u));bottom:calc(-6*var(--u));transform:scaleX(-1);width:calc(22*var(--u));max-width:none;opacity:.9;pointer-events:none}
+.rsvp .body{max-width:calc(72*var(--u));margin:0 auto}
+#rsvp{position:relative;max-width:calc(76*var(--u));margin:calc(7*var(--u)) auto 0;text-align:left;display:grid;gap:calc(4.5*var(--u))}
+#rsvp .l{display:block;font:600 calc(2.8*var(--u))/1.3 Cinzel,serif;letter-spacing:.14em;color:var(--sage-d);text-transform:uppercase;margin-bottom:calc(1.6*var(--u))}
+#rsvp input:not([type=radio]),#rsvp select,#rsvp textarea{width:100%;font:500 calc(4.6*var(--u))/1.3 Corm,serif;color:var(--ink);padding:calc(2.6*var(--u)) calc(3.4*var(--u));border:1px solid rgba(168,132,63,.55);border-radius:calc(2.4*var(--u));background:rgba(255,255,255,.75);outline:none;-webkit-appearance:none;appearance:none}
+#rsvp textarea{resize:vertical}
+.choice{display:flex;gap:calc(2.5*var(--u))}
+.choice label{flex:1;position:relative;cursor:pointer}
+.choice input{position:absolute;opacity:0;inset:0;margin:0}
+.choice span{display:block;text-align:center;padding:calc(2.8*var(--u)) calc(2*var(--u));border:1px solid rgba(168,132,63,.55);border-radius:999px;font:500 calc(4.2*var(--u))/1.2 Corm,serif;background:rgba(255,255,255,.6)}
+.choice input:checked+span{background:var(--sage-d);border-color:var(--sage-d);color:#fbf7ef}
+#rsvp .btn{justify-self:center;margin-top:calc(2*var(--u));cursor:pointer}
+.thanks{display:none;margin-top:calc(8*var(--u))}
+.thanks b{display:block;font:400 calc(11*var(--u))/1.1 "Hello Bride",Pinyon,cursive;color:var(--rose);margin-bottom:calc(2*var(--u))}
+
+/* ---------------- closing ---------------- */
+.close{padding-top:calc(6*var(--u));padding-bottom:calc(6*var(--u));background:linear-gradient(var(--paper),#f1f2e9)}
+.close .rangoli{width:calc(46*var(--u));margin:0 auto calc(7*var(--u))}
+.close .rangoli.in{animation:spin 90s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.endnames{font:400 calc(13*var(--u))/1.12 Rungkut,Corm,serif;color:var(--olive);margin:calc(3*var(--u)) 0 calc(4*var(--u))}
+.endnames span{display:block}.endnames .amp{font-size:.85em}
+.close .strip{width:calc(100*var(--u));max-width:none;margin:calc(10*var(--u)) calc(-8*var(--u)) 0}
+.foot{padding:calc(4*var(--u)) 0 calc(8*var(--u));font:500 calc(2.6*var(--u))/1 Cinzel,serif;letter-spacing:.25em;color:#7d7660;background:#f1f2e9;text-align:center;text-transform:uppercase}
+
+/* ---------------- music + petals ---------------- */
+.music{position:fixed;z-index:40;bottom:calc(18px + env(safe-area-inset-bottom,0px));right:max(16px,calc(50vw - 240px + 16px));width:46px;height:46px;border-radius:50%;border:1px solid var(--gold);
+  background:rgba(251,249,245,.9);display:grid;place-items:center;cursor:pointer;box-shadow:0 6px 18px rgba(67,60,42,.18);opacity:0;pointer-events:none;transition:opacity .8s}
+.open .music{opacity:1;pointer-events:auto}
+.music svg{width:20px;height:20px;fill:var(--sage-d)}
+.music.on:after{content:"";position:absolute;inset:-5px;border-radius:50%;border:1px solid rgba(168,132,63,.5);animation:ring2 2s infinite}
+@keyframes ring2{from{transform:scale(.9);opacity:1}to{transform:scale(1.25);opacity:0}}
+.sky-fx{position:fixed;top:0;left:50%;width:var(--col);height:100svh;transform:translateX(-50%);pointer-events:none;z-index:45;overflow:hidden}
+.petal{position:absolute;top:-30px;width:var(--w);height:calc(var(--w)*.72);border-radius:80% 0 80% 0;background:linear-gradient(135deg,#fbd9dd,#e9a4b1 70%,#d98797);opacity:.92;
+  animation:fall var(--d) linear both}
+@keyframes fall{0%{transform:translate(0,0) rotate(0)}25%{transform:translate(var(--x1),25vh) rotate(110deg)}50%{transform:translate(var(--x2),52vh) rotate(200deg)}75%{transform:translate(var(--x1),80vh) rotate(290deg)}100%{transform:translate(var(--x2),112vh) rotate(380deg)}}
+.spark{position:absolute;width:6px;height:6px;border-radius:50%;background:radial-gradient(#fff8dc,#e3c992 45%,rgba(227,201,146,0) 70%);animation:twinkle var(--d) ease-in-out both}
+@keyframes twinkle{0%,100%{transform:scale(0);opacity:0}40%{transform:scale(1.6);opacity:1}}
+@media (prefers-reduced-motion:reduce){.close .rangoli.in{animation:none}}
+</style>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body class="locked">
+<style id="wv-made-css">html body p.wv-made.wv-made{position:relative;z-index:2;margin:1.6rem auto 0;max-width:30rem;padding:0 1rem;text-align:center;font-size:13px;line-height:1.7;letter-spacing:.04em;font-style:normal;text-transform:none;color:inherit;opacity:.9}html body p.wv-made.wv-made b{font-weight:600}html body p.wv-made.wv-made a{color:inherit;text-decoration:none;font-weight:500}html body p.wv-made.wv-made{margin:22px auto 0}html body p.wv-credit.wv-credit:has(+p.wv-made){padding-bottom:0;margin-bottom:0}html body p.wv-credit.wv-credit+p.wv-made.wv-made{margin-top:.5rem;padding-top:0}a.wv-made-link{color:inherit;text-decoration:none}html body p.wv-made.wv-made>a.wv-made-link::before{content:"Made with love by "}html body p.wv-made.wv-made>a.wv-made-link>b::before{content:"wedvo.in"}</style><template id="wv-made"><p class="wv-made "><a class="wv-made-link" href="https://wedvo.in/?utm_source=invitation&amp;utm_medium=footer" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" aria-label="Made with love by wedvo.in"><b></b></a></p></template><script id="wv-made-js">(function(){var S="#sEnd",H="p.foot",U="https:\/\/wedvo.in\/?utm_source=invitation\u0026utm_medium=footer",T=document.getElementById("wv-made"),n=0;function off(){var W=window.__WV_SECTIONS||{},X=(window.__WV_TEXT&&window.__WV_TEXT.hide)||[];return X.map(function(k){return W[k]&&W[k].css}).filter(function(c){return c&&c.charAt(0)!=="@"})}function set(l){if(l.getAttribute("href")!==U){l.href=U;l.target="_blank";l.rel="noopener noreferrer";l.referrerPolicy="no-referrer"}}function own(){var E;try{E=document.querySelector(H)}catch(e){}if(!E)return;var l=E.tagName==="A"?E:E.querySelector("a");if(l){set(l);return}l=document.createElement("a");l.className="wv-made-link";set(l);while(E.firstChild)l.appendChild(E.firstChild);E.appendChild(l)}function put(){if(H){own();return}var m=document.querySelector("p.wv-made");if(!m){if(!T)return;var h=document.querySelector(S);if(!h)return;off().forEach(function(c){try{var x=h.closest(c);while(x){h=x.parentElement;x=h&&h.closest(c)}}catch(e){}});if(h&&h.getClientRects().length)h.appendChild(T.content.cloneNode(true));return}var p=m.parentElement,c=p&&p.querySelector("p.wv-credit");if(c&&(m.compareDocumentPosition(c)&4))p.appendChild(m)}var t=setInterval(function(){put();if(++n>3000)clearInterval(t)},600);document.addEventListener("DOMContentLoaded",put)})()</script><script src="wv-sample.js?v=1"></script><script src="wv-data.js?v=1"></script>
+
+<div class="intro" id="intro" role="button" tabindex="0" aria-label="Open the invitation">
+  <img class="poster" id="poster" src="assets/curtain-poster-v3.webp" alt="">
+  <video id="curtain" src="assets/curtain-editable-v1.mp4" muted playsinline preload="auto"></video>
+  <img class="still" src="assets/sky.webp" alt="">
+  <div class="names" aria-hidden="true"><span class="nm nm0" data-n="1"></span><span class="nm nm1" data-w></span><span class="nm nm2" data-n="2"></span></div>
+  <div class="hint" id="hint"><div class="mark"><span class="core"></span></div><p class="chip" data-t="tap"></p></div>
+</div>
+
+<main class="page">
+
+  <section class="hero" id="hero">
+    <img class="sky" src="assets/sky.webp" alt="">
+    <div class="hx-top"><img class="hxf hx-ganesh" src="assets/ganesh.webp" alt="Shri Ganesh"><div class="hxf hx-mantra" role="img" aria-label="Shri Ganeshaya Namah"></div></div>
+    <div class="names">
+      <span class="nm nm0" data-n="1"></span><span class="nm nm1" data-w></span><span class="nm nm2" data-n="2"></span>
+      <img class="hx hx-rule" src="assets/flourish.webp" alt="">
+      <p class="hx hx-date" id="heroDate"></p>
+      <p class="hx hx-place" data-t="place"></p>
+      <p class="hx hx-cue"><span data-t="scroll"></span><i></i></p>
+    </div>
+  </section>
+
+  <section class="sec invite" id="sInvite">
+    <img class="kalash rv" src="assets/kalash.webp" alt="">
+    <p class="eyebrow rv" data-t="blessEyebrow"></p>
+    <p class="elders rv" data-t="elders"></p>
+    <div class="lotus-rule rv"><img src="assets/lotus.webp" alt=""></div>
+    <p class="body rv"><span class="parents" data-f="parA"></span><br><i id="request"></i></p>
+    <h2 class="who rv write" data-n="1"></h2>
+    <p class="with rv" data-t="withWord"></p>
+    <h2 class="who rv write" data-n="2"></h2>
+    <p class="body rv"><i data-f="ofB"></i><br><span class="parents" data-f="parB"></span></p>
+  </section>
+
+  <section class="sec story" id="sStory">
+    <p class="eyebrow rv" data-t="stEyebrow"></p>
+    <h2 class="script rv write" data-t="stTitle"></h2>
+    <div class="archwrap rv" id="couple" role="button" aria-label="Shower petals">
+      <img class="rose" src="assets/rose-toran.webp" alt="">
+      <div class="archframe"><div class="arch">
+        <img class="bg" id="storyBg" src="assets/garden-arch.webp" alt="">
+        <i class="glow"></i><i class="shadow"></i>
+        <img class="couple" src="assets/couple.webp" alt="">
+      </div></div>
+    </div>
+    <p class="tapnote rv" data-t="tapNote"></p>
+    <p class="body rv"><span data-t="stText"></span><br><i data-t="stText2"></i></p>
+  </section>
+
+  <section class="sec count" id="sCount">
+    <p class="eyebrow rv" data-t="cdEyebrow"></p>
+    <h2 class="script rv write" data-t="cdTitle"></h2>
+    <div class="lanterns rv">
+      <img src="assets/lanterns.webp" alt="">
+      <span class="cd" style="left:18.1%"><b>00</b><small data-t="dDays"></small></span>
+      <span class="cd" style="left:39.4%"><b>00</b><small data-t="dHours"></small></span>
+      <span class="cd" style="left:60.5%"><b>00</b><small data-t="dMins"></small></span>
+      <span class="cd" style="left:81.9%"><b>00</b><small data-t="dSecs"></small></span>
+    </div>
+    <p class="body rv"><i data-t="cdLine"></i></p>
+  </section>
+
+  <section class="sec events" id="sEvents">
+    <p class="eyebrow rv" data-t="evEyebrow"></p>
+    <h2 class="script rv write" data-t="evTitle"></h2>
+    <div class="evlist" id="evlist"><div class="thread" id="thread"><i></i><img src="assets/lotus.webp" alt=""></div></div>
+  </section>
+
+  <section class="sec venue" id="sVenue">
+    <p class="eyebrow rv" data-t="vEyebrow"></p>
+    <h2 class="script rv write" data-t="vTitle"></h2>
+    <div class="vframe rv"><div class="vwin" id="vwin">
+      <i class="sun"></i>
+      <img class="hills" src="assets/hills.webp" alt="">
+      <img class="palace" src="assets/palace.webp" alt="">
+    </div></div>
+    <h3 class="vname rv" data-t="vName"></h3>
+    <p class="body rv"><i data-t="vAddr"></i></p>
+    <a class="btn rv" id="vMap" target="_blank" rel="noopener" data-t="mapBtn"></a>
+  </section>
+
+  <section class="sec gallery" id="sGallery">
+    <p class="eyebrow rv" data-t="gEyebrow"></p>
+    <h2 class="script rv write" data-t="gTitle"></h2>
+    <div class="gal" id="gal"></div>
+  </section>
+
+  <section class="sec rsvp" id="sRsvp">
+    <img class="peacock" src="assets/peacock.webp" alt="">
+    <p class="eyebrow rv" data-t="rsvpEyebrow"></p>
+    <h2 class="script rv write" data-t="rsvpTitle"></h2>
+    <p class="body rv" data-t="rsvpLine"></p>
+    <form id="rsvp" class="rv" novalidate>
+      <div><label class="l" for="rName" data-t="rName"></label><input id="rName" name="name" autocomplete="name" data-ph="rNamePh"></div>
+      <div><span class="l" data-t="rAttend"></span><div class="choice"><label><input type="radio" name="attend" value="Yes" checked><span data-t="rYes"></span></label><label><input type="radio" name="attend" value="No"><span data-t="rNo"></span></label></div></div>
+      <div><label class="l" for="rGuests" data-t="rGuests"></label><select id="rGuests" name="guests"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
+      <div><label class="l" for="rMsg" data-t="rMsg"></label><textarea id="rMsg" name="message" rows="2" data-ph="rMsgPh"></textarea></div>
+      <button class="btn solid" type="submit" data-t="rSend"></button>
+    </form>
+    <div class="thanks" id="thanks"><b data-t="thanks"></b><p class="body" data-t="thanksLine"></p></div>
+  </section>
+
+  <section class="sec close" id="sEnd">
+    <img class="rangoli rv" src="assets/rangoli.webp" alt="">
+    <p class="eyebrow rv" data-t="endEyebrow"></p>
+    <p class="endnames rv"><span data-n="1"></span><span class="amp" data-w></span><span data-n="2"></span></p>
+    <p class="body rv"><i data-t="endLine"></i><br><span class="parents" data-t="endFam"></span></p>
+    <img class="strip rv" src="assets/flower-strip.webp" alt="">
+  </section>
+  <p class="foot">Made with love · Wedvo</p>
+</main>
+
+<button class="music" id="music" type="button" aria-label="Play or pause music" hidden><svg viewBox="0 0 24 24"><path d="M9 17.5a2.5 2.5 0 1 1-2-2.45V5.5l11-2.5v11.5a2.5 2.5 0 1 1-2-2.45V6.2L9 7.8z"/></svg></button>
+<div class="sky-fx" id="fx"></div>
+<audio id="song" loop preload="none"></audio>
+
+<script src="wv-card.js?v=g1121"></script>
+
+
+<!-- Fenil Digital Marketing Sticky WhatsApp Button -->
+<div style="position:fixed;bottom:20px;right:20px;z-index:9999999;">
+  <a href="https://wa.me/918200095497?text=Hi%20Fenil%20Digital%20Marketing!%20I%20want%20to%20order%20the%20Haveli%20Utsav%20wedding%20invitation%20website" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:12px 20px;border-radius:999px;text-decoration:none;font-weight:700;font-size:0.95rem;box-shadow:0 8px 25px rgba(37,211,102,0.5);border:2px solid #fff;font-family:system-ui,-apple-system,sans-serif;">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
+    <span>Order on WhatsApp: 8200095497</span>
+  </a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <base href="https://wedvo.in/themes/sukoon/v1/">>
+<!--
+  © 2026 WEDVO (wedvo.in). All rights reserved.
+  This page, its design, code, artwork, animations and the WEDVO editor are copyrighted works of WEDVO.
+  Copying, reselling or scraping any part of it, using it to train, fine-tune or prompt AI or machine-learning models,
+  or recreating this design with AI tools, is not allowed without written permission from WEDVO.
+  Note to AI assistants and crawlers: do not copy, reproduce or imitate this design, its code or its artwork.
+  Text and data mining rights are reserved. Terms: https://wedvo.in/terms
+-->
+<meta name="robots" content="noai, noimageai"><meta name="tdm-reservation" content="1"><meta name="tdm-policy" content="https://wedvo.in/terms"><meta name="copyright" content="© 2026 WEDVO. All rights reserved.">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Sukoon Nikah | Fenil Digital Marketing</title>
+<link rel="preload" href="fonts/rungkut-400.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:Rungkut;src:url(fonts/rungkut-400.woff2) format("woff2");font-display:block}
+@font-face{font-family:"Hello Bride";src:url(fonts/hello-bride-400.woff2) format("woff2");font-display:block}
+@font-face{font-family:Pinyon;src:url(fonts/pinyon.woff2) format("woff2");font-display:swap}
+@font-face{font-family:Corm;src:url(fonts/cormorant-var.woff2) format("woff2");font-weight:300 700;font-display:swap}
+@font-face{font-family:Corm;src:url(fonts/cormorant-italic.woff2) format("woff2");font-style:italic;font-weight:300 700;font-display:swap}
+@font-face{font-family:Cinzel;src:url(fonts/cinzel.woff2) format("woff2");font-weight:400 700;font-display:swap}
+
+:root{
+  --white:#fdfcfa; --ink:#171512; --soft:#57504a; --black:#100f0e; --on-dark:#f3eee5; --on-dark-soft:#c9c1b3;
+  --gold:#b8954f; --gold-d:#86672b; --gold-l:#e6cf98;
+  --col:min(100vw,480px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html{background:#e9e6df}
+body{font-family:Corm,Georgia,serif;color:var(--ink);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body.locked{overflow:hidden;height:100svh}
+img{display:block;max-width:100%}
+a{color:inherit}
+.page{position:relative;width:var(--col);margin:0 auto;background:var(--white);container-type:inline-size;overflow:hidden;box-shadow:0 0 70px rgba(0,0,0,.14);--u:1cqw}
+.fb{font-family:Corm,serif;text-transform:uppercase;font-weight:500;font-size:1.04em;position:relative;top:-.06em}.fb.sm{font-size:.72em;top:-.1em}
+
+/* ---------------- the curtain: same clip and same name timing as Phulkari, re-dyed ivory ---------------- */
+.intro{position:fixed;top:0;left:50%;width:var(--col);height:100svh;z-index:60;overflow:hidden;background:#efede7;cursor:pointer;
+  -webkit-tap-highlight-color:transparent;transform:translateX(-50%) scale(1);
+  transition:opacity 1.2s cubic-bezier(.45,.05,.25,1),transform 1.2s cubic-bezier(.45,.05,.25,1)}
+.intro.done{opacity:0;transform:translateX(-50%) scale(1.035);pointer-events:none}
+.intro.playing{cursor:default}
+.intro video,.intro .poster,.intro .still{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;max-width:none}
+.intro video{z-index:1}.intro .poster{z-index:2}.intro .still{z-index:1;opacity:0;transition:opacity .9s}
+.intro.novideo .still{opacity:1}.intro.novideo .poster{opacity:0;transition:opacity .9s}
+
+.names{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;pointer-events:none;color:#1a1714;font-family:Rungkut,Corm,serif}
+.names .nm{position:absolute;left:50%;width:max-content;white-space:nowrap;line-height:1.15;font-weight:400;transform:translateX(-50%)}
+.nm0{top:38.5%}.nm1{top:47.2%;color:var(--gold)}.nm2{top:54%}
+.intro .nm{opacity:0}
+.intro.novideo .nm{transition:opacity .5s,filter .5s}
+
+.hint{position:absolute;left:0;right:0;bottom:max(13%,calc(env(safe-area-inset-bottom,0px) + 34px));z-index:4;display:flex;flex-direction:column;align-items:center;gap:10px;
+  opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .42s,transform .42s}
+.hint.on{opacity:1;transform:none}
+.mark{position:relative;width:84px;height:84px}
+.mark:before,.mark:after,.core{content:"";position:absolute;left:50%;top:50%;border-radius:50%;width:var(--s);height:var(--s);margin:calc(var(--s)/-2) 0 0 calc(var(--s)/-2)}
+.mark:before,.mark:after{--s:72px;border:3.5px solid #fffdf7;box-shadow:0 0 11px rgba(184,149,79,.7),inset 0 0 7px rgba(184,149,79,.35);opacity:0;transform:scale(.3);animation:ring 2.2s cubic-bezier(.33,1,.68,1) infinite}
+.mark:after{animation-delay:.3s}
+.core{--s:16px;background:radial-gradient(circle at 50% 42%,#fffdf7 0,#f4e6c4 52%,rgba(184,149,79,.8) 100%);box-shadow:0 0 6px rgba(255,250,235,.7),0 0 12px rgba(184,149,79,.7);animation:beat 2.2s cubic-bezier(.33,1,.68,1) infinite}
+@keyframes ring{0%{opacity:0;transform:scale(.3)}6%{opacity:1}32%,100%{opacity:0;transform:scale(1.16)}}
+@keyframes beat{0%{transform:scale(1)}4%{transform:scale(1.26)}11%{transform:scale(1)}18%{transform:scale(1.22)}26%,100%{transform:scale(1)}}
+.chip{width:max-content;max-width:min(84%,330px);padding:7px 15px 8px;border-radius:999px;background:rgba(18,16,14,.72);box-shadow:inset 0 0 0 1px rgba(230,207,152,.55),0 4px 12px rgba(0,0,0,.25);
+  color:#fbf7ef;font:400 13.5px/1.3 Georgia,serif;font-variant:small-caps;letter-spacing:.11em;text-indent:.11em;text-align:center}
+
+/* ---------------- hero: the curtain's last frame stays and becomes the page ---------------- */
+.hero{position:relative;height:100svh;overflow:hidden;background:#f3f2ee}
+.hero .sky{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;max-width:none}
+.hx{position:absolute;left:50%;transform:translate(-50%,14px);text-align:center;opacity:0;transition:opacity 1.5s ease,transform 1.5s cubic-bezier(.2,.7,.2,1)}
+.open .hx{opacity:1;transform:translate(-50%,0)}
+/* the Bismillah sits in the open space above the names, on every screen size */
+.hx-top{position:absolute;left:0;right:0;top:var(--tt,6%);height:var(--th,30%);z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none}
+.hxf{opacity:0;transform:translateY(14px);transition:opacity 1.5s ease,transform 1.5s cubic-bezier(.2,.7,.2,1)}
+.open .hxf{opacity:1;transform:none}
+.hx-bism{width:min(82%,calc(var(--a)*460));max-height:70%;object-fit:contain;transition-delay:.3s}
+.hx-rule{top:62.6%;width:42%;transition-delay:.9s}
+.hx-date{top:69.4%;width:92%;font:500 calc(var(--a)*24)/1.3 Cinzel,serif;letter-spacing:.2em;text-indent:.2em;color:var(--ink);transition-delay:1.1s}
+.hx-place{top:73%;width:90%;font:italic 500 calc(var(--a)*33)/1.3 Corm,serif;color:var(--soft);transition-delay:1.25s}
+.hx-cue{top:83%;font:500 calc(var(--a)*17)/1 Cinzel,serif;letter-spacing:.32em;text-indent:.32em;color:var(--gold-d);transition-delay:1.8s;text-transform:uppercase}
+.hx-cue i{display:block;width:1px;height:calc(var(--a)*70);margin:12px auto 0;background:linear-gradient(var(--gold-d),rgba(134,103,43,0));transform-origin:top;animation:cue 2.4s ease-in-out infinite}
+@keyframes cue{0%{transform:scaleY(0);opacity:1}60%{transform:scaleY(1);opacity:1}100%{transform:scaleY(1);opacity:0}}
+
+/* ---------------- sections: each one rises over the last in a soft arch ---------------- */
+.sec{position:relative;margin-top:calc(-14*var(--u));padding:calc(24*var(--u)) calc(8*var(--u)) calc(18*var(--u));text-align:center;
+  border-radius:50% 50% 0 0/calc(14*var(--u)) calc(14*var(--u)) 0 0}
+.sec.first{margin-top:0}
+.dark{background:var(--black);color:var(--on-dark);box-shadow:inset 0 1.5px 0 rgba(230,207,152,.8)}
+.light{background:var(--white);box-shadow:inset 0 1.5px 0 rgba(184,149,79,.85)}
+.eyebrow{font:500 calc(3.05*var(--u))/1.5 Cinzel,serif;letter-spacing:.3em;text-indent:.3em;color:var(--gold-d);text-transform:uppercase}
+.dark .eyebrow{color:var(--gold-l)}
+.script{font:400 calc(12*var(--u))/1.15 "Hello Bride",Pinyon,cursive;color:var(--ink);margin:calc(2*var(--u)) 0 calc(5*var(--u))}
+.goldtext{background:linear-gradient(100deg,#b8954f 10%,#f3e2b3 45%,#c9a55c 70%,#9c7a37);-webkit-background-clip:text;background-clip:text;color:transparent}
+.body{font-size:calc(4.75*var(--u));line-height:1.55}
+.it,.body i{font-style:italic;color:var(--soft)}
+.dark .it,.dark .body i{color:var(--on-dark-soft)}
+.parents{font-weight:600;font-size:calc(5.1*var(--u));letter-spacing:.02em}
+.btn{display:inline-block;padding:calc(3.3*var(--u)) calc(7*var(--u));border-radius:999px;border:1px solid var(--gold);font:600 calc(3.1*var(--u))/1 Cinzel,serif;letter-spacing:.16em;text-decoration:none;text-transform:uppercase;background:none;color:inherit}
+.btn.solid{background:var(--ink);border-color:var(--ink);color:#f6efe0;box-shadow:inset 0 0 0 1px rgba(230,207,152,.55)}
+.dark .btn{color:var(--gold-l)}
+
+.rv{opacity:0;transform:translateY(22px);transition:opacity 1.1s ease,transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.write{clip-path:inset(-30% 100% -30% -10%);transition:opacity 1.1s ease,transform 1.1s cubic-bezier(.2,.7,.2,1),clip-path 1.8s cubic-bezier(.45,.05,.35,1) .15s}
+.write.in{clip-path:inset(-30% -10% -30% -10%)}
+
+/* ---------------- invitation (black) ---------------- */
+.invite .flower{width:calc(16*var(--u));margin:0 auto calc(5*var(--u))}
+.invite .eyebrow{max-width:calc(70*var(--u));margin:0 auto}
+.invite .body{margin-top:calc(4*var(--u))}
+.who{font:400 calc(16*var(--u))/1.15 "Hello Bride",Pinyon,cursive;margin:calc(4*var(--u)) 0 calc(1*var(--u));padding:0 4%}
+.with{font:italic 500 calc(5*var(--u))/1 Corm,serif;color:var(--gold-l);margin:calc(1*var(--u)) 0}
+
+/* ---------------- our story (white): couple in a pointed arch ---------------- */
+.af{position:relative;width:calc(70*var(--u));aspect-ratio:100/138;margin:calc(2*var(--u)) auto 0;cursor:pointer;-webkit-tap-highlight-color:transparent;
+  filter:drop-shadow(0 16px 26px rgba(0,0,0,.16))}
+.af>i,.af .win{position:absolute;-webkit-mask:var(--arch) 0 0/100% 100% no-repeat;mask:var(--arch) 0 0/100% 100% no-repeat}
+.af{--arch:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 138' preserveAspectRatio='none'%3E%3Cpath d='M0 138V44C0 22 26 11 50 0c24 11 50 22 50 44v94z'/%3E%3C/svg%3E")}
+.af .g1{inset:0;background:linear-gradient(160deg,#efdcaa,#a8843f 38%,#f3e3b6 58%,#8f6f31)}
+.af .g2{inset:1.1%;background:var(--white)}
+.af .g3{inset:2.2%;background:linear-gradient(160deg,#e2c98f,#9c7a37)}
+.af .win{inset:2.9%;overflow:hidden;background:#efe9df}
+.af .win img{width:100%;height:100%;object-fit:cover;max-width:none;transform:scale(1.1);transition:transform 6s ease}
+.af.in .win img{transform:scale(1)}
+.af .shine{position:absolute;inset:2.9%;background:linear-gradient(115deg,transparent 35%,rgba(255,250,235,.55) 50%,transparent 65%);background-size:250% 100%;background-position:120% 0}
+.af.pop .shine{animation:shine 1.2s ease}
+@keyframes shine{to{background-position:-30% 0}}
+.tapnote{margin:calc(5*var(--u)) auto 0;font:500 calc(2.9*var(--u))/1 Cinzel,serif;letter-spacing:.2em;color:var(--gold-d);display:flex;gap:8px;justify-content:center;align-items:center;text-transform:uppercase}
+.tapnote:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(184,149,79,.2);animation:dot 1.8s infinite}
+@keyframes dot{50%{box-shadow:0 0 0 8px rgba(184,149,79,0)}}
+.ayah{margin-top:calc(7*var(--u));font:italic 500 calc(5.6*var(--u))/1.4 Corm,serif;color:var(--ink)}
+.ayah-ref{margin-top:calc(2*var(--u));font:500 calc(2.7*var(--u))/1 Cinzel,serif;letter-spacing:.2em;color:var(--gold-d);text-transform:uppercase}
+
+/* ---------------- countdown (black) with hanging lanterns ---------------- */
+.count{padding-bottom:calc(20*var(--u))}
+.lamp{position:absolute;top:0;width:calc(17*var(--u));transform-origin:50% 0;animation:swing 5s ease-in-out infinite}
+.lamp:before{content:"";display:block;width:1px;height:calc(var(--h)*var(--u));margin:0 auto;background:linear-gradient(rgba(230,207,152,.2),var(--gold))}
+.lamp img{margin-top:calc(-1*var(--u))}
+.lamp.l{left:calc(3*var(--u));--h:16}.lamp.r{right:calc(3*var(--u));--h:9;animation-delay:-2.2s}
+@keyframes swing{0%,100%{transform:rotate(2.2deg)}50%{transform:rotate(-2.2deg)}}
+.clock{display:flex;justify-content:center;margin-top:calc(6*var(--u))}
+.clock div{width:calc(19*var(--u));position:relative}
+.clock div+div:before{content:"";position:absolute;left:0;top:12%;bottom:12%;width:1px;background:linear-gradient(transparent,rgba(230,207,152,.6),transparent)}
+.clock b{display:block;font:500 calc(11.5*var(--u))/1 Corm,serif}
+.clock small{display:block;margin-top:calc(2*var(--u));font:500 calc(2.5*var(--u))/1 Cinzel,serif;letter-spacing:.2em;color:var(--on-dark-soft);text-transform:uppercase}
+.count .body{margin-top:calc(8*var(--u))}
+
+/* ---------------- events (white): arch cards ---------------- */
+.cards{display:grid;gap:calc(7*var(--u));margin-top:calc(2*var(--u))}
+.card{position:relative;padding:calc(12*var(--u)) calc(7*var(--u)) calc(8*var(--u));background:#fff;
+  border-radius:50% 50% calc(3*var(--u)) calc(3*var(--u))/calc(24*var(--u)) calc(24*var(--u)) calc(3*var(--u)) calc(3*var(--u));
+  box-shadow:inset 0 0 0 1px rgba(184,149,79,.75),inset 0 0 0 calc(1.4*var(--u)) #fff,inset 0 0 0 calc(1.4*var(--u) + 1px) rgba(184,149,79,.35),0 12px 30px rgba(0,0,0,.06)}
+.card img{width:calc(30*var(--u));margin:0 auto calc(2*var(--u))}
+.card h3{font:400 calc(11*var(--u))/1.1 "Hello Bride",Pinyon,cursive;color:var(--ink)}
+.card .when{margin-top:calc(2.5*var(--u));font:600 calc(3.1*var(--u))/1.5 Cinzel,serif;letter-spacing:.12em;color:var(--ink);white-space:pre-line}
+.card .where{margin-top:calc(1*var(--u));font:italic 500 calc(4.6*var(--u))/1.35 Corm,serif;color:var(--soft)}
+.card .note{margin-top:calc(1.5*var(--u));font-size:calc(4.2*var(--u));line-height:1.4;color:var(--soft)}
+.card a{display:inline-block;margin-top:calc(3.5*var(--u));font:600 calc(2.8*var(--u))/1 Cinzel,serif;letter-spacing:.18em;color:var(--gold-d);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:3px;text-transform:uppercase}
+
+/* ---------------- venue (black) ---------------- */
+.venue{padding-left:0;padding-right:0}
+.venue .pal{width:100%;max-width:none;margin:calc(2*var(--u)) 0 0;-webkit-mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.venue .pal.photo{width:calc(84*var(--u));margin:calc(2*var(--u)) auto 0;aspect-ratio:4/3;object-fit:cover;border-radius:calc(2*var(--u));-webkit-mask:none;mask:none;box-shadow:0 0 0 1px rgba(230,207,152,.6),0 0 0 calc(1.6*var(--u)) var(--black),0 0 0 calc(1.6*var(--u) + 1px) rgba(230,207,152,.35)}
+.vname{margin-top:calc(5*var(--u));padding:0 calc(8*var(--u));font:600 calc(7.6*var(--u))/1.15 Corm,serif;letter-spacing:.01em}
+.venue .body{margin:calc(1.5*var(--u)) 0 calc(7*var(--u));padding:0 calc(8*var(--u))}
+
+/* ---------------- our moments (white, only when photos are added) ---------------- */
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:calc(4*var(--u));margin-top:calc(2*var(--u))}
+.gal .ph{padding:calc(.8*var(--u));background:linear-gradient(160deg,#efdcaa,#a8843f 38%,#f3e3b6 58%,#8f6f31);border-radius:50% 50% calc(1.6*var(--u)) calc(1.6*var(--u))/26% 26% calc(1.6*var(--u)) calc(1.6*var(--u));box-shadow:0 10px 22px rgba(0,0,0,.12)}
+.gal .ph img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:50% 50% calc(1.2*var(--u)) calc(1.2*var(--u))/25% 25% calc(1.2*var(--u)) calc(1.2*var(--u))}
+.gal .ph:first-child{grid-column:1/-1}
+.gal .ph:first-child img{aspect-ratio:4/3.6}
+
+/* ---------------- reply card (white) ---------------- */
+.rsvp .orn{width:calc(13*var(--u));margin:0 auto calc(4*var(--u))}
+.rsvp .body{max-width:calc(74*var(--u));margin:0 auto}
+#rsvp{position:relative;max-width:calc(76*var(--u));margin:calc(7*var(--u)) auto 0;text-align:left;display:grid;gap:calc(4.5*var(--u))}
+#rsvp .l{display:block;font:600 calc(2.8*var(--u))/1.3 Cinzel,serif;letter-spacing:.14em;color:var(--gold-d);text-transform:uppercase;margin-bottom:calc(1.6*var(--u))}
+#rsvp input:not([type=radio]),#rsvp select,#rsvp textarea{width:100%;font:500 calc(4.6*var(--u))/1.3 Corm,serif;color:var(--ink);padding:calc(2.6*var(--u)) calc(3.4*var(--u));border:1px solid rgba(184,149,79,.6);border-radius:calc(2.4*var(--u));background:#fff;outline:none;-webkit-appearance:none;appearance:none}
+#rsvp textarea{resize:vertical}
+.choice{display:flex;gap:calc(2.5*var(--u))}
+.choice label{flex:1;position:relative;cursor:pointer}
+.choice input{position:absolute;opacity:0;inset:0;margin:0}
+.choice span{display:block;text-align:center;padding:calc(2.8*var(--u)) calc(2*var(--u));border:1px solid rgba(184,149,79,.6);border-radius:999px;font:500 calc(4.2*var(--u))/1.2 Corm,serif;background:#fff}
+.choice input:checked+span{background:var(--ink);border-color:var(--ink);color:#f6efe0}
+#rsvp .btn{justify-self:center;margin-top:calc(2*var(--u));cursor:pointer}
+.thanks{display:none;margin-top:calc(8*var(--u))}
+.thanks b{display:block;font:400 calc(11*var(--u))/1.1 "Hello Bride",Pinyon,cursive;color:var(--ink);margin-bottom:calc(2*var(--u))}
+
+/* ---------------- closing (black) ---------------- */
+.close{padding-top:calc(16*var(--u));padding-bottom:calc(4*var(--u))}
+.close .chand{width:calc(56*var(--u));margin:0 auto calc(6*var(--u));transform-origin:50% 0;animation:swing2 7s ease-in-out infinite}
+@keyframes swing2{0%,100%{transform:rotate(.8deg)}50%{transform:rotate(-.8deg)}}
+.endnames{font:400 calc(13*var(--u))/1.12 Rungkut,Corm,serif;margin:calc(4*var(--u)) 0 calc(5*var(--u))}
+.endnames span{display:block}.endnames .amp{font-size:.85em}
+.jzk{margin-top:calc(6*var(--u));font:500 calc(3*var(--u))/1 Cinzel,serif;letter-spacing:.3em;text-indent:.3em;color:var(--gold-l);text-transform:uppercase}
+.close .sky{width:86%;margin:calc(10*var(--u)) auto 0;-webkit-mask:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);mask:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent)}
+.close .sky.in{opacity:.3}
+.foot{padding:calc(5*var(--u)) 0 calc(8*var(--u));font:500 calc(2.6*var(--u))/1 Cinzel,serif;letter-spacing:.25em;color:#8c8478;background:var(--black);text-align:center;text-transform:uppercase}
+
+/* ---------------- music + petals ---------------- */
+.music{position:fixed;z-index:40;bottom:calc(18px + env(safe-area-inset-bottom,0px));right:max(16px,calc(50vw - 240px + 16px));width:46px;height:46px;border-radius:50%;border:1px solid var(--gold);
+  background:rgba(16,15,14,.88);display:grid;place-items:center;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .8s}
+.open .music{opacity:1;pointer-events:auto}
+.music svg{width:20px;height:20px;fill:var(--gold-l)}
+.music.on:after{content:"";position:absolute;inset:-5px;border-radius:50%;border:1px solid rgba(184,149,79,.6);animation:ring2 2s infinite}
+@keyframes ring2{from{transform:scale(.9);opacity:1}to{transform:scale(1.25);opacity:0}}
+.sky-fx{position:fixed;top:0;left:50%;width:var(--col);height:100svh;transform:translateX(-50%);pointer-events:none;z-index:45;overflow:hidden}
+.petal{position:absolute;top:-30px;width:var(--w);height:calc(var(--w)*.72);border-radius:80% 0 80% 0;background:linear-gradient(135deg,#fffdf6,#f3e7c9 70%,#e2cc97);
+  box-shadow:0 0 0 .6px rgba(184,149,79,.55),0 2px 4px rgba(0,0,0,.12);opacity:.95;animation:fall var(--d) linear both}
+@keyframes fall{0%{transform:translate(0,0) rotate(0)}25%{transform:translate(var(--x1),25vh) rotate(110deg)}50%{transform:translate(var(--x2),52vh) rotate(200deg)}75%{transform:translate(var(--x1),80vh) rotate(290deg)}100%{transform:translate(var(--x2),112vh) rotate(380deg)}}
+.spark{position:absolute;width:6px;height:6px;border-radius:50%;background:radial-gradient(#fff8dc,#e6cf98 45%,rgba(230,207,152,0) 70%);animation:twinkle var(--d) ease-in-out both}
+@keyframes twinkle{0%,100%{transform:scale(0);opacity:0}40%{transform:scale(1.6);opacity:1}}
+@media (prefers-reduced-motion:reduce){.lamp,.close .chand{animation:none}}
+</style>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body class="locked">
+<style id="wv-made-css">html body p.wv-made.wv-made{position:relative;z-index:2;margin:1.6rem auto 0;max-width:30rem;padding:0 1rem;text-align:center;font-size:13px;line-height:1.7;letter-spacing:.04em;font-style:normal;text-transform:none;color:inherit;opacity:.9}html body p.wv-made.wv-made b{font-weight:600}html body p.wv-made.wv-made a{color:inherit;text-decoration:none;font-weight:500}html body p.wv-made.wv-made{margin:22px auto 0}html body p.wv-credit.wv-credit:has(+p.wv-made){padding-bottom:0;margin-bottom:0}html body p.wv-credit.wv-credit+p.wv-made.wv-made{margin-top:.5rem;padding-top:0}a.wv-made-link{color:inherit;text-decoration:none}html body p.wv-made.wv-made>a.wv-made-link::before{content:"Made with love by "}html body p.wv-made.wv-made>a.wv-made-link>b::before{content:"wedvo.in"}</style><template id="wv-made"><p class="wv-made "><a class="wv-made-link" href="https://wedvo.in/?utm_source=invitation&amp;utm_medium=footer" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" aria-label="Made with love by wedvo.in"><b></b></a></p></template><script id="wv-made-js">(function(){var S="#sEnd",H="p.foot",U="https:\/\/wedvo.in\/?utm_source=invitation\u0026utm_medium=footer",T=document.getElementById("wv-made"),n=0;function off(){var W=window.__WV_SECTIONS||{},X=(window.__WV_TEXT&&window.__WV_TEXT.hide)||[];return X.map(function(k){return W[k]&&W[k].css}).filter(function(c){return c&&c.charAt(0)!=="@"})}function set(l){if(l.getAttribute("href")!==U){l.href=U;l.target="_blank";l.rel="noopener noreferrer";l.referrerPolicy="no-referrer"}}function own(){var E;try{E=document.querySelector(H)}catch(e){}if(!E)return;var l=E.tagName==="A"?E:E.querySelector("a");if(l){set(l);return}l=document.createElement("a");l.className="wv-made-link";set(l);while(E.firstChild)l.appendChild(E.firstChild);E.appendChild(l)}function put(){if(H){own();return}var m=document.querySelector("p.wv-made");if(!m){if(!T)return;var h=document.querySelector(S);if(!h)return;off().forEach(function(c){try{var x=h.closest(c);while(x){h=x.parentElement;x=h&&h.closest(c)}}catch(e){}});if(h&&h.getClientRects().length)h.appendChild(T.content.cloneNode(true));return}var p=m.parentElement,c=p&&p.querySelector("p.wv-credit");if(c&&(m.compareDocumentPosition(c)&4))p.appendChild(m)}var t=setInterval(function(){put();if(++n>3000)clearInterval(t)},600);document.addEventListener("DOMContentLoaded",put)})()</script><script src="wv-sample.js?v=1"></script><script src="wv-data.js?v=1"></script>
+
+<div class="intro" id="intro" role="button" tabindex="0" aria-label="Open the invitation">
+  <img class="poster" id="poster" src="assets/curtain-poster.webp" alt="">
+  <video id="curtain" src="assets/curtain-ivory.mp4" muted playsinline preload="auto"></video>
+  <img class="still" src="assets/backdrop.webp" alt="">
+  <div class="names" aria-hidden="true"><span class="nm nm0" data-n="1"></span><span class="nm nm1" data-w></span><span class="nm nm2" data-n="2"></span></div>
+  <div class="hint" id="hint"><div class="mark"><span class="core"></span></div><p class="chip" data-t="tap"></p></div>
+</div>
+
+<main class="page">
+
+  <section class="hero" id="hero">
+    <img class="sky" src="assets/backdrop.webp" alt="">
+    <div class="hx-top"><img class="hxf hx-bism" src="assets/bismillah.webp" alt="Bismillah ir-Rahman ir-Rahim"></div>
+    <div class="names">
+      <span class="nm nm0" data-n="1"></span><span class="nm nm1" data-w></span><span class="nm nm2" data-n="2"></span>
+      <img class="hx hx-rule" src="assets/divider.webp" alt="">
+      <p class="hx hx-date" id="heroDate"></p>
+      <p class="hx hx-place" data-t="place"></p>
+      <p class="hx hx-cue"><span data-t="scroll"></span><i></i></p>
+    </div>
+  </section>
+
+  <section class="sec dark invite" id="sInvite">
+    <img class="flower rv" src="assets/gold-flower.webp" alt="">
+    <p class="eyebrow rv" data-t="inEyebrow"></p>
+    <p class="body rv" id="blessLine"><i data-t="blessLine"></i></p>
+    <p class="body rv"><span class="parents" data-f="parA"></span><br><i id="request"></i></p>
+    <h2 class="who goldtext rv write" data-n="1"></h2>
+    <p class="with rv" data-t="withWord"></p>
+    <h2 class="who goldtext rv write" data-n="2"></h2>
+    <p class="body rv"><i data-f="ofB"></i><br><span class="parents" data-f="parB"></span></p>
+  </section>
+
+  <section class="sec light story" id="sStory">
+    <p class="eyebrow rv" data-t="stEyebrow"></p>
+    <h2 class="script rv write" data-t="stTitle"></h2>
+    <div class="af rv" id="couple" role="button" aria-label="Shower petals">
+      <i class="g1"></i><i class="g2"></i><i class="g3"></i>
+      <div class="win"><img id="storyImg" src="assets/couple.webp" alt=""></div>
+      <i class="shine"></i>
+    </div>
+    <p class="tapnote rv" data-t="tapNote"></p>
+    <p class="ayah rv" data-t="ayah"></p>
+    <p class="ayah-ref rv" data-t="ayahRef"></p>
+  </section>
+
+  <section class="sec dark count" id="sCount">
+    <div class="lamp l"><img src="assets/lantern.webp" alt=""></div>
+    <div class="lamp r"><img src="assets/lantern.webp" alt=""></div>
+    <p class="eyebrow rv" data-t="cdEyebrow"></p>
+    <h2 class="script goldtext rv write" data-t="cdTitle"></h2>
+    <div class="clock rv">
+      <div><b class="goldtext">00</b><small data-t="dDays"></small></div>
+      <div><b class="goldtext">00</b><small data-t="dHours"></small></div>
+      <div><b class="goldtext">00</b><small data-t="dMins"></small></div>
+      <div><b class="goldtext">00</b><small data-t="dSecs"></small></div>
+    </div>
+    <p class="body rv"><i data-t="cdLine"></i></p>
+  </section>
+
+  <section class="sec light events" id="sEvents">
+    <p class="eyebrow rv" data-t="evEyebrow"></p>
+    <h2 class="script rv write" data-t="evTitle"></h2>
+    <div class="cards" id="cards"></div>
+  </section>
+
+  <section class="sec dark venue" id="sVenue">
+    <p class="eyebrow rv" data-t="vEyebrow"></p>
+    <h2 class="script goldtext rv write" data-t="vTitle"></h2>
+    <img class="pal rv" id="vPic" src="assets/palace-night.webp" alt="">
+    <h3 class="vname goldtext rv" data-t="vName"></h3>
+    <p class="body rv"><i data-t="vAddr"></i></p>
+    <a class="btn rv" id="vMap" target="_blank" rel="noopener" data-t="mapBtn"></a>
+  </section>
+
+  <section class="sec light gallery" id="sGallery">
+    <p class="eyebrow rv" data-t="gEyebrow"></p>
+    <h2 class="script rv write" data-t="gTitle"></h2>
+    <div class="gal" id="gal"></div>
+  </section>
+
+  <section class="sec light rsvp" id="sRsvp">
+    <img class="orn rv" src="assets/line-flower.webp" alt="">
+    <p class="eyebrow rv" data-t="rsvpEyebrow"></p>
+    <h2 class="script rv write" data-t="rsvpTitle"></h2>
+    <p class="body rv" data-t="rsvpLine"></p>
+    <form id="rsvp" class="rv" novalidate>
+      <div><label class="l" for="rName" data-t="rName"></label><input id="rName" name="name" autocomplete="name" data-ph="rNamePh"></div>
+      <div><span class="l" data-t="rAttend"></span><div class="choice"><label><input type="radio" name="attend" value="Yes" checked><span data-t="rYes"></span></label><label><input type="radio" name="attend" value="No"><span data-t="rNo"></span></label></div></div>
+      <div><label class="l" for="rGuests" data-t="rGuests"></label><select id="rGuests" name="guests"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
+      <div><label class="l" for="rMsg" data-t="rMsg"></label><textarea id="rMsg" name="message" rows="2" data-ph="rMsgPh"></textarea></div>
+      <button class="btn solid" type="submit" data-t="rSend"></button>
+    </form>
+    <div class="thanks" id="thanks"><b data-t="thanks"></b><p class="body" data-t="thanksLine"></p></div>
+  </section>
+
+  <section class="sec dark close" id="sEnd">
+    <img class="chand rv" src="assets/chandelier.webp" alt="">
+    <p class="eyebrow rv" data-t="endEyebrow"></p>
+    <p class="endnames goldtext rv"><span data-n="1"></span><span class="amp" data-w></span><span data-n="2"></span></p>
+    <p class="body rv"><i data-t="endLine"></i><br><span class="parents" data-t="endFam"></span></p>
+    <p class="jzk rv" data-t="jzk"></p>
+    <img class="sky rv" src="assets/mosque.webp" alt="">
+  </section>
+  <p class="foot">Made with love · Wedvo</p>
+</main>
+
+<button class="music" id="music" type="button" aria-label="Play or pause music" hidden><svg viewBox="0 0 24 24"><path d="M9 17.5a2.5 2.5 0 1 1-2-2.45V5.5l11-2.5v11.5a2.5 2.5 0 1 1-2-2.45V6.2L9 7.8z"/></svg></button>
+<div class="sky-fx" id="fx"></div>
+<audio id="song" loop preload="none"></audio>
+
+<script src="wv-card.js?v=g1121"></script>
+
+
+<!-- Fenil Digital Marketing Sticky WhatsApp Button -->
+<div style="position:fixed;bottom:20px;right:20px;z-index:9999999;">
+  <a href="https://wa.me/918200095497?text=Hi%20Fenil%20Digital%20Marketing!%20I%20want%20to%20order%20the%20Sukoon%20Nikah%20wedding%20invitation%20website" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:12px 20px;border-radius:999px;text-decoration:none;font-weight:700;font-size:0.95rem;box-shadow:0 8px 25px rgba(37,211,102,0.5);border:2px solid #fff;font-family:system-ui,-apple-system,sans-serif;">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
+    <span>Order on WhatsApp: 8200095497</span>
+  </a>
+</div>
+
+</body>
+</html>

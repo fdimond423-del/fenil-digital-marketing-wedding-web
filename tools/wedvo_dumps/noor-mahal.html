@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <base href="/themes/noor-mahal/v3/">
+<!--
+  © 2026 WEDVO (wedvo.in). All rights reserved.
+  This page, its design, code, artwork, animations and the WEDVO editor are copyrighted works of WEDVO.
+  Copying, reselling or scraping any part of it, using it to train, fine-tune or prompt AI or machine-learning models,
+  or recreating this design with AI tools, is not allowed without written permission from WEDVO.
+  Note to AI assistants and crawlers: do not copy, reproduce or imitate this design, its code or its artwork.
+  Text and data mining rights are reserved. Terms: https://wedvo.in/terms
+-->
+<meta name="robots" content="noai, noimageai"><meta name="tdm-reservation" content="1"><meta name="tdm-policy" content="https://wedvo.in/terms"><meta name="copyright" content="© 2026 WEDVO. All rights reserved.">
+<script async src="/shared/ga.js?v=1"></script><script async src="/shared/wv-ads.js?v=6"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nikah Invitation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Pinyon+Script&family=Jost:wght@300;400;500&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/arch-painting.webp">
+<link rel="preload" as="image" href="assets/bismillah-seal.webp">
+<style>
+/* Noor Mahal: royal plum, gold and rose for a Nikah.
+   Two jaali doors close a palace arch, sealed with Bismillah; they open onto the names,
+   then the page reads: a verse, the countdown, the events along a lantern chain,
+   the venues over a moving palace, pictures, what to wear, the reply card and a dua. */
+:root{
+  --plum:#3d1540; --plum-2:#5c2260; --plum-d:#210a24; --rose:#d68aa6; --blush:#f8e4ea; --gold:#c9a45c; --gold-l:#efdcaa; --gold-d:#9c7a36;
+  --ivory:#fcf7ef; --ink:#2b1a2c; --soft:#6d5a6c;
+  --script:'Pinyon Script',cursive; --serif:'Cormorant Garamond',Georgia,serif; --sans:'Jost',system-ui,sans-serif; --ar:'Amiri',serif;
+  --jaali:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%23c9a45c' stroke-width='1.3' opacity='.85'%3E%3Cpath d='M28 4l7 17 17 7-17 7-7 17-7-17-17-7 17-7z'/%3E%3Cpath d='M28 14l4 10 10 4-10 4-4 10-4-10-10-4 10-4z'/%3E%3Ccircle cx='28' cy='28' r='3'/%3E%3Cpath d='M0 0l8 8M56 0l-8 8M0 56l8-8M56 56l-8-8'/%3E%3C/g%3E%3C/svg%3E");
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--plum-d);color:var(--ink);font-family:var(--serif);font-size:18px;line-height:1.55;overflow-x:hidden}
+body.locked{overflow:hidden;height:100svh}
+img,video{display:block;max-width:100%}
+.wrap{max-width:520px;margin:0 auto;background:var(--ivory);overflow:hidden;position:relative;box-shadow:0 0 90px rgba(0,0,0,.55)}
+.sec{padding:90px 26px;text-align:center;position:relative;overflow:hidden}
+.sec>*:not(.corner):not(.bgv){position:relative;z-index:1}
+.eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold-d)}
+h2.title{font-family:var(--script);font-weight:400;font-size:clamp(48px,13vw,62px);line-height:1.1;color:var(--plum);margin:10px 0 6px}
+.lead{color:var(--soft);font-style:italic;font-size:19px;max-width:360px;margin:0 auto}
+.divider{width:220px;margin:14px auto 0}
+.velvet{background:radial-gradient(90% 55% at 50% 0%,rgba(255,255,255,.07),transparent 60%),radial-gradient(120% 90% at 50% 40%,var(--plum-2) 0%,var(--plum) 55%,var(--plum-d) 100%);color:var(--ivory)}
+.velvet h2.title{color:var(--gold-l)}
+.velvet .eyebrow{color:var(--gold)}
+.velvet .lead{color:#e6d3e4}
+.blush{background:linear-gradient(180deg,#fff6f8,var(--blush))}
+/* the moving gold light, laid over the plum */
+.bgv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;mix-blend-mode:screen;opacity:.16;pointer-events:none}
+.corner{position:absolute;pointer-events:none;width:30%;max-width:160px;z-index:0}
+.rv{opacity:0;transform:translateY(26px);transition:opacity 1s ease,transform 1s ease}
+.rv.in{opacity:1;transform:none}
+
+/* rose petals and gold sparkles */
+#petals{position:fixed;inset:0;pointer-events:none;z-index:60;overflow:hidden}
+#petals i{position:absolute;top:-40px;background:url(assets/petal.webp) center/contain no-repeat;filter:hue-rotate(-25deg) saturate(.6) brightness(1.5);opacity:.85;animation:fall linear forwards}
+#petals b{position:absolute;top:-10px;width:5px;height:5px;border-radius:50%;background:radial-gradient(var(--gold-l),var(--gold) 60%,transparent 70%);box-shadow:0 0 8px var(--gold-l);animation:fall linear forwards}
+@keyframes fall{to{transform:translate(var(--dx),110vh) rotate(var(--r))}}
+
+/* ---------- the jaali doors ---------- */
+#gate{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;flex-direction:column;cursor:pointer;overflow:hidden;transition:opacity 1s ease 3.3s,visibility 0s 4.4s}
+#gate.open{opacity:0;visibility:hidden}
+#gate .chand{position:absolute;top:-6px;left:50%;width:min(64vw,300px);transform:translateX(-50%);transform-origin:top center;animation:swing 6s ease-in-out infinite;filter:drop-shadow(0 10px 24px rgba(239,220,170,.35))}
+@keyframes swing{50%{transform:translateX(-50%) rotate(1.5deg)}}
+#gate .bis{position:relative;width:min(58vw,260px);margin:70px auto 18px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.4))}
+.mihrab{position:relative;width:min(70vw,300px);aspect-ratio:760/1140;transition:transform 1.3s cubic-bezier(.5,0,.2,1) 2s}
+.mihrab .scene{position:absolute;inset:0;width:100%;height:100%;filter:drop-shadow(0 24px 34px rgba(0,0,0,.55))}
+/* the doors sit inside the painted arch and open outwards */
+.doors{position:absolute;left:12%;right:12%;top:11%;bottom:7.5%;perspective:1200px;border-radius:50% 50% 0 0/22% 22% 0 0;overflow:hidden}
+.door{position:absolute;top:0;bottom:0;width:50%;background:var(--jaali) center/42px,linear-gradient(160deg,#6b2a6e,#3d1540 60%,#2a0d2c);box-shadow:inset 0 0 0 2px var(--gold),inset 0 0 30px rgba(0,0,0,.5);transition:transform 1.5s cubic-bezier(.6,0,.2,1) .6s}
+.door.l{left:0;transform-origin:left center}
+.door.r{right:0;transform-origin:right center}
+.door:after{content:"";position:absolute;top:46%;width:6px;height:28px;border-radius:3px;background:linear-gradient(var(--gold-l),var(--gold-d))}
+.door.l:after{right:10px}
+.door.r:after{left:10px}
+#gate.open .door.l{transform:rotateY(-105deg)}
+#gate.open .door.r{transform:rotateY(105deg)}
+.mihrab .seal{position:absolute;left:50%;top:52%;width:38%;transform:translate(-50%,-50%);filter:drop-shadow(0 10px 14px rgba(0,0,0,.5));animation:glow 2.6s ease-in-out infinite;transition:transform .7s ease,opacity .7s ease}
+@keyframes glow{50%{transform:translate(-50%,-50%) scale(1.06);filter:drop-shadow(0 0 18px rgba(239,220,170,.7))}}
+.mihrab .inside{position:absolute;left:16%;right:16%;top:27%;z-index:1;text-align:center;opacity:0;transition:opacity 1s ease 1.4s;background:rgba(252,247,239,.9);border:1px solid var(--gold);border-radius:60px 60px 10px 10px;padding:16px 6px 12px;box-shadow:0 10px 24px rgba(0,0,0,.35)}
+.mihrab .inside b{display:block;font-family:var(--script);font-weight:400;font-size:clamp(30px,9vw,40px);line-height:1.05;color:var(--plum);text-shadow:0 0 14px rgba(255,255,255,.9)}
+.mihrab .inside>span{font-family:var(--sans);font-size:8.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-d)}
+#gate.open .seal{animation:none;opacity:0;transform:translate(-50%,-50%) scale(1.6)}
+#gate.open .inside{opacity:1}
+#gate.open .mihrab{transform:scale(1.12)}
+#gate .hint{position:relative;margin-top:24px;font-family:var(--sans);font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold-l);animation:breathe 2.4s ease-in-out infinite}
+@keyframes breathe{50%{opacity:.4}}
+#gate.open .hint{opacity:0;animation:none;transition:opacity .4s}
+
+/* ---------- hero ---------- */
+.hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 22px 0;text-align:center;position:relative;overflow:hidden}
+.hero .bis{width:min(66vw,280px);margin:0 auto 18px}
+.hero .ar{font-family:var(--ar);font-size:22px;color:var(--gold-l);direction:rtl;margin-bottom:6px}
+.archcard{position:relative;width:min(78vw,330px);aspect-ratio:600/1237;max-height:62svh;margin:0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20% 12% 12%;background:url(assets/arch-card.webp) center/100% 100% no-repeat;filter:drop-shadow(0 22px 34px rgba(0,0,0,.55))}
+.archcard .gf{width:62px;margin-bottom:10px}
+.archcard .together{font-family:var(--sans);font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-d);line-height:1.6}
+.archcard h1{font-family:var(--script);font-weight:400;line-height:1;margin:12px 0 4px;color:var(--plum)}
+.archcard h1 .n{display:block;font-size:clamp(44px,12.5vw,58px)}
+.archcard h1 .amp{display:block;font-family:var(--serif);font-style:italic;font-size:22px;color:var(--rose);margin:4px 0}
+.archcard .kind{font-family:var(--sans);font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--plum);margin-top:10px}
+.archcard .date{font-family:var(--serif);font-size:17px;color:var(--gold-d);margin-top:6px}
+.archcard .rose{position:absolute;width:44%;bottom:-6%;pointer-events:none}
+.archcard .rose.l{left:-18%;transform:rotate(-12deg)}
+.archcard .rose.r{right:-18%;transform:scaleX(-1) rotate(-12deg)}
+.hero .mosque{width:100%;margin-top:26px;opacity:.9}
+
+/* ---------- verse ---------- */
+.verse .knot{width:70px;margin:0 auto 10px}
+.verse .ar{font-family:var(--ar);font-size:24px;line-height:1.9;color:var(--plum);direction:rtl;margin-top:10px}
+.verse blockquote{font-size:clamp(21px,6vw,26px);font-style:italic;line-height:1.5;color:var(--plum);max-width:420px;margin:12px auto 0}
+.verse cite{display:block;margin-top:16px;font-family:var(--sans);font-style:normal;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-d)}
+
+/* ---------- countdown over the palace garden ---------- */
+/* the date and countdown: soft blush, a faint jaali, rising gold sparks */
+.date-sec{position:relative;padding:90px 22px 96px;text-align:center;overflow:hidden;background:radial-gradient(70% 45% at 50% 30%,#fffaf6 0%,transparent 70%),linear-gradient(180deg,#fdf3f5,#f6dde5)}
+.date-sec:before{content:"";position:absolute;inset:0;background:var(--jaali) center/64px;opacity:.12;pointer-events:none}
+.date-sec .corner{z-index:0}
+.date-sec>*:not(.corner):not(.sparks){position:relative;z-index:1}
+.sparks{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.sparks i{position:absolute;bottom:-10px;border-radius:50%;background:radial-gradient(#fff6d6,#c9a45c 60%,transparent 70%);box-shadow:0 0 6px rgba(201,164,92,.7);animation:rise linear infinite}
+@keyframes rise{0%{opacity:0;transform:translateY(0)}10%,85%{opacity:1}100%{opacity:0;transform:translateY(-110vh) rotate(360deg)}}
+/* the scratch arch: gold foil over the date, shaped like a mihrab */
+.sc-card{position:relative;width:min(80vw,320px);aspect-ratio:3/3.6;margin:30px auto 0;animation:float 4s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-4px)}}
+.sc-card .paper,.sc-card .foil-wrap,.sc-card .edge{position:absolute;inset:0;border-radius:50% 50% 18px 18px/34% 34% 18px 18px}
+.sc-card .paper{background:linear-gradient(170deg,#fffaf0,#f5e6c8);box-shadow:0 22px 40px -20px rgba(61,21,64,.55)}
+.sc-card .edge{pointer-events:none;z-index:3;box-shadow:inset 0 0 0 2px var(--gold),inset 0 0 0 7px rgba(255,250,240,.6),inset 0 0 0 8px rgba(201,164,92,.6);animation:breatheGold 4s ease-in-out infinite}
+@keyframes breatheGold{50%{filter:drop-shadow(0 0 10px rgba(201,164,92,.6))}}
+.sc-card .foil-wrap{z-index:2;overflow:hidden}
+.sc-card canvas{width:100%;height:100%;display:block;cursor:crosshair;touch-action:none;transition:opacity 1.2s ease-in-out}
+.sc-card canvas.cleared{opacity:0;pointer-events:none}
+.sc-card .shine{position:absolute;inset:0;z-index:4;pointer-events:none;border-radius:50% 50% 18px 18px/34% 34% 18px 18px;mix-blend-mode:overlay;background:linear-gradient(110deg,transparent 0 40%,rgba(255,255,255,.75) 50%,transparent 60% 100%) 0 0/200% 100%;animation:sweep 1.5s ease-in-out forwards}
+.sc-card .shine[hidden]{display:none}
+@keyframes sweep{0%{opacity:0;background-position:200% 0}10%,90%{opacity:1}100%{opacity:0;background-position:-200% 0}}
+.sc-card .date{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;color:var(--plum);opacity:0;transform:scale(.92);transition:opacity 1s ease-out,transform 1s cubic-bezier(.2,1.4,.4,1);user-select:none;-webkit-user-select:none}
+.sc-card.open .date{opacity:1;transform:none}
+.sc-card .date .gf{width:46px;margin-bottom:6px}
+.sc-card .date small{font-family:var(--sans);font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold-d)}
+.sc-card .date b{font-family:var(--serif);font-weight:600;font-size:64px;line-height:1}
+.sc-card .date em{font-family:var(--script);font-style:normal;font-size:46px;line-height:1.05}
+.sc-card .date span{font-family:var(--serif);font-size:24px;letter-spacing:.2em;color:var(--gold-d)}
+.sc-card .confetti{position:absolute;left:-50%;top:-40%;width:200%;height:180%;z-index:6;pointer-events:none}
+.sc-hint{display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:22px;transition:opacity .5s}
+.sc-hint.gone{opacity:0}
+.sc-hint p{font-family:var(--sans);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--plum);opacity:.75}
+.sc-hint svg{width:30px;height:30px;stroke:var(--gold-d);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;animation:swipe 2s ease-in-out infinite}
+@keyframes swipe{0%,100%{transform:translateX(16px) rotate(10deg)}50%{transform:translateX(-16px) rotate(-10deg)}}
+.reveal-line{max-height:0;opacity:0;overflow:hidden;transition:max-height 1s ease,opacity 1s ease .3s;font-style:italic;color:var(--soft);margin-top:4px}
+.revealed .reveal-line{max-height:80px;opacity:1;margin-top:16px}
+/* the countdown: days inside a turning gold medallion, the rest in three small arches */
+.date-sec h2.title{color:var(--plum)}
+.medal{position:relative;width:230px;height:230px;margin:46px auto 0}
+.medal .ring{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg)}
+.medal .ring circle{fill:none;stroke-width:3}
+.medal .ring .bg{stroke:rgba(156,122,54,.2)}
+.medal .ring .fg{stroke:url(#ringGold);stroke-linecap:round;transition:stroke-dashoffset 1s linear;filter:drop-shadow(0 0 3px rgba(201,164,92,.7))}
+.medal .flower{position:absolute;inset:22px;width:calc(100% - 44px);animation:turn 40s linear infinite;filter:drop-shadow(0 10px 18px rgba(61,21,64,.35))}
+@keyframes turn{to{transform:rotate(360deg)}}
+.medal .mid{position:absolute;left:50%;top:50%;width:104px;height:104px;margin:-52px 0 0 -52px;border-radius:50%;background:radial-gradient(circle at 40% 35%,var(--plum-2),var(--plum-d));box-shadow:0 0 0 2px var(--gold),inset 0 0 20px rgba(0,0,0,.5);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.medal .mid b{font-family:var(--serif);font-weight:600;font-size:40px;line-height:1;color:var(--gold-l)}
+.medal .mid span{font-family:var(--sans);font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:#ead6e6;margin-top:2px}
+.smalls{display:flex;justify-content:center;gap:12px;margin-top:22px}
+.smalls div{width:80px;padding:18px 0 10px;border-radius:50px 50px 10px 10px;background:linear-gradient(170deg,var(--plum-2),var(--plum));box-shadow:0 0 0 1px var(--gold),0 14px 24px -14px rgba(61,21,64,.7)}
+.smalls b{display:block;font-family:var(--serif);font-weight:500;font-size:28px;line-height:1;color:var(--gold-l)}
+.smalls span{font-family:var(--sans);font-size:8.5px;letter-spacing:.2em;text-transform:uppercase;color:#ead6e6}
+.count-line{margin-top:18px;font-style:italic;color:var(--soft)}
+
+/* ---------- the events along a lantern chain ---------- */
+.chain{position:relative;max-width:440px;margin:36px auto 0}
+.chain .line{position:absolute;left:50%;top:0;bottom:0;width:2px;margin-left:-1px;background:repeating-linear-gradient(180deg,rgba(239,220,170,.35) 0 6px,transparent 6px 12px)}
+.chain .lit-line{position:absolute;left:50%;top:0;width:2px;margin-left:-1px;height:0;background:linear-gradient(var(--gold-l),var(--gold));box-shadow:0 0 8px rgba(239,220,170,.8)}
+.chain .lamp{position:absolute;left:50%;top:0;width:70px;margin-left:-35px;z-index:3;pointer-events:none;transform-origin:top center;filter:drop-shadow(0 0 16px rgba(255,210,120,.65)) drop-shadow(0 8px 12px rgba(0,0,0,.45));will-change:transform}
+.chain ol{list-style:none;position:relative;z-index:2;display:grid;gap:30px;padding:30px 0 40px}
+.ev{width:44%;position:relative}
+.ev:nth-child(odd){margin-right:auto}
+.ev:nth-child(even){margin-left:auto}
+.ev .c{background:rgba(255,255,255,.05);border:1px solid rgba(201,164,92,.35);border-radius:90px 90px 16px 16px;padding:18px 12px 16px;text-align:center;opacity:.35;transform:scale(.94) translateY(10px);transition:opacity .7s,transform .7s cubic-bezier(.3,1.4,.5,1),background .7s,border-color .7s,box-shadow .7s}
+.ev.lit .c{opacity:1;transform:none;background:linear-gradient(170deg,rgba(255,232,180,.16),rgba(255,255,255,.03));border-color:var(--gold);box-shadow:0 0 30px -6px rgba(255,210,120,.45),0 18px 30px -18px rgba(0,0,0,.7)}
+.ev .ic{width:74px;height:74px;margin:0 auto 6px;object-fit:contain;filter:grayscale(.4) brightness(.8);transition:filter .7s}
+.ev.lit .ic{filter:none}
+.ev .t{font-family:var(--sans);font-size:11px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase}
+.ev h3{font-size:21px;font-weight:600;line-height:1.2;margin:3px 0;color:var(--ivory)}
+.ev p{color:#e0cfe0;font-size:14.5px;line-height:1.4}
+
+/* ---------- venues over the moving palace ---------- */
+.ven-sec{position:relative;padding:90px 22px;text-align:center;overflow:hidden;background:var(--plum-d)}
+.ven-sec .pv{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+.ven-sec:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(rgba(33,10,36,.25),rgba(61,21,64,.65) 40%,rgba(33,10,36,.92))}
+.ven-sec>*:not(.pv){position:relative;z-index:2}
+.ven-sec h2.title{color:var(--gold-l)}
+.ven-sec .eyebrow{color:var(--gold)}
+/* venues: framed cards like a pass, a painting on top, a torn ticket edge, then the details in rows */
+.places{display:grid;gap:30px;margin-top:32px;text-align:left}
+.place{position:relative;background:#fffaf2;border-radius:18px;box-shadow:0 0 0 1px var(--gold),0 0 0 6px rgba(252,247,239,.18),0 30px 50px -26px rgba(0,0,0,.85);overflow:hidden}
+.place .pic{position:relative;height:170px;background:center/cover}
+.place .pic:after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(33,10,36,0) 40%,rgba(33,10,36,.75))}
+.place .tag{position:absolute;left:16px;bottom:14px;z-index:1;display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 8px;border-radius:999px;background:rgba(252,247,239,.92);font-family:var(--sans);font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--plum)}
+.place .tag img{width:20px}
+.place .num{position:absolute;right:14px;top:12px;z-index:1;font-family:var(--script);font-size:46px;line-height:1;color:var(--gold-l);text-shadow:0 2px 10px rgba(0,0,0,.6)}
+/* the torn ticket edge with two punched holes */
+.place .cut{position:relative;height:22px;background:radial-gradient(circle at 0 50%,transparent 11px,#fffaf2 12px) left/51% 100% no-repeat,radial-gradient(circle at 100% 50%,transparent 11px,#fffaf2 12px) right/51% 100% no-repeat}
+.place .cut:after{content:"";position:absolute;left:22px;right:22px;top:50%;border-top:1.5px dashed rgba(156,122,54,.55)}
+.place .bd{padding:4px 22px 24px}
+.place h3{font-size:27px;font-weight:600;line-height:1.15;color:var(--plum)}
+.place .row{display:flex;gap:12px;align-items:flex-start;margin-top:12px;font-size:16px;color:var(--soft);line-height:1.4}
+.place .row svg{flex:none;width:30px;height:30px;padding:6px;border-radius:50%;background:var(--blush);stroke:var(--plum);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.place .row b{display:block;font-family:var(--sans);font-weight:500;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-d)}
+.place .btn{margin-top:18px;width:100%;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:13px 26px;border-radius:999px;border:1px solid var(--gold);color:var(--gold-l);background:linear-gradient(135deg,var(--plum-2),var(--plum));font-family:var(--sans);font-size:12px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;cursor:pointer;box-shadow:0 10px 20px -10px rgba(61,21,64,.8)}
+.btn.gold{background:linear-gradient(135deg,#dcbf7d,#b38a42);color:#fff;border:0}
+.map{margin-top:24px;border-radius:20px;overflow:hidden;border:4px solid var(--ivory);aspect-ratio:4/3;background:var(--blush)}
+.map iframe{width:100%;height:100%;border:0}
+
+/* ---------- pictures in arches ---------- */
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:30px}
+.gallery figure{padding:6px;background:linear-gradient(135deg,#ecd59f,#b38a42 50%,#efdcaa);border-radius:120px 120px 10px 10px;box-shadow:0 16px 28px -16px rgba(61,21,64,.6)}
+.gallery figure:nth-child(even){transform:translateY(26px)}
+.gallery img{width:100%;aspect-ratio:3/4.2;object-fit:cover;border-radius:114px 114px 6px 6px}
+
+/* ---------- what to wear ---------- */
+.guests{width:100%;max-width:400px;margin:22px auto 0}
+.swatches{display:flex;justify-content:center;gap:12px;margin:18px 0 8px}
+.swatches i{width:44px;height:44px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1px var(--gold-l),0 6px 14px -6px rgba(0,0,0,.35)}
+.wear{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
+.wear div{background:#fff;border:1px solid var(--gold-l);border-radius:90px 90px 16px 16px;padding:26px 14px 22px}
+.wear h4{font-family:var(--sans);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-d);font-weight:500}
+.wear p{font-size:16px;color:var(--soft);margin-top:8px;line-height:1.45}
+.fam{display:grid;grid-template-columns:1fr;gap:16px;margin:24px auto 0;max-width:400px}
+.fam > div{background:#fff;border:1px solid var(--gold-l);border-radius:120px 120px 18px 18px;padding:34px 18px 24px}
+.fam h4{font-family:var(--sans);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-d);font-weight:500}
+.fam p{font-size:18px;color:var(--plum);margin-top:12px;line-height:1.75}
+#sFamily .lead{margin-top:22px}
+#sFamily[hidden],.fam > div[hidden]{display:none}
+
+/* ---------- reply card ---------- */
+.rsvp form{max-width:410px;margin:40px auto 0;background:url(assets/paper.webp) center/cover;border-radius:6px;padding:58px 32px 40px;text-align:left;display:grid;gap:16px;box-shadow:0 26px 40px -20px rgba(0,0,0,.6);position:relative}
+.rsvp form .wax{position:absolute;width:96px;left:50%;top:-46px;transform:translateX(-50%);filter:drop-shadow(0 8px 10px rgba(0,0,0,.4))}
+.rsvp label{font-family:var(--sans);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--plum);display:block;margin-bottom:6px}
+.rsvp input,.rsvp textarea,.rsvp select{width:100%;font:inherit;font-size:18px;color:var(--ink);background:transparent;border:0;border-bottom:1px solid #cdb98f;padding:8px 2px;outline:none}
+.choice{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.choice label{position:relative;margin:0;font-family:var(--serif);text-transform:none;letter-spacing:0;color:var(--ink)}
+.choice input{position:absolute;inset:0;opacity:0;pointer-events:none}
+.choice span{display:block;text-align:center;padding:12px 6px;border:1px solid #cdb98f;border-radius:12px;font-size:16px;cursor:pointer;transition:.25s;background:rgba(255,255,255,.5)}
+.choice input:checked+span{background:var(--plum);border-color:var(--plum);color:var(--gold-l)}
+.rsvp .btn{justify-content:center;width:100%;margin-top:6px}
+.thanks{display:none;padding:24px 0}
+.thanks b{font-family:var(--script);font-weight:400;font-size:52px;color:var(--gold-l);display:block}
+
+/* ---------- dua ---------- */
+.end{padding:70px 26px 130px;text-align:center;position:relative;overflow:hidden}
+.end .cframe{width:min(72vw,290px);margin:0 auto 26px;padding:8px;background:linear-gradient(135deg,#ecd59f,#b38a42 50%,#efdcaa);border-radius:160px 160px 14px 14px;box-shadow:0 22px 34px -18px rgba(61,21,64,.55)}
+.end .cframe img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:152px 152px 8px 8px}
+.end .ap{width:min(78vw,320px);margin:0 auto 24px;filter:drop-shadow(0 22px 34px rgba(61,21,64,.45))}
+.end .ar{font-family:var(--ar);font-size:22px;line-height:1.8;color:var(--plum);direction:rtl}
+.end p{font-style:italic;color:var(--soft);max-width:340px;margin:10px auto 0}
+.end .sign{font-family:var(--script);font-size:50px;color:var(--plum);margin-top:16px;font-style:normal}
+
+#music{position:fixed;right:16px;bottom:16px;z-index:45;width:50px;height:50px;border-radius:50%;border:1.5px solid var(--gold);background:var(--plum);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 20px -6px rgba(0,0,0,.5)}
+#music[hidden]{display:none}
+#music svg{width:22px;height:22px;stroke:var(--gold-l);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+#music .eq{display:none;align-items:flex-end;gap:3px;height:20px}
+#music .eq i{display:block;width:3px;border-radius:2px;background:var(--gold-l);animation:eqb 1s ease-in-out infinite}
+#music .eq i:nth-child(2){animation-delay:-.35s}#music .eq i:nth-child(3){animation-delay:-.7s}#music .eq i:nth-child(4){animation-delay:-.2s}
+@keyframes eqb{0%,100%{height:5px}50%{height:19px}}
+#music.on .eq{display:flex}#music.on svg{display:none}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}#petals{display:none}}
+
+.gallery:empty{display:none}
+</style>
+<style id="wv-made-css">html body p.wv-made.wv-made{position:relative;z-index:2;margin:1.6rem auto 0;max-width:30rem;padding:0 1rem;text-align:center;font-size:13px;line-height:1.7;letter-spacing:.04em;font-style:normal;text-transform:none;color:inherit;opacity:.9}html body p.wv-made.wv-made b{font-weight:600}html body p.wv-made.wv-made a{color:inherit;text-decoration:none;font-weight:500}html body p.wv-made.wv-made{margin-top:44px}html body p.wv-credit.wv-credit:has(+p.wv-made){padding-bottom:0;margin-bottom:0}html body p.wv-credit.wv-credit+p.wv-made.wv-made{margin-top:.5rem;padding-top:0}a.wv-made-link{color:inherit;text-decoration:none}html body p.wv-made.wv-made>a.wv-made-link::before{content:"Made with love by "}html body p.wv-made.wv-made>a.wv-made-link>b::before{content:"wedvo.in"}</style><template id="wv-made"><p class="wv-made "><a class="wv-made-link" href="https://wedvo.in/?utm_source=invitation&amp;utm_medium=footer" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" aria-label="Made with love by wedvo.in"><b></b></a></p></template><script id="wv-made-js">(function(){var S="#sEnd",H="",U="https:\/\/wedvo.in\/?utm_source=invitation\u0026utm_medium=footer",T=document.getElementById("wv-made"),n=0;function off(){var W=window.__WV_SECTIONS||{},X=(window.__WV_TEXT&&window.__WV_TEXT.hide)||[];return X.map(function(k){return W[k]&&W[k].css}).filter(function(c){return c&&c.charAt(0)!=="@"})}function set(l){if(l.getAttribute("href")!==U){l.href=U;l.target="_blank";l.rel="noopener noreferrer";l.referrerPolicy="no-referrer"}}function own(){var E;try{E=document.querySelector(H)}catch(e){}if(!E)return;var l=E.tagName==="A"?E:E.querySelector("a");if(l){set(l);return}l=document.createElement("a");l.className="wv-made-link";set(l);while(E.firstChild)l.appendChild(E.firstChild);E.appendChild(l)}function put(){if(H){own();return}var m=document.querySelector("p.wv-made");if(!m){if(!T)return;var h=document.querySelector(S);if(!h)return;off().forEach(function(c){try{var x=h.closest(c);while(x){h=x.parentElement;x=h&&h.closest(c)}}catch(e){}});if(h&&h.getClientRects().length)h.appendChild(T.content.cloneNode(true));return}var p=m.parentElement,c=p&&p.querySelector("p.wv-credit");if(c&&(m.compareDocumentPosition(c)&4))p.appendChild(m)}var t=setInterval(function(){put();if(++n>3000)clearInterval(t)},600);document.addEventListener("DOMContentLoaded",put)})()</script><script src="wv-sample.js?v=2"></script><script src="wv-data.js?v=1"></script>
+</head>
+<body class="locked">
+<div id="petals" aria-hidden="true"></div>
+
+<!-- the jaali doors -->
+<div id="gate" class="velvet" role="button" tabindex="0" aria-label="Open the invitation">
+  <video class="bgv" src="assets/gold-bokeh.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
+  <img class="chand" src="assets/chandelier.webp" alt="">
+  <img class="bis" src="assets/bismillah.webp" alt="Bismillah">
+  <div class="mihrab">
+    <img class="scene" src="assets/arch-painting.webp" alt="">
+    <div class="inside"><span data-t="letterTop"></span><b><span data-n="1"></span><br>&amp; <span data-n="2"></span></b></div>
+    <div class="doors"><div class="door l"></div><div class="door r"></div></div>
+    <img class="seal" src="assets/bismillah-seal.webp" alt="">
+  </div>
+  <p class="hint" data-t="tap"></p>
+</div>
+
+<main class="wrap">
+  <section class="hero velvet" id="sNames">
+    <video class="bgv" src="assets/gold-bokeh.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
+    <img class="bis rv" src="assets/bismillah.webp" alt="Bismillah">
+    <div class="archcard rv">
+      <img class="gf" src="assets/gold-flower.webp" alt="">
+      <p class="together" data-t="together"></p>
+      <h1><span class="n" data-n="1"></span><span class="amp" data-t="amp"></span><span class="n" data-n="2"></span></h1>
+      <p class="kind" data-t="kind"></p>
+      <p class="date" data-d="long"></p>
+      <img class="rose l" src="assets/roses-pink.webp" alt="">
+      <img class="rose r" src="assets/peony-blush.webp" alt="">
+    </div>
+    <img class="mosque rv" src="assets/mosque-gold.webp" alt="">
+  </section>
+
+  <section class="sec verse blush" id="sVerse">
+    <img class="corner" src="assets/peony-pink.webp" alt="" style="top:-30px;right:-30px">
+    <img class="knot rv" src="assets/knot.webp" alt="">
+    <p class="eyebrow rv" data-t="verseTop"></p>
+    <p class="ar rv" data-t="verseAr"></p>
+    <blockquote class="rv" data-t="verse"></blockquote>
+    <cite class="rv" data-t="verseRef"></cite>
+    <img class="divider rv" src="assets/divider.webp" alt="">
+  </section>
+
+  <section class="date-sec" id="sDate">
+    <div class="sparks" id="sparks"></div>
+    <img class="corner" src="assets/roses-pink.webp" alt="" style="top:-30px;left:-40px;width:34%;transform:scaleX(-1) rotate(12deg)">
+    <img class="corner" src="assets/peony-blush.webp" alt="" style="bottom:-40px;right:-40px;width:34%;transform:rotate(-14deg)">
+    <div id="dateBox">
+      <p class="eyebrow rv" data-t="saveTop"></p>
+      <h2 class="title rv" data-t="saveTitle"></h2>
+      <div class="sc-card rv" id="scCard">
+        <div class="paper"></div>
+        <div class="date"><img class="gf" src="assets/gold-flower.webp" alt=""><small data-d="weekday"></small><b data-d="day"></b><em data-d="month"></em><span data-d="year"></span></div>
+        <div class="foil-wrap"><canvas id="foil"></canvas></div>
+        <div class="shine" id="shine" hidden></div>
+        <div class="edge"></div>
+        <canvas class="confetti" id="confetti"></canvas>
+      </div>
+      <div class="sc-hint rv" id="scHint"><p data-t="scratchHint"></p><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11V5a2 2 0 0 1 4 0v5"/><path d="M13 10V8a2 2 0 0 1 4 0v4"/><path d="M17 12a2 2 0 0 1 4 0v3a7 7 0 0 1-7 7h-1a7 7 0 0 1-6-3.4L4 15.5a2 2 0 0 1 3.3-2.2L9 15V11"/></svg></div>
+      <p class="reveal-line" data-t="revealLine"></p>
+    </div>
+    <p class="eyebrow rv" style="margin-top:50px" data-t="countTop"></p>
+    <h2 class="title rv" data-t="countTitle"></h2>
+    <div class="medal rv">
+      <svg class="ring" viewBox="0 0 230 230" aria-hidden="true"><defs><linearGradient id="ringGold"><stop offset="0" stop-color="#e9cf8c"/><stop offset="1" stop-color="#a8833d"/></linearGradient></defs><circle class="bg" cx="115" cy="115" r="110"/><circle class="fg" cx="115" cy="115" r="110"/></svg>
+      <img class="flower" src="assets/gold-flower.webp" alt="">
+      <div class="mid"><b id="cDays">0</b><span data-t="days"></span></div>
+    </div>
+    <div class="smalls rv"><div><b id="cH">00</b><span data-t="hours"></span></div><div><b id="cM">00</b><span data-t="minutes"></span></div><div><b id="cS">00</b><span data-t="seconds"></span></div></div>
+  </section>
+
+  <section class="sec velvet" id="sDay">
+    <video class="bgv" src="assets/gold-bokeh.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
+    <p class="eyebrow rv" data-t="dayTop"></p>
+    <h2 class="title rv" data-t="dayTitle"></h2>
+    <!-- a lantern comes down a gold chain as you scroll and lights each event it reaches -->
+    <div class="chain" id="chain">
+      <div class="line"></div><div class="lit-line"></div>
+      <img class="lamp" src="assets/lantern.webp" alt="">
+      <ol id="evList"></ol>
+    </div>
+  </section>
+
+  <section class="ven-sec" id="sVenues">
+    <video class="pv" src="assets/palace.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
+    <p class="eyebrow rv" data-t="venTop"></p>
+    <h2 class="title rv" data-t="venTitle"></h2>
+    <div class="places" id="venList"></div>
+    <div class="map rv"><iframe id="map" title="Map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+  </section>
+
+  <section class="sec blush" id="sStory">
+    <img class="corner" src="assets/roses-pink.webp" alt="" style="top:-36px;left:-34px;transform:scaleX(-1)">
+    <p class="eyebrow rv" data-t="storyTop"></p>
+    <h2 class="title rv" data-t="storyTitle"></h2>
+    <div class="gallery" id="gallery"></div>
+  </section>
+
+  <section class="sec" id="sDress">
+    <p class="eyebrow rv" data-t="dressTop"></p>
+    <h2 class="title rv" data-t="dressTitle"></h2>
+    <p class="lead rv" data-t="dress"></p>
+    <img class="guests rv" src="assets/guests.webp" alt="">
+    <div class="swatches rv"><i style="background:#3d1540"></i><i style="background:#5c2260"></i><i style="background:#d68aa6"></i><i style="background:#f8e4ea"></i><i style="background:#c9a45c"></i></div>
+    <div class="wear rv">
+      <div><h4 data-t="ladiesT"></h4><p data-t="ladies"></p></div>
+      <div><h4 data-t="gentsT"></h4><p data-t="gents"></p></div>
+    </div>
+  </section>
+
+  <section class="sec velvet rsvp" id="sRsvp">
+    <video class="bgv" src="assets/gold-bokeh.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
+    <p class="eyebrow rv" data-t="rsvpTop"></p>
+    <h2 class="title rv" data-t="rsvpTitle"></h2>
+    <form id="rsvp" class="rv" novalidate>
+      <img class="wax" src="assets/bismillah-seal.webp" alt="">
+      <div><label for="rName" data-t="rName"></label><input id="rName" name="name" autocomplete="name" data-ph="rNamePh"></div>
+      <div><label data-t="rAttend"></label><div class="choice"><label><input type="radio" name="attend" value="Yes" checked><span data-t="rYes"></span></label><label><input type="radio" name="attend" value="No"><span data-t="rNo"></span></label></div></div>
+      <div><label for="rGuests" data-t="rGuests"></label><select id="rGuests" name="guests"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
+      <div><label for="rMsg" data-t="rMsg"></label><textarea id="rMsg" name="message" rows="2" data-ph="rMsgPh"></textarea></div>
+      <button class="btn gold" type="submit" data-t="rSend"></button>
+    </form>
+    <div class="thanks" id="thanks"><b data-t="thanks"></b><p class="lead" data-t="thanksLine"></p></div>
+  </section>
+
+  <section class="sec" id="sFamily">
+    <p class="eyebrow rv" data-t="famTop"></p>
+    <h2 class="title rv" data-t="famTitle"></h2>
+    <img class="divider rv" src="assets/divider.webp" alt="">
+    <div class="fam rv">
+      <div id="famG"><h4 data-t="famGT"></h4><p data-t="famG"></p></div>
+      <div id="famB"><h4 data-t="famBT"></h4><p data-t="famB"></p></div>
+    </div>
+    <p class="lead rv" data-t="famLine"></p>
+  </section>
+  <section class="end blush" id="sEnd">
+    <div class="cframe rv"><img id="couple" alt=""></div>
+    <p class="ar rv" data-t="endAr"></p>
+    <p class="rv" data-t="endVerse"></p>
+    <img class="divider rv" src="assets/divider.webp" alt="">
+    <p class="rv" data-t="endLine"></p>
+    <p class="sign rv"><span data-n="1"></span> &amp; <span data-n="2"></span></p>
+  </section>
+</main>
+
+<button id="music" type="button" aria-label="Play or pause music" hidden><svg viewBox="0 0 24 24"><path d="M9 18V5l11-2v13"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="17.5" cy="16" r="2.5"/></svg><span class="eq"><i></i><i></i><i></i><i></i></span></button>
+<audio id="song" loop preload="none"></audio>
+<script src="wv-card.js?v=g1121"></script>
+<script src="/shared/scroll-hint-v1.js?v=h1122" defer data-done="#gate.open" data-color="#efdcaa" data-bg="rgba(61,21,64,.74)" data-font="Jost, system-ui, sans-serif" data-size="10" data-weight="400" data-avoid=".archcard"></script>
+</body>
+</html>

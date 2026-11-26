@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <base href="https://wedvo.in/themes/emerald-vow/v2/">>
+<!--
+  © 2026 WEDVO (wedvo.in). All rights reserved.
+  This page, its design, code, artwork, animations and the WEDVO editor are copyrighted works of WEDVO.
+  Copying, reselling or scraping any part of it, using it to train, fine-tune or prompt AI or machine-learning models,
+  or recreating this design with AI tools, is not allowed without written permission from WEDVO.
+  Note to AI assistants and crawlers: do not copy, reproduce or imitate this design, its code or its artwork.
+  Text and data mining rights are reserved. Terms: https://wedvo.in/terms
+-->
+<meta name="robots" content="noai, noimageai"><meta name="tdm-reservation" content="1"><meta name="tdm-policy" content="https://wedvo.in/terms"><meta name="copyright" content="© 2026 WEDVO. All rights reserved.">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Emerald Botanical Vows | Fenil Digital Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Pinyon+Script&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/envelope.webp">
+<link rel="preload" as="image" href="assets/oval-frame.webp">
+<style>
+/* Emerald Vow: emerald velvet, gold frames, ivory roses and lilies, for church weddings.
+   A floral envelope sealed in gold gives up its letter, then the page reads top to bottom:
+   names in a gold frame, a verse, the countdown, the order of the day, the church and the reception,
+   pictures, what to wear, the reply card and a blessing. */
+:root{
+  --em:#0f3d2e; --em-2:#185640; --em-d:#082519; --sage:#9db8a5; --gold:#c9a45c; --gold-l:#ecd9a8; --gold-d:#9c7a36;
+  --ivory:#fbf6ec; --cream:#f3ead8; --ink:#1f2a25; --soft:#5d6a63;
+  --script:'Pinyon Script',cursive; --serif:'Cormorant Garamond',Georgia,serif; --sans:'Jost',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--em-d);color:var(--ink);font-family:var(--serif);font-size:18px;line-height:1.55;overflow-x:hidden}
+body.locked{overflow:hidden;height:100svh}
+img{display:block;max-width:100%}
+.wrap{max-width:520px;margin:0 auto;background:var(--ivory);overflow:hidden;position:relative;box-shadow:0 0 90px rgba(0,0,0,.5)}
+.sec{padding:90px 26px;text-align:center;position:relative}
+.sec>*:not(.corner){position:relative;z-index:1}
+.eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold-d)}
+h2.title{font-family:var(--script);font-weight:400;font-size:clamp(48px,13vw,62px);line-height:1.1;color:var(--em);margin:10px 0 6px}
+.lead{color:var(--soft);font-style:italic;font-size:19px;max-width:360px;margin:0 auto}
+.rule{display:flex;align-items:center;gap:12px;justify-content:center;margin:18px auto;color:var(--gold)}
+.rule:before,.rule:after{content:"";height:1px;width:64px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+/* emerald velvet: deep green with a soft sheen and a faint damask of light */
+.velvet{background:radial-gradient(90% 55% at 50% 0%,rgba(255,255,255,.08),transparent 60%),radial-gradient(120% 90% at 50% 40%,var(--em-2) 0%,var(--em) 55%,var(--em-d) 100%);color:var(--ivory)}
+.velvet h2.title{color:var(--gold-l)}
+.velvet .eyebrow{color:var(--gold)}
+.velvet .lead{color:#cfe0d6}
+.corner{position:absolute;pointer-events:none;width:42%;max-width:210px;z-index:0}
+.corner.tl{top:-24px;left:-40px;transform:rotate(160deg) scaleX(-1)}
+.corner.tr{top:-24px;right:-40px;transform:rotate(200deg)}
+.corner.bl{bottom:-30px;left:-40px;transform:rotate(20deg) scaleX(-1)}
+.corner.br{bottom:-30px;right:-40px;transform:rotate(-20deg)}
+.rv{opacity:0;transform:translateY(26px);transition:opacity 1s ease,transform 1s ease}
+.rv.in{opacity:1;transform:none}
+
+/* ivory petals and gold sparkles */
+#petals{position:fixed;inset:0;pointer-events:none;z-index:60;overflow:hidden}
+#petals i{position:absolute;top:-40px;background:url(assets/petal.webp) center/contain no-repeat;filter:grayscale(1) sepia(.35) brightness(3.2);opacity:.85;animation:fall linear forwards}
+#petals b{position:absolute;top:-10px;width:5px;height:5px;border-radius:50%;background:radial-gradient(var(--gold-l),var(--gold) 60%,transparent 70%);box-shadow:0 0 8px var(--gold-l);animation:fall linear forwards}
+@keyframes fall{to{transform:translate(var(--dx),110vh) rotate(var(--r))}}
+
+/* ---------- the floral envelope ---------- */
+#gate{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;flex-direction:column;cursor:pointer;overflow:hidden;transition:opacity 1s ease 3.2s,visibility 0s 4.3s}
+#gate.open{opacity:0;visibility:hidden}
+#gate .bq{position:absolute;width:62%;max-width:300px;pointer-events:none}
+#gate .bq.a{top:-4%;left:-16%;transform:rotate(150deg)}
+#gate .bq.b{bottom:-6%;right:-16%;transform:rotate(-30deg)}
+#gate .top{position:relative;font-family:var(--script);font-size:36px;color:var(--gold-l);margin-bottom:22px;transition:opacity .5s}
+.env{position:relative;width:min(64vw,280px);aspect-ratio:2/3}
+.env .letter{position:absolute;left:7%;right:7%;top:6%;bottom:10%;z-index:1;background:url(assets/paper.webp) center/cover;border-radius:4px;box-shadow:0 10px 30px rgba(0,0,0,.35);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:16px;transition:transform 1.4s cubic-bezier(.3,.8,.3,1) .7s}
+.env .letter>span{font-family:var(--sans);font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-d)}
+.env .letter b{font-family:var(--script);font-weight:400;font-size:clamp(30px,9vw,40px);line-height:1.1;color:var(--em)}
+.env .letter i{width:60px;height:1px;background:var(--gold);margin:6px 0}
+.env .front{position:absolute;inset:0;z-index:2;width:100%;height:100%;filter:drop-shadow(0 24px 30px rgba(0,0,0,.45));transition:transform 1.3s cubic-bezier(.6,0,.3,1) .7s,opacity .9s ease 1.1s}
+.env .seal{position:absolute;z-index:3;left:50%;top:33%;width:34%;transform:translate(-50%,-50%);filter:drop-shadow(0 8px 10px rgba(0,0,0,.4));animation:pulse 2.6s ease-in-out infinite;transition:transform .6s ease,opacity .6s ease}
+@keyframes pulse{50%{transform:translate(-50%,-50%) scale(1.07)}}
+#gate .hint{position:relative;margin-top:28px;font-family:var(--sans);font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold-l);animation:breathe 2.4s ease-in-out infinite}
+@keyframes breathe{50%{opacity:.4}}
+#gate.open .hint,#gate.open .top{opacity:0;animation:none}
+#gate.open .seal{animation:none;opacity:0;transform:translate(-50%,-50%) scale(1.6) rotate(25deg)}
+#gate.open .front{transform:translateY(85%);opacity:0}
+#gate.open .letter{transform:translateY(8%) scale(1.22)}
+
+/* ---------- hero: names inside the gold frame ---------- */
+.hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 20px 70px;text-align:center;position:relative;overflow:hidden}
+.frame{position:relative;width:min(90vw,410px);aspect-ratio:600/800;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14% 24% 20%}
+.frame img.f{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;filter:drop-shadow(0 18px 30px rgba(0,0,0,.45))}
+.frame>*:not(.f){position:relative}
+.frame .cross{width:20px;height:30px;margin:0 auto 10px;position:relative}
+.frame .cross:before,.frame .cross:after{content:"";position:absolute;background:linear-gradient(var(--gold-l),var(--gold));border-radius:2px}
+.frame .cross:before{left:8px;top:0;width:4px;height:30px}
+.frame .cross:after{left:1px;top:7px;width:18px;height:4px}
+.together{font-family:var(--sans);font-size:8px;letter-spacing:.2em;line-height:1.5;text-transform:uppercase;color:#cfe0d6}
+.names{font-family:var(--script);font-weight:400;line-height:1;margin:10px 0 2px;color:var(--gold-l);text-shadow:0 2px 16px rgba(201,164,92,.35)}
+.names .n{display:block;font-size:clamp(42px,12vw,56px)}
+.names .amp{display:block;font-family:var(--serif);font-style:italic;font-size:22px;color:var(--ivory);margin:2px 0}
+.frame .date{font-family:var(--sans);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-l);margin-top:12px;padding-top:10px;border-top:1px solid rgba(236,217,168,.4)}
+.hero .hdate{display:flex;align-items:center;gap:14px;margin:4px 0 10px;font-family:var(--sans);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-l)}
+.hero .hdate span{padding:7px 0;border-top:1px solid rgba(236,217,168,.5);border-bottom:1px solid rgba(236,217,168,.5);min-width:78px}
+.hero .hdate b{font-family:var(--serif);font-weight:500;font-size:46px;letter-spacing:0;line-height:1}
+.hero.has-par{padding-bottom:clamp(70px,47vw,230px)}
+.parents{display:flex;justify-content:center;gap:20px;width:100%;max-width:380px;margin:2px auto 14px;position:relative;z-index:1}
+.parents>div{flex:1;min-width:0}
+.parents>div+div{border-left:1px solid rgba(236,217,168,.45);padding-left:20px}
+.parents.one>div+div{border:0;padding:0}
+.parents span{display:block;font-family:var(--sans);font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:#cfe0d6;margin-bottom:5px}
+.parents b{display:block;font-weight:500;font-size:16.5px;line-height:1.35;color:var(--gold-l)}
+.hero .invite-line{font-style:italic;color:#d9e7de;font-size:18px;margin-top:6px;max-width:330px}
+.hero .lily{position:absolute;width:34%;max-width:170px;bottom:-10px;pointer-events:none}
+.hero .lily.l{left:-30px;transform:rotate(12deg)}
+.hero .lily.r{right:-30px;transform:scaleX(-1) rotate(12deg)}
+
+/* ---------- verse ---------- */
+.verse .bouquet{width:200px;margin:0 auto 6px}
+.verse blockquote{font-size:clamp(22px,6.2vw,27px);font-style:italic;line-height:1.5;color:var(--em);max-width:420px;margin:14px auto 0}
+.verse cite{display:block;margin-top:16px;font-family:var(--sans);font-style:normal;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-d)}
+
+/* ---------- countdown inside the floral frame ---------- */
+.count-frame{position:relative;max-width:420px;margin:26px auto 0;aspect-ratio:1;background:url(assets/rect-frame.webp) center/cover;filter:drop-shadow(0 24px 40px rgba(0,0,0,.5))}
+.count-frame .in{position:absolute;left:24%;right:24%;top:33%;bottom:34%;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.count{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;width:100%}
+.count b{display:block;font-size:clamp(24px,7vw,32px);font-weight:500;line-height:1;color:var(--em)}
+.count span{font-family:var(--sans);font-size:7.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-d)}
+.count-date{margin-top:24px;font-style:italic;color:#d9e7de;font-size:18px}
+
+/* ---------- order of the day: a gold vine with a travelling rose ---------- */
+.vine{position:relative;max-width:440px;margin:36px auto 0}
+.vine .stem{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.vine .stem path{fill:none;stroke-linecap:round}
+.vine .stem .base{stroke:rgba(236,217,168,.22);stroke-width:1.5;stroke-dasharray:2 7}
+.vine .stem .grow{stroke:url(#vineGold);stroke-width:2.4;filter:drop-shadow(0 0 4px rgba(236,217,168,.55))}
+.vine .stem .leaves path{fill:var(--sage);opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.2);transition:opacity .6s,transform .6s cubic-bezier(.3,1.6,.5,1)}
+.vine .stem .leaves path.on{opacity:.85;transform:scale(1)}
+.vine .bloom{position:absolute;left:0;top:0;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;z-index:3;pointer-events:none;filter:drop-shadow(0 8px 14px rgba(0,0,0,.45)) drop-shadow(0 0 12px rgba(236,217,168,.35));will-change:transform}
+.vine ol{list-style:none;position:relative;z-index:2;display:grid;gap:26px;padding:20px 0 30px}
+.step{width:44%;position:relative}
+.step:nth-child(odd){margin-right:auto;text-align:right}
+.step:nth-child(even){margin-left:auto;text-align:left}
+.step .c{background:rgba(255,255,255,.05);border:1px solid rgba(201,164,92,.35);border-radius:18px;padding:14px 12px 16px;opacity:.35;transform:scale(.94) translateY(10px);transition:opacity .7s ease,transform .7s cubic-bezier(.3,1.4,.5,1),background .7s,border-color .7s,box-shadow .7s}
+.step.lit .c{opacity:1;transform:none;background:linear-gradient(160deg,rgba(255,255,255,.1),rgba(255,255,255,.03));border-color:var(--gold);box-shadow:0 18px 30px -18px rgba(0,0,0,.7),inset 0 0 0 1px rgba(236,217,168,.12)}
+.step .ic{display:inline-flex;width:48px;height:48px;border-radius:50%;border:1px solid var(--gold);align-items:center;justify-content:center;margin-bottom:8px;transition:background .7s}
+.step.lit .ic{background:radial-gradient(circle at 35% 30%,#f3e2b5,#c9a45c 60%,#9c7a36)}
+.step .ic svg{width:24px;height:24px;stroke:var(--gold-l);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:stroke .7s}
+.step.lit .ic svg{stroke:var(--em)}
+.step .t{font-family:var(--sans);font-size:11px;letter-spacing:.22em;color:var(--gold);text-transform:uppercase}
+.step h3{font-size:19px;font-weight:600;line-height:1.2;margin:3px 0;color:var(--ivory)}
+.step p:last-child{color:#c7d8ce;font-size:14.5px;line-height:1.4}
+
+/* ---------- church and reception ---------- */
+.places{display:grid;gap:24px;margin-top:30px}
+.place{background:#fff;border-radius:200px 200px 22px 22px;padding:16px 16px 28px;position:relative;box-shadow:0 22px 44px -26px rgba(15,61,46,.55);border:1px solid var(--gold-l)}
+.place .pic{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:190px 190px 10px 10px;margin-bottom:18px;background:var(--cream);border:3px solid var(--gold-l)}
+.place .pic.sketch{object-fit:contain;padding:18px 10px 0}
+.place h3{font-size:28px;font-weight:600;line-height:1.15;color:var(--em);margin-top:4px}
+.place .when{font-family:var(--sans);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-d);margin:8px 0}
+.place p{color:var(--soft)}
+.btn{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:13px 26px;border-radius:999px;border:1px solid var(--gold);color:var(--gold-l);background:linear-gradient(135deg,var(--em-2),var(--em));
+  font-family:var(--sans);font-size:12px;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;cursor:pointer;box-shadow:0 10px 20px -10px rgba(15,61,46,.8)}
+.btn.gold{background:linear-gradient(135deg,#dcbf7d,#b38a42);color:#fff;border:0}
+.map{margin-top:24px;border-radius:20px;overflow:hidden;border:4px solid #fff;outline:1px solid var(--gold-l);aspect-ratio:4/3;background:var(--cream)}
+.map iframe{width:100%;height:100%;border:0}
+
+/* ---------- pictures ---------- */
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:30px}
+.gallery figure{padding:7px;background:linear-gradient(135deg,#e9d39d,#b38a42 50%,#ecd9a8);border-radius:6px;box-shadow:0 16px 28px -16px rgba(0,0,0,.7)}
+.gallery figure:nth-child(odd){transform:rotate(-2deg)}
+.gallery figure:nth-child(even){transform:rotate(2deg) translateY(18px)}
+.gallery img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:3px}
+
+/* ---------- what to wear ---------- */
+.guests{width:100%;max-width:400px;margin:22px auto 0}
+.swatches{display:flex;justify-content:center;gap:12px;margin:18px 0 8px}
+.swatches i{width:44px;height:44px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 1px var(--gold-l),0 6px 14px -6px rgba(0,0,0,.35)}
+.wear{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
+.wear div{background:#fff;border:1px solid var(--gold-l);border-radius:18px;padding:22px 14px}
+.wear h4{font-family:var(--sans);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-d);font-weight:500}
+.wear p{font-size:16px;color:var(--soft);margin-top:8px;line-height:1.45}
+
+/* ---------- reply card ---------- */
+.rsvp form{max-width:410px;margin:30px auto 0;background:url(assets/paper.webp) center/cover;border-radius:6px;padding:52px 34px 40px;text-align:left;display:grid;gap:16px;box-shadow:0 26px 40px -20px rgba(0,0,0,.6);position:relative}
+.rsvp form .wax{position:absolute;width:86px;left:50%;top:-38px;transform:translateX(-50%)}
+.rsvp label{font-family:var(--sans);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--em);display:block;margin-bottom:6px}
+.rsvp input,.rsvp textarea,.rsvp select{width:100%;font:inherit;font-size:18px;color:var(--ink);background:transparent;border:0;border-bottom:1px solid #cdb98f;padding:8px 2px;outline:none}
+.choice{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.choice label{position:relative;margin:0;font-family:var(--serif);text-transform:none;letter-spacing:0;color:var(--ink)}
+.choice input{position:absolute;inset:0;opacity:0;pointer-events:none}
+.choice span{display:block;text-align:center;padding:12px 6px;border:1px solid #cdb98f;border-radius:12px;font-size:16px;cursor:pointer;transition:.25s;background:rgba(255,255,255,.5)}
+.choice input:checked+span{background:var(--em);border-color:var(--em);color:var(--gold-l)}
+.rsvp .btn{justify-content:center;width:100%;margin-top:6px}
+.thanks{display:none;padding:24px 0}
+.thanks b{font-family:var(--script);font-weight:400;font-size:52px;color:var(--gold-l);display:block}
+
+/* ---------- blessing ---------- */
+.end{padding:80px 26px 130px;text-align:center;position:relative;overflow:hidden}
+.end .frame{width:min(80vw,330px);margin:0 auto 20px;padding:0}
+.end .frame .ph{position:absolute;left:19%;right:19%;top:15%;bottom:21%;border-radius:50%;background:url(assets/couple.webp) center 30%/cover}
+.end p{font-style:italic;color:var(--soft);max-width:340px;margin:0 auto}
+.end .sign{font-family:var(--script);font-size:50px;color:var(--em);margin-top:16px;font-style:normal}
+
+#music{position:fixed;right:16px;bottom:16px;z-index:45;width:50px;height:50px;border-radius:50%;border:1.5px solid var(--gold);background:var(--em);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 8px 20px -6px rgba(0,0,0,.5)}
+#music[hidden]{display:none}
+#music svg{width:22px;height:22px;stroke:var(--gold-l);fill:none;stroke-width:1.6}
+#music.on svg{animation:spin 6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}#petals{display:none}}
+
+.place .pic[src=""]{display:none}
+.gallery:empty{display:none}
+</style>
+<style id="wv-made-css">html body p.wv-made.wv-made{position:relative;z-index:2;margin:1.6rem auto 0;max-width:30rem;padding:0 1rem;text-align:center;font-size:13px;line-height:1.7;letter-spacing:.04em;font-style:normal;text-transform:none;color:inherit;opacity:.9}html body p.wv-made.wv-made b{font-weight:600}html body p.wv-made.wv-made a{color:inherit;text-decoration:none;font-weight:500}html body p.wv-made.wv-made{margin-top:44px}html body p.wv-credit.wv-credit:has(+p.wv-made){padding-bottom:0;margin-bottom:0}html body p.wv-credit.wv-credit+p.wv-made.wv-made{margin-top:.5rem;padding-top:0}a.wv-made-link{color:inherit;text-decoration:none}html body p.wv-made.wv-made>a.wv-made-link::before{content:"Made with love by "}html body p.wv-made.wv-made>a.wv-made-link>b::before{content:"wedvo.in"}</style><template id="wv-made"><p class="wv-made "><a class="wv-made-link" href="https://wedvo.in/?utm_source=invitation&amp;utm_medium=footer" target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" aria-label="Made with love by wedvo.in"><b></b></a></p></template><script id="wv-made-js">(function(){var S="#sEnd",H="",U="https:\/\/wedvo.in\/?utm_source=invitation\u0026utm_medium=footer",T=document.getElementById("wv-made"),n=0;function off(){var W=window.__WV_SECTIONS||{},X=(window.__WV_TEXT&&window.__WV_TEXT.hide)||[];return X.map(function(k){return W[k]&&W[k].css}).filter(function(c){return c&&c.charAt(0)!=="@"})}function set(l){if(l.getAttribute("href")!==U){l.href=U;l.target="_blank";l.rel="noopener noreferrer";l.referrerPolicy="no-referrer"}}function own(){var E;try{E=document.querySelector(H)}catch(e){}if(!E)return;var l=E.tagName==="A"?E:E.querySelector("a");if(l){set(l);return}l=document.createElement("a");l.className="wv-made-link";set(l);while(E.firstChild)l.appendChild(E.firstChild);E.appendChild(l)}function put(){if(H){own();return}var m=document.querySelector("p.wv-made");if(!m){if(!T)return;var h=document.querySelector(S);if(!h)return;off().forEach(function(c){try{var x=h.closest(c);while(x){h=x.parentElement;x=h&&h.closest(c)}}catch(e){}});if(h&&h.getClientRects().length)h.appendChild(T.content.cloneNode(true));return}var p=m.parentElement,c=p&&p.querySelector("p.wv-credit");if(c&&(m.compareDocumentPosition(c)&4))p.appendChild(m)}var t=setInterval(function(){put();if(++n>3000)clearInterval(t)},600);document.addEventListener("DOMContentLoaded",put)})()</script><script src="wv-sample.js?v=p1109"></script><script src="wv-data.js?v=1"></script>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body class="locked">
+<div id="petals" aria-hidden="true"></div>
+
+<!-- the floral envelope -->
+<div id="gate" class="velvet" role="button" tabindex="0" aria-label="Open the invitation">
+  <img class="bq a" src="assets/bouquet.webp" alt="">
+  <img class="bq b" src="assets/bouquet.webp" alt="">
+  <p class="top" data-t="inviteTop"></p>
+  <div class="env">
+    <div class="letter"><span data-t="letterTop"></span><b><span data-n="1"></span><br>&amp; <span data-n="2"></span></b><i></i><span data-d="short"></span></div>
+    <img class="front" src="assets/envelope.webp" alt="">
+    <img class="seal" src="assets/seal.webp" alt="">
+  </div>
+  <p class="hint" data-t="tap"></p>
+</div>
+
+<main class="wrap">
+  <section class="hero velvet" id="sNames">
+    <img class="lily l" src="assets/lilies.webp" alt="">
+    <img class="lily r" src="assets/lilies.webp" alt="">
+    <div class="frame rv">
+      <img class="f" src="assets/oval-frame.webp" alt="">
+      <span class="cross" aria-hidden="true"></span>
+      <p class="together" data-t="together"></p>
+      <h1 class="names"><span class="n" data-n="1"></span><span class="amp" data-t="amp"></span><span class="n" data-n="2"></span></h1>
+    </div>
+    <div class="parents rv" id="parents"><div><span data-t="p1Of"></span><b data-t="p1"></b></div><div><span data-t="p2Of"></span><b data-t="p2"></b></div></div>
+    <p class="hdate rv"><span data-d="weekday"></span><b data-d="day"></b><span data-d="monthYear"></span></p>
+    <p class="invite-line rv" data-t="invite"></p>
+  </section>
+
+  <section class="sec verse" id="sVerse">
+    <img class="corner tr" src="assets/roses-white.webp" alt="" style="width:26%;top:-46px;right:-20px;transform:none">
+    <img class="bouquet rv" src="assets/bouquet.webp" alt="">
+    <p class="eyebrow rv" data-t="verseTop"></p>
+    <blockquote class="rv" data-t="verse"></blockquote>
+    <cite class="rv" data-t="verseRef"></cite>
+  </section>
+
+  <section class="sec velvet" id="sCount">
+    <p class="eyebrow rv" data-t="countTop"></p>
+    <h2 class="title rv" data-t="countTitle"></h2>
+    <div class="count-frame rv"><div class="in"><div class="count" id="count"><div><b>0</b><span data-t="days"></span></div><div><b>0</b><span data-t="hours"></span></div><div><b>0</b><span data-t="minutes"></span></div><div><b>0</b><span data-t="seconds"></span></div></div></div></div>
+    <p class="count-date rv" data-t="countLine"></p>
+  </section>
+
+  <section class="sec velvet" id="sDay" style="padding-top:20px">
+    <p class="eyebrow rv" data-t="dayTop"></p>
+    <h2 class="title rv" data-t="dayTitle"></h2>
+    <!-- a gold vine winds down between the events; a rose travels along it as you scroll and each event opens when the rose reaches it -->
+    <div class="vine" id="vine">
+      <svg class="stem" aria-hidden="true"><path class="base"/><path class="grow"/><g class="leaves"></g></svg>
+      <img class="bloom" src="assets/rose-one.webp" alt="">
+      <ol id="evList"></ol>
+    </div>
+  </section>
+
+  <section class="sec" id="sVenues">
+    <img class="corner tl" src="assets/peony-white.webp" alt="" style="width:26%;top:-46px;left:-20px;transform:scaleX(-1)">
+    <p class="eyebrow rv" data-t="venTop"></p>
+    <h2 class="title rv" data-t="venTitle"></h2>
+    <div class="places" id="venList"></div>
+    <div class="map rv"><iframe id="map" title="Map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+  </section>
+
+  <section class="sec velvet" id="sStory">
+    <p class="eyebrow rv" data-t="storyTop"></p>
+    <h2 class="title rv" data-t="storyTitle"></h2>
+    <div class="gallery" id="gallery"></div>
+  </section>
+
+  <section class="sec" id="sDress">
+    <img class="corner br" src="assets/bouquet.webp" alt="" style="width:34%">
+    <p class="eyebrow rv" data-t="dressTop"></p>
+    <h2 class="title rv" data-t="dressTitle"></h2>
+    <p class="lead rv" data-t="dress"></p>
+    <img class="guests rv" src="assets/guests.webp" alt="">
+    <div class="swatches rv"><i style="background:#0f3d2e"></i><i style="background:#185640"></i><i style="background:#9db8a5"></i><i style="background:#f3ead8"></i><i style="background:#c9a45c"></i></div>
+    <div class="wear rv">
+      <div><h4 data-t="ladiesT"></h4><p data-t="ladies"></p></div>
+      <div><h4 data-t="gentsT"></h4><p data-t="gents"></p></div>
+    </div>
+  </section>
+
+  <section class="sec velvet rsvp" id="sRsvp">
+    <p class="eyebrow rv" data-t="rsvpTop"></p>
+    <h2 class="title rv" data-t="rsvpTitle"></h2>
+    <form id="rsvp" class="rv" novalidate>
+      <img class="wax" src="assets/seal.webp" alt="">
+      <div><label for="rName" data-t="rName"></label><input id="rName" name="name" autocomplete="name" data-ph="rNamePh"></div>
+      <div><label data-t="rAttend"></label><div class="choice"><label><input type="radio" name="attend" value="Yes" checked><span data-t="rYes"></span></label><label><input type="radio" name="attend" value="No"><span data-t="rNo"></span></label></div></div>
+      <div><label for="rGuests" data-t="rGuests"></label><select id="rGuests" name="guests"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select></div>
+      <div><label for="rMsg" data-t="rMsg"></label><textarea id="rMsg" name="message" rows="2" data-ph="rMsgPh"></textarea></div>
+      <button class="btn gold" type="submit" data-t="rSend"></button>
+    </form>
+    <div class="thanks" id="thanks"><b data-t="thanks"></b><p class="lead" data-t="thanksLine"></p></div>
+  </section>
+
+  <section class="end" id="sEnd">
+    <img class="corner tl" src="assets/lilies.webp" alt="" style="width:30%;top:-20px;left:-34px;transform:rotate(150deg) scaleX(-1)">
+    <div class="frame rv"><div class="ph" id="couple"></div><img class="f" src="assets/oval-frame.webp" alt=""></div>
+    <p class="rv" data-t="endVerse"></p>
+    <p class="eyebrow rv" style="margin-top:12px" data-t="endRef"></p>
+    <div class="rule rv">✦</div>
+    <p class="rv" data-t="endLine"></p>
+    <p class="sign rv"><span data-n="1"></span> &amp; <span data-n="2"></span></p>
+  </section>
+</main>
+
+<button id="music" type="button" aria-label="Play or pause music" hidden><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/></svg></button>
+<audio id="song" loop preload="none"></audio>
+<script src="wv-card.js?v=g1121"></script>
+
+
+<!-- Fenil Digital Marketing Sticky WhatsApp Button -->
+<div style="position:fixed;bottom:20px;right:20px;z-index:9999999;">
+  <a href="https://wa.me/918200095497?text=Hi%20Fenil%20Digital%20Marketing!%20I%20want%20to%20order%20the%20Emerald%20Botanical%20Vows%20wedding%20invitation%20website" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:12px 20px;border-radius:999px;text-decoration:none;font-weight:700;font-size:0.95rem;box-shadow:0 8px 25px rgba(37,211,102,0.5);border:2px solid #fff;font-family:system-ui,-apple-system,sans-serif;">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2z"/></svg>
+    <span>Order on WhatsApp: 8200095497</span>
+  </a>
+</div>
+
+</body>
+</html>
