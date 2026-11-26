@@ -1,5 +1,5 @@
 window.STORE = {
-  "checkoutEnabled": true,
+  "checkoutEnabled": false,
   "brand": "Fenil Digital Marketing",
   "founder": "Fenil Limbachiya",
   "whatsapp": "918200095497",

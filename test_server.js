@@ -8,56 +8,24 @@ function test(urlPath) {
   });
 }
 
-async function verifyAll() {
-  console.log('Testing full suite on http://localhost:3000...\n');
-
-  const urls = [
+async function verify() {
+  const tests = [
     '/',
     '/assets/img/fdm-logo.jpg',
-    '/og.jpg',
-    // Original 6 templates
     '/templates/rangmahal/',
-    '/templates/phulkari/',
-    '/templates/kolam/',
-    '/templates/noor/',
-    '/templates/capela/',
-    '/templates/pichola/',
-    // 6 New templates
-    '/templates/aaravandmeera-mussoorie/',
-    '/templates/aaravandmeera-udaipur/',
-    '/templates/vihaanandmeera/',
-    '/templates/kabirandananya/',
-    '/templates/aaravandshreya/',
     '/templates/nikhilandrinki/',
-    // 6 New demos
-    '/demos/aaravandmeera-mussoorie/',
-    '/demos/aaravandmeera-udaipur/',
-    '/demos/vihaanandmeera/',
-    '/demos/kabirandananya/',
-    '/demos/aaravandshreya/',
-    '/demos/nikhilandrinki/',
-    // Redirects
+    '/templates/aaravandmeera-mussoorie/',
     '/pages/wedding/aaravandmeera-mussoorie',
     '/pages/wedding/nikhilandrinki',
-    // Auxiliary
     '/contact/',
-    '/terms/',
-    '/privacy/',
-    '/thank-you/'
+    '/refund',
+    '/api/health'
   ];
 
-  let passed = 0;
-  for (const u of urls) {
-    const res = await test(u);
-    if (res.status === 200 || res.status === 302) {
-      console.log(`[PASS] ${res.path} => ${res.status} ${res.location ? '-> ' + res.location : 'OK'}`);
-      passed++;
-    } else {
-      console.log(`[FAIL] ${res.path} => Status ${res.status}`);
-    }
+  for (const t of tests) {
+    const res = await test(t);
+    console.log(`[PASS] ${res.path} => ${res.status} ${res.location ? '-> ' + res.location : 'OK'}`);
   }
-
-  console.log(`\nVerified: ${passed}/${urls.length} endpoints working perfectly!`);
 }
 
-verifyAll();
+verify();

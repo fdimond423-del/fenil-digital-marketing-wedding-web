@@ -26,36 +26,6 @@ const MIME_TYPES = {
   '.ico': 'image/x-icon'
 };
 
-const TEMPLATE_PRICES = {
-  'rangmahal': 1499,
-  'phulkari': 1499,
-  'kolam': 1499,
-  'noor': 1499,
-  'capela': 1499,
-  'pichola': 1499,
-  'aaravandmeera-mussoorie': 1499,
-  'aaravandmeera-udaipur': 1499,
-  'vihaanandmeera': 1499,
-  'kabirandananya': 1499,
-  'aaravandshreya': 1499,
-  'nikhilandrinki': 1499
-};
-const ADDON_PRICE = 999;
-
-function parseBody(req) {
-  return new Promise((resolve) => {
-    let body = '';
-    req.on('data', chunk => { body += chunk; });
-    req.on('end', () => {
-      try {
-        resolve(JSON.parse(body || '{}'));
-      } catch (e) {
-        resolve({});
-      }
-    });
-  });
-}
-
 const server = http.createServer(async (req, res) => {
   const parsedUrl = url.parse(req.url, true);
   let pathname = decodeURIComponent(parsedUrl.pathname);
@@ -71,8 +41,14 @@ const server = http.createServer(async (req, res) => {
     return;
   }
 
-  
-  // Support redirects for Vishakha / custom wedding paths
+  // Handle /refund redirect to /contact/
+  if (pathname === '/refund' || pathname === '/refund/') {
+    res.writeHead(302, { 'Location': '/contact/' });
+    res.end();
+    return;
+  }
+
+  // Handle direct /pages/wedding/:slug serving
   if (pathname.startsWith('/pages/wedding/')) {
     const slug = pathname.replace('/pages/wedding/', '').replace(/\/+$/, '');
     const targetFile = path.join(ROOT_DIR, 'pages', 'wedding', slug, 'index.html');
@@ -83,59 +59,10 @@ const server = http.createServer(async (req, res) => {
     }
   }
 
-  // API ROUTING: /api/create-order
-  if (req.method === 'POST' && pathname === '/api/create-order') {
-    const data = await parseBody(req);
-    const template = data.template || 'rangmahal';
-    const base = TEMPLATE_PRICES[template] || 1499;
-    const hasAddon = Boolean(data.addon);
-    const totalINR = base + (hasAddon ? ADDON_PRICE : 0);
-    const amountPaise = totalINR * 100;
-    const orderId = 'order_' + Math.random().toString(36).substring(2, 10).toUpperCase() + Date.now().toString().slice(-4);
-
-    const response = {
-      ok: true,
-      keyId: process.env.RAZORPAY_KEY_ID || 'rzp_test_knotlink_demo',
-      amount: amountPaise,
-      currency: 'INR',
-      orderId: orderId,
-      name: 'Fenil Digital Marketing',
-      description: `${template.charAt(0).toUpperCase() + template.slice(1)} Wedding Invite Website`,
-      notice: 'Knotlink Local Checkout: Ready for payment simulation or live Razorpay key'
-    };
-
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify(response));
-    return;
-  }
-
-  // API ROUTING: /api/verify-payment
-  if (req.method === 'POST' && pathname === '/api/verify-payment') {
-    const data = await parseBody(req);
-    const payId = data.razorpay_payment_id || 'pay_' + Math.random().toString(36).substring(2, 12);
-    const ordId = data.razorpay_order_id || 'order_mock_' + Date.now();
-
-    const response = {
-      ok: true,
-      status: 'captured',
-      paymentId: payId,
-      orderId: ordId,
-      order: {
-        template: 'rangmahal',
-        amount: 149900,
-        addon: 'setup'
-      }
-    };
-
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify(response));
-    return;
-  }
-
   // API ROUTING: /api/health
   if (pathname === '/api/health') {
     res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ status: 'online', brand: 'Fenil Digital Marketing', timestamp: new Date().toISOString() }));
+    res.end(JSON.stringify({ status: 'online', brand: 'Fenil Digital Marketing', founder: 'Fenil Limbachiya', phone: '8200095497', timestamp: new Date().toISOString() }));
     return;
   }
 
@@ -174,11 +101,11 @@ const server = http.createServer(async (req, res) => {
     res.end(`
       <!doctype html>
       <html>
-      <head><title>404 Not Found - Knotlink</title><link rel="stylesheet" href="/assets/css/store.css"></head>
+      <head><title>404 Not Found - Fenil Digital Marketing</title><link rel="stylesheet" href="/assets/css/store.css"></head>
       <body style="display:flex;align-items:center;justify-content:center;height:100vh;flex-direction:column;font-family:sans-serif;background:#FAF8F5;color:#241c1d;text-align:center;">
-        <h1 style="font-size:3rem;margin-bottom:1rem;">Page Not Found</h1>
-        <p style="margin-bottom:2rem;color:#666;">The page you are looking for does not exist on Knotlink.</p>
-        <a href="/" style="display:inline-block;padding:12px 24px;background:#4C1026;color:#fff;border-radius:999px;text-decoration:none;font-weight:600;">Return to Home</a>
+        <h1 style="font-size:2.5rem;margin-bottom:1rem;color:#4C1026;">Page Not Found</h1>
+        <p style="margin-bottom:2rem;color:#666;">The page you are looking for does not exist on Fenil Digital Marketing.</p>
+        <a href="/" style="display:inline-block;padding:12px 24px;background:#ff8c00;color:#000;font-weight:700;border-radius:999px;text-decoration:none;">Return to Home</a>
       </body>
       </html>
     `);
@@ -187,21 +114,7 @@ const server = http.createServer(async (req, res) => {
 
 server.listen(PORT, () => {
   console.log(`\n======================================================`);
-  console.log(`  Knotlink Web Server running at: http://localhost:${PORT}`);
-  console.log(`  - Store Homepage:      http://localhost:${PORT}/`);
-  console.log(`  - Rangmahal Template:  http://localhost:${PORT}/templates/rangmahal/`);
-  console.log(`  - Phulkari Template:   http://localhost:${PORT}/templates/phulkari/`);
-  console.log(`  - Kolam Template:      http://localhost:${PORT}/templates/kolam/`);
-  console.log(`  - Noor Template:       http://localhost:${PORT}/templates/noor/`);
-  console.log(`  - Capela Template:     http://localhost:${PORT}/templates/capela/`);
-  console.log(`  - Pichola Template:    http://localhost:${PORT}/templates/pichola/`);
-  console.log(`  - Rangmahal Demo App:  http://localhost:${PORT}/demos/rangmahal/`);
-  console.log(`  - Phulkari Demo App:   http://localhost:${PORT}/demos/phulkari/`);
-  console.log(`  - Kolam Demo App:      http://localhost:${PORT}/demos/kolam/`);
-  console.log(`  - Noor Demo App:       http://localhost:${PORT}/demos/noor/`);
-  console.log(`  - Capela Demo App:     http://localhost:${PORT}/demos/capela/`);
-  console.log(`  - Pichola Demo App:    http://localhost:${PORT}/demos/pichola/`);
-  console.log(`  - Blog Section:        http://localhost:${PORT}/blog/`);
-  console.log(`  - Contact Page:        http://localhost:${PORT}/contact/`);
+  console.log(`  Fenil Digital Marketing Server: http://localhost:${PORT}`);
+  console.log(`  Founder: Fenil Limbachiya | WhatsApp: +91 8200095497`);
   console.log(`======================================================\n`);
 });
