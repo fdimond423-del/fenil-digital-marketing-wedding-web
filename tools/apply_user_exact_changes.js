@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
+const rootDir = path.join(__dirname, '..');
+
 console.log('=== Step 1: Update cfg.js to disable online checkout and route 100% to WhatsApp ===');
 const cfgContent = `window.STORE = {
   "checkoutEnabled": false,
@@ -11,10 +13,10 @@ const cfgContent = `window.STORE = {
   "addonName": "Done-for-you setup"
 };
 `;
-fs.writeFileSync(path.join(__dirname, 'assets/js/cfg.js'), cfgContent, 'utf8');
+fs.writeFileSync(path.join(rootDir, 'assets/js/cfg.js'), cfgContent, 'utf8');
 
 console.log('=== Step 2: Delete refund folder ===');
-const refundDir = path.join(__dirname, 'refund');
+const refundDir = path.join(rootDir, 'refund');
 if (fs.existsSync(refundDir)) {
   fs.rmSync(refundDir, { recursive: true, force: true });
   console.log('Removed refund/ directory.');
@@ -43,7 +45,7 @@ function walkHtmlFiles(dir) {
   return results;
 }
 
-const allHtmlFiles = walkHtmlFiles(__dirname);
+const allHtmlFiles = walkHtmlFiles(rootDir);
 console.log(`Processing ${allHtmlFiles.length} HTML files...`);
 
 const oldLogoRegex = /<a class="logo"[^>]*>[\s\S]*?<\/a>/gi;
@@ -97,26 +99,11 @@ for (const filePath of allHtmlFiles) {
 
 console.log(`Updated ${modifiedCount} HTML files!`);
 
-console.log('\n=== Step 4: Updating server.js ===');
-let serverJs = fs.readFileSync(path.join(__dirname, 'server.js'), 'utf8');
-
-// Redirect /refund to /contact
-if (!serverJs.includes("if (pathname === '/refund' || pathname === '/refund/')")) {
-  const refundRedirect = `
-  if (pathname === '/refund' || pathname === '/refund/') {
-    res.writeHead(302, { 'Location': '/contact/' });
-    res.end();
-    return;
-  }
-  `;
-  serverJs = serverJs.replace('const server = http.createServer', refundRedirect + '\nconst server = http.createServer');
+console.log('\n=== Step 4: Updating sitemap.xml to remove refund ===');
+const sitemapPath = path.join(rootDir, 'sitemap.xml');
+if (fs.existsSync(sitemapPath)) {
+  let sitemap = fs.readFileSync(sitemapPath, 'utf8');
+  sitemap = sitemap.replace(/<url><loc>https:\/\/www\.knotlink\.in\/refund\/<\/loc>[\s\S]*?<\/url>/gi, '');
+  fs.writeFileSync(sitemapPath, sitemap, 'utf8');
+  console.log('sitemap.xml updated.');
 }
-
-fs.writeFileSync(path.join(__dirname, 'server.js'), serverJs, 'utf8');
-console.log('server.js updated.');
-
-console.log('\n=== Step 5: Updating sitemap.xml to remove refund ===');
-let sitemap = fs.readFileSync(path.join(__dirname, 'sitemap.xml'), 'utf8');
-sitemap = sitemap.replace(/<url><loc>https:\/\/www\.knotlink\.in\/refund\/<\/loc>[\s\S]*?<\/url>/gi, '');
-fs.writeFileSync(path.join(__dirname, 'sitemap.xml'), sitemap, 'utf8');
-console.log('sitemap.xml updated.');
