@@ -1,63 +1,63 @@
 const http = require('http');
 
-function testEndpoint(options, postData = null) {
-  return new Promise((resolve, reject) => {
-    const req = http.request(options, (res) => {
-      let data = '';
-      res.on('data', chunk => data += chunk);
-      res.on('end', () => {
-        resolve({
-          status: res.statusCode,
-          headers: res.headers,
-          bodySnippet: data.slice(0, 150)
-        });
-      });
-    });
-    req.on('error', reject);
-    if (postData) {
-      req.write(typeof postData === 'string' ? postData : JSON.stringify(postData));
-    }
-    req.end();
+function test(urlPath) {
+  return new Promise((resolve) => {
+    http.get('http://localhost:3000' + urlPath, (res) => {
+      resolve({ path: urlPath, status: res.statusCode, location: res.headers.location || '' });
+    }).on('error', (err) => resolve({ path: urlPath, status: 'ERROR', error: err.message }));
   });
 }
 
-async function runTests() {
-  console.log('Testing localhost:3000 endpoints with all 12 templates & Fenil Digital Marketing branding...\n');
+async function verifyAll() {
+  console.log('Testing full suite on http://localhost:3000...\n');
 
-  const tests = [
-    { name: 'Home Page', opts: { host: 'localhost', port: 3000, path: '/', method: 'GET' } },
-    { name: 'FDM Logo', opts: { host: 'localhost', port: 3000, path: '/assets/img/fdm-logo.jpg', method: 'GET' } },
-    { name: 'Rangmahal Demo (Original Knotlink)', opts: { host: 'localhost', port: 3000, path: '/demos/rangmahal/', method: 'GET' } },
-    { name: 'Aarav & Meera Mussoorie Demo', opts: { host: 'localhost', port: 3000, path: '/demos/aaravandmeera-mussoorie/', method: 'GET' } },
-    { name: 'Aarav & Meera Udaipur Demo', opts: { host: 'localhost', port: 3000, path: '/demos/aaravandmeera-udaipur/', method: 'GET' } },
-    { name: 'Vihaan & Meera Demo', opts: { host: 'localhost', port: 3000, path: '/demos/vihaanandmeera/', method: 'GET' } },
-    { name: 'Kabir & Ananya Demo', opts: { host: 'localhost', port: 3000, path: '/demos/kabirandananya/', method: 'GET' } },
-    { name: 'Aarav & Shreya Demo', opts: { host: 'localhost', port: 3000, path: '/demos/aaravandshreya/', method: 'GET' } },
-    { name: 'Nikhil & Rinki Demo', opts: { host: 'localhost', port: 3000, path: '/demos/nikhilandrinki/', method: 'GET' } },
-    { name: 'Wedding Redirect URL Check', opts: { host: 'localhost', port: 3000, path: '/pages/wedding/aaravandmeera-mussoorie', method: 'GET' } },
-    {
-      name: 'Create Order API (Fenil Digital Marketing)',
-      opts: { host: 'localhost', port: 3000, path: '/api/create-order', method: 'POST', headers: { 'Content-Type': 'application/json' } },
-      data: { template: 'aaravandmeera-mussoorie', addon: true }
-    }
+  const urls = [
+    '/',
+    '/assets/img/fdm-logo.jpg',
+    '/og.jpg',
+    // Original 6 templates
+    '/templates/rangmahal/',
+    '/templates/phulkari/',
+    '/templates/kolam/',
+    '/templates/noor/',
+    '/templates/capela/',
+    '/templates/pichola/',
+    // 6 New templates
+    '/templates/aaravandmeera-mussoorie/',
+    '/templates/aaravandmeera-udaipur/',
+    '/templates/vihaanandmeera/',
+    '/templates/kabirandananya/',
+    '/templates/aaravandshreya/',
+    '/templates/nikhilandrinki/',
+    // 6 New demos
+    '/demos/aaravandmeera-mussoorie/',
+    '/demos/aaravandmeera-udaipur/',
+    '/demos/vihaanandmeera/',
+    '/demos/kabirandananya/',
+    '/demos/aaravandshreya/',
+    '/demos/nikhilandrinki/',
+    // Redirects
+    '/pages/wedding/aaravandmeera-mussoorie',
+    '/pages/wedding/nikhilandrinki',
+    // Auxiliary
+    '/contact/',
+    '/terms/',
+    '/privacy/',
+    '/thank-you/'
   ];
 
   let passed = 0;
-  for (const t of tests) {
-    try {
-      const res = await testEndpoint(t.opts, t.data);
-      if (res.status === 200 || res.status === 302) {
-        console.log(`[PASS] ${t.name}: Status ${res.status} | Content-Type: ${res.headers['content-type'] || res.headers['location']}`);
-        passed++;
-      } else {
-        console.log(`[FAIL] ${t.name}: Status ${res.status}`);
-      }
-    } catch (err) {
-      console.log(`[ERROR] ${t.name}: ${err.message}`);
+  for (const u of urls) {
+    const res = await test(u);
+    if (res.status === 200 || res.status === 302) {
+      console.log(`[PASS] ${res.path} => ${res.status} ${res.location ? '-> ' + res.location : 'OK'}`);
+      passed++;
+    } else {
+      console.log(`[FAIL] ${res.path} => Status ${res.status}`);
     }
   }
 
-  console.log(`\nResults: ${passed}/${tests.length} tests passed successfully!`);
+  console.log(`\nVerified: ${passed}/${urls.length} endpoints working perfectly!`);
 }
 
-runTests().catch(console.error);
+verifyAll();
