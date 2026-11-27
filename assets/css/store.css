@@ -1,8 +1,8 @@
 [hidden]{display:none!important}
 html{overflow-x:clip}
-@font-face{font-family:"Cinzel";src:url(/assets/fonts/Cinzel.woff2) format("woff2");font-weight:400 900;font-display:swap}
-@font-face{font-family:"Cormorant";src:url(/assets/fonts/Cormorant-i.woff2) format("woff2");font-style:italic;font-weight:300 700;font-display:swap}
-@font-face{font-family:"Montserrat";src:url(/assets/fonts/Montserrat.woff2) format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Cinzel";src:url(../fonts/Cinzel.woff2) format("woff2");font-weight:400 900;font-display:swap}
+@font-face{font-family:"Cormorant";src:url(../fonts/Cormorant-i.woff2) format("woff2");font-style:italic;font-weight:300 700;font-display:swap}
+@font-face{font-family:"Montserrat";src:url(../fonts/Montserrat.woff2) format("woff2");font-weight:100 900;font-display:swap}
 :root{--ivory:#FBF4E6;--paper:#F6EAD5;--maroon:#4C1026;--maroon2:#6B1A36;--gold:#B8862B;--gold2:#E9C77B;--ink:#2B1A1F;--muted:#6B5048;--line:rgba(184,134,43,.32);--ease:cubic-bezier(.2,.75,.2,1)}
 *{box-sizing:border-box}html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{margin:0;background:var(--ivory);color:var(--ink);font:400 17px/1.65 "Montserrat",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
@@ -14,7 +14,7 @@ img,video{max-width:100%;display:block}a{color:var(--maroon2)}h1,h2,h3,p{margin:
 .c{text-align:center}
 .ic{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
 .ic.big{width:40px;height:40px}
-.tex{background:#FBF4E6 url(/assets/img/tex-ivory.webp) 0 0/560px}
+.tex{background:#FBF4E6 url(../img/tex-ivory.webp) 0 0/560px}
 .tint{background:linear-gradient(#F6EAD5,#F3E3CA)}
 
 /* header */

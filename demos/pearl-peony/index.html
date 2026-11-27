@@ -26,7 +26,7 @@
     if (C.language === 'en') { document.documentElement.lang = 'en'; document.documentElement.dir = 'ltr'; }
   })();
 </script>
-<link rel="icon" href="/shared/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../../shared/favicon.svg" type="image/svg+xml">
 <link href="fonts.css" rel="stylesheet">
 <link rel="preload" as="image" href="assets/cover-bg.webp">
 <link rel="preload" as="image" href="assets/envelope.webp">
@@ -320,30 +320,6 @@ body.pp-edit .fl,body.pp-edit .emb{pointer-events:none}
 </style>
 
 <!-- GitHub Pages Subpath Compatibility -->
-<script>
-  (function() {
-    if (location.hostname.endsWith('github.io') && location.pathname.startsWith('/fenil-digital-marketing-wedding-web')) {
-      var repo = '/fenil-digital-marketing-wedding-web';
-      document.querySelectorAll('link[href^="/"], script[src^="/"]').forEach(function(el) {
-        var attr = el.tagName === 'LINK' ? 'href' : 'src';
-        var val = el.getAttribute(attr);
-        if (val && val.startsWith('/') && !val.startsWith(repo)) {
-          el.setAttribute(attr, repo + val);
-        }
-      });
-      document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll('a[href^="/"], img[src^="/"]').forEach(function(el) {
-          var attr = el.tagName === 'A' ? 'href' : 'src';
-          var val = el.getAttribute(attr);
-          if (val && val.startsWith('/') && !val.startsWith(repo)) {
-            el.setAttribute(attr, repo + val);
-          }
-        });
-      });
-    }
-  })();
-</script>
-
 </head>
 <body class="locked">
 
