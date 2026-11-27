@@ -455,6 +455,32 @@ jdgm.loadCSS(jdgm.CDN_BASE_URL+"widget_base.css"):jdgm.loadCSS(jdgm.CDN_BASE_URL
   data-shs-beacon-endpoint="https:https://vishakhacollections.com/api/collect"
 ></script>
 <meta name="shopify-y" content="e95ee6bf-3762-43e8-8b71-57f1757aab5f" data-expiration="1827095604000"><meta name="shopify-s" content="ccb31445-2300-49c0-a0d7-10365e378937" data-expiration="1795539804000"><meta name="request-id" content="9ec4af74-834f-4f19-bee4-41bf399e557d-1795538004"        >
+
+<!-- GitHub Pages Subpath Compatibility -->
+<script>
+  (function() {
+    if (location.hostname.endsWith('github.io') && location.pathname.startsWith('/fenil-digital-marketing-wedding-web')) {
+      var repo = '/fenil-digital-marketing-wedding-web';
+      document.querySelectorAll('link[href^="/"], script[src^="/"]').forEach(function(el) {
+        var attr = el.tagName === 'LINK' ? 'href' : 'src';
+        var val = el.getAttribute(attr);
+        if (val && val.startsWith('/') && !val.startsWith(repo)) {
+          el.setAttribute(attr, repo + val);
+        }
+      });
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('a[href^="/"], img[src^="/"]').forEach(function(el) {
+          var attr = el.tagName === 'A' ? 'href' : 'src';
+          var val = el.getAttribute(attr);
+          if (val && val.startsWith('/') && !val.startsWith(repo)) {
+            el.setAttribute(attr, repo + val);
+          }
+        });
+      });
+    }
+  })();
+</script>
+
 </head>
   <body>
 
